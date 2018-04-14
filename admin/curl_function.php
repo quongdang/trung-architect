@@ -7,7 +7,7 @@
 	}
 
 	function callAPI($method, $url, $data){		
-		$API_URL .= 'http://localhost:8111/trung/admin/';
+		$API_URL .= 'http://localhost/trung-architect/admin/';
 		
 		$url = $API_URL . $url;
 		console_log($url);
