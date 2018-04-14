@@ -1,0 +1,26 @@
+<div class="home">
+	<ngx-carousel class="banner" [inputs]="carouselBanner" (carouselLoad)="carouselBannerLoad()">
+	    <ngx-item NgxCarouselItem *ngFor="let image of carouselBannerItems; let i = index;">
+	        <div class="bannerStyle" [style.background]="'url(' + image.url + ')'">
+	        	<div class="layer">	        		
+		            <h1>{{image.title}}</h1>
+		            <h3>{{image.subTitle}}</h3>
+	        	</div>
+	        </div>
+	    </ngx-item>
+	    <button NgxCarouselPrev class="leftRs">&lt;</button>
+	    <button NgxCarouselNext class="rightRs">&gt;</button>
+	</ngx-carousel>
+	<div class="other">
+		<div class="contact-us">
+			contact us
+		</div>
+		<div class="projects">
+			Project list
+		</div>
+		<div class="grow-with-us">
+			grown with us
+			<i class="fa fa-camera-retro fa-lg"></i>
+		</div>
+	</div>
+</div>

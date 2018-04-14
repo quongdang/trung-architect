@@ -1,0 +1,54 @@
+#header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  width:100%;
+  background: rgba(255,255,255,0.8); 
+  z-index: 2000;
+}
+
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  left: 30px;
+  top: 15px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #069;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.logo {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  color: #069;
+  font-size: 150%;
+  font-weight: bold;
+  margin-left: -55px;
+}
+
+#content {
+  width: 100%;
+  margin:0px;
+  padding:0px;
+}

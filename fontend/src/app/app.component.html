@@ -1,0 +1,16 @@
+<div id="header">
+	<div class="container" [ngClass] = "menuBarChange ? 'change' : '' " (click) = "toogleMenu()">
+	  <div class="bar1"></div>
+	  <div class="bar2"></div>
+	  <div class="bar3"></div>
+	</div>
+	
+	<div class="logo"> Trung architech</div>
+</div>
+
+<app-sidebar (sidebarEvent) = "changeMenuBar($event)"></app-sidebar>
+<div id="content">
+	<router-outlet></router-outlet>
+</div>
+
+<app-footer></app-footer>
