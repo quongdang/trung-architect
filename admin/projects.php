@@ -21,14 +21,17 @@
 		}
 		.table {
 			margin-top: 50px;
-
 		}
+
+        body {
+            margin-left: 50px;
+        }
 	</style>
 
 	<body>
 		<div class="table-scrol">
 			<h1 align="center">All the Projects</h1>
-			<a href="create_project.php"><button class="btn btn-danger">Create</button></a>
+			<a href="create_project.php"><button class="btn btn-danger">Create</button></a><br/>
 			<?php
 				if (isset($_GET['del']))
 				{
@@ -53,6 +56,7 @@
 							<th>Project Id</th>
 							<th>Title</th>
 							<th>Sub-Title</th>
+                            <th>Image</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -63,7 +67,6 @@
 						$response = json_decode($get_data, true);
 						$data = $response['records'];
 						$message = $response['message'];
-						console_log($message);
 						if($message == null) {
 							foreach($data as $item) { //foreach element in $arr
 					?>
@@ -72,7 +75,19 @@
 								<td><?php echo $item['id']  ?></td>
 								<td><?php echo $item['title_vn']  ?></td>
 								<td><?php echo $item['subtitle_vn']  ?></td>
-								<td><a href="projects.php?del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a></td>
+                                <td>
+									<?php
+										if ($item['image']) {
+									?>
+											<img src="<?php echo $item['image']  ?>" with=100px height=100px/>
+									<?php
+										}
+									?>
+								</td>
+								<td>
+                                    <a href="create_project.php?id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
+                                    <a href="projects.php?del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
+                                </td>
 							</tr>
 						<?php }
 						} ?>

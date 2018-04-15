@@ -70,7 +70,7 @@ if(isset($_POST['login']))
 
     if(mysqli_num_rows($run))
     {
-        echo "<script>window.open('welcome.php','_self')</script>";
+        echo "<script>window.open('projects.php','_self')</script>";
 
         $_SESSION['email']=$user_email;//here session is used and value of $user_email store in $_SESSION.
 

@@ -7,10 +7,9 @@
 	}
 
 	function callAPI($method, $url, $data){		
-		$API_URL .= 'http://localhost/trung-architect/admin/';
+		$API_URL = 'http://localhost/trung-architect/admin';
 		
 		$url = $API_URL . $url;
-		console_log($url);
 		$curl = curl_init();
 		switch ($method){
 			case "POST":
@@ -37,7 +36,6 @@
 		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		// EXECUTE:
 		$result = curl_exec($curl);
-		console_log($result);
 		if(!$result){die("Connection Failure");}
 		curl_close($curl);
 		return $result;

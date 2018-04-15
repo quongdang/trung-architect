@@ -7,6 +7,7 @@ class Project{
  
     // object properties
     public $id;
+	public $image;
     public $title_vn;
 	public $title_en;
 	public $subtitle_vn;
@@ -32,7 +33,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.created, p.category_id
+					p.created, p.category_id, p.image
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN
@@ -57,6 +58,7 @@ class Project{
 		$query = "INSERT INTO
 					" . $this->table_name . "
 				SET
+					image=:image,
 					title_vn=:title_vn, 
 					title_en=:title_en,
 					subtitle_vn=:subtitle_vn,
@@ -70,6 +72,7 @@ class Project{
 		$stmt = $this->conn->prepare($query);
 	 
 		// sanitize
+		$this->image=htmlspecialchars(strip_tags($this->image));
 		$this->title_vn=htmlspecialchars(strip_tags($this->title_vn));
 		$this->title_en=htmlspecialchars(strip_tags($this->title_en));
 		$this->subtitle_vn=htmlspecialchars(strip_tags($this->subtitle_vn));
@@ -80,6 +83,7 @@ class Project{
 		$this->created=htmlspecialchars(strip_tags($this->created));
 	 
 		// bind values
+		$stmt->bindParam(":image", $this->image);
 		$stmt->bindParam(":title_vn", $this->title_vn);
 		$stmt->bindParam(":title_en", $this->title_en);
 		$stmt->bindParam(":subtitle_vn", $this->subtitle_vn);
@@ -107,7 +111,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.created, p.category_id
+					p.created, p.category_id, p.image
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN
@@ -131,6 +135,7 @@ class Project{
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	 
 		// set values to object properties
+		$this->image = $row['image'];
 		$this->title_vn = $row['title_vn'];
 		$this->title_en = $row['title_en'];
 		$this->subtitle_vn = $row['subtitle_vn'];
@@ -148,6 +153,7 @@ class Project{
 		$query = "UPDATE
 					" . $this->table_name . "
 				SET
+					image=:image,
 					title_vn=:title_vn, 
 					title_en=:title_en,
 					subtitle_vn=:subtitle_vn,
@@ -162,6 +168,7 @@ class Project{
 		$stmt = $this->conn->prepare($query);
 	 
 		// sanitize
+		$this->image=htmlspecialchars(strip_tags($this->image));
 		$this->title_vn=htmlspecialchars(strip_tags($this->title_vn));
 		$this->title_en=htmlspecialchars(strip_tags($this->title_en));
 		$this->subtitle_vn=htmlspecialchars(strip_tags($this->subtitle_vn));
@@ -172,6 +179,7 @@ class Project{
 		$this->id=htmlspecialchars(strip_tags($this->id));
 	 
 		// bind new values
+		$stmt->bindParam(":image", $this->image);
 		$stmt->bindParam(":title_vn", $this->title_vn);
 		$stmt->bindParam(":title_en", $this->title_en);
 		$stmt->bindParam(":subtitle_vn", $this->subtitle_vn);
@@ -222,7 +230,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.created, p.category_id
+					p.created, p.category_id, p.image
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN
