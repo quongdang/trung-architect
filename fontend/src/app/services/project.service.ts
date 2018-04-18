@@ -11,7 +11,7 @@ export class ProjectService {
   }
   
   getAllProjects(req?: any): Observable<ResponseWrapper> {
-      const url = 'http://localhost:8111/trung/admin/api/project/read.php';      
+      const url = 'http://localhost/trung-architect/admin/api/project/read.php';      
       return this.http.get(url).map((res: Response) => this.convertResponse(res));
   }
 

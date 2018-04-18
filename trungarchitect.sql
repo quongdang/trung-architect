@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2018 at 07:18 AM
+-- Generation Time: Apr 18, 2018 at 03:54 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -66,6 +66,7 @@ INSERT INTO `categories` (`id`, `category_vn`, `category_en`) VALUES
 
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL,
+  `image` text COLLATE utf8_unicode_ci NOT NULL,
   `title_vn` text COLLATE utf8_unicode_ci NOT NULL,
   `title_en` text COLLATE utf8_unicode_ci NOT NULL,
   `subtitle_vn` text COLLATE utf8_unicode_ci NOT NULL,
@@ -75,6 +76,19 @@ CREATE TABLE `projects` (
   `category_id` int(11) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `image`, `title_vn`, `title_en`, `subtitle_vn`, `subtitle_en`, `content_vn`, `content_en`, `category_id`, `created`) VALUES
+(45, 'images/1523781470-601WestHastings_Hero-2560x1440.jpg', 'West test', '', 'test dia diem', '', '&amp;lt;p&amp;gt;abc&amp;lt;/p&amp;gt;', '', 0, '0000-00-00 00:00:00'),
+(46, 'images/1523781491-601WestHastings_SecondaryHero-1000x1600.jpg', 'west has 2', '', 'test 2', '', '&amp;lt;p&amp;gt;test&amp;lt;/p&amp;gt;', '', 0, '0000-00-00 00:00:00'),
+(47, 'images/1523781512-Arab-Centre_Hero-1920x1500.jpg', 'Arab centre', '', 'arab', '', '&amp;lt;p&amp;gt;test arab&amp;lt;/p&amp;gt;', '', 0, '0000-00-00 00:00:00'),
+(48, 'images/1523781531-DSCF3674-edit-1920x1920.jpg', 'edit', '', 'edit', '', '&amp;lt;p&amp;gt;edit&amp;lt;/p&amp;gt;', '', 0, '0000-00-00 00:00:00'),
+(49, 'images/1523781558-Greenland-Riverside-Luwan_Story2-1920x1920.jpg', 'Greenland river', '', 'river', '', '&amp;lt;p&amp;gt;river&amp;lt;/p&amp;gt;', '', 0, '0000-00-00 00:00:00'),
+(50, 'images/1523781579-Greenland-Riverside-Luwan_Story3-1920x1920.jpg', 'Luwan story', '', 'luxan', '', '&amp;lt;p&amp;gt;luxan&amp;lt;/p&amp;gt;', '', 0, '0000-00-00 00:00:00'),
+(51, 'images/1523781983-601WestHastings_Hero-2560x1440.jpg', 'test folder', '', 'test', '', '', '', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -144,7 +158,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `users`
 --
