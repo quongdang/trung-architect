@@ -31,7 +31,7 @@
 	<body>
 		<div class="table-scrol">
 			<h1 align="center">All the Projects</h1>
-			<a href="create_project.php"><button class="btn btn-danger">Create</button></a><br/>
+			<a href="index.php?page=create_project"><button class="btn btn-danger">Create</button></a><br/>
 			<?php
 				if (isset($_GET['del']))
 				{
@@ -85,8 +85,8 @@
 									?>
 								</td>
 								<td>
-                                    <a href="create_project.php?id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
-                                    <a href="projects.php?del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
+                                    <a href="index.php?page=create_project&id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
+                                    <a href="index.php?page=projects&del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
                                 </td>
 							</tr>
 						<?php }

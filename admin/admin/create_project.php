@@ -4,7 +4,7 @@
 	if(!$_SESSION['email'])
 	{
 
-		header("Location: index.php");//redirect to login page to secure the welcome page without login access.
+		header("Location: admin.php");//redirect to login page to secure the welcome page without login access.
 	}
 	
 	include_once('curl_function.php');
@@ -90,14 +90,14 @@
                     $response = json_decode($get_data, true);
                     $create = $response['message'];
                     echo $create;
-                    echo "<script>window.open('projects.php','_self')</script>";
+                    echo "<script>window.open('admin.php','_self')</script>";
                 } else if (isset($_GET['id'])) {
                     $get_data = callAPI('GET', '/api/project/read_one.php?id='.(string)($_GET['id']), null);
                     $response = json_decode($get_data, true);
                     $data = $response;
                 }
                 ?>
-				<form action="create_project.php" method="post"  enctype="multipart/form-data">
+				<form action="admin.php?page=create_project" method="post" enctype="multipart/form-data">
 					
 					<div style="float:left; width: 65%">
 						Chọn kiểu nhập nội dung
