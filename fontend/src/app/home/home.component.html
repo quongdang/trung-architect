@@ -11,6 +11,27 @@
 	    <button NgxCarouselPrev class="leftRs">&lt;</button>
 	    <button NgxCarouselNext class="rightRs">&gt;</button>
 	</ngx-carousel>
+	
+	<ng-container *ngIf="images.length > 2">
+		<div class="project">
+			<div class="left" [ngStyle]="{background: images[0].style}">
+				<div class="layer">
+					<span>
+						<h1>{{images[0].title}}</h1>
+						<h5>{{images[0].subTitle}}</h5>
+					</span>
+				</div>
+			</div>
+			<div class="right" [ngStyle]="{background: images[1].style}">
+				<div class="layer">
+					<span>
+						<h1>{{images[1].title}}</h1>
+						<h5>{{images[1].subTitle}}</h5>
+					</span>
+				</div>
+			</div>
+		</div>
+	</ng-container>
 	<div class="other">
 		<div class="contact-us">
 			contact us

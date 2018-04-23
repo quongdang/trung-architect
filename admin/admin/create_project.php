@@ -57,20 +57,22 @@
 			<h1 align="center">Create Project</h1>
 			<div class="table-responsive">
                 <?php
+                function filetowrite($filetowrite, $temp) {
+                    $imageFolder = "images/";
+                    $now = new DateTime(null, new DateTimeZone('America/New_York'));
+                    if ($temp['name']){
+                        $filetowrite = $imageFolder . ($now->getTimestamp()) . '-' . $temp['name'];
+                        move_uploaded_file($temp['tmp_name'], $filetowrite);
+                    }
+                    return $filetowrite;
+                }
                 if (isset($_POST['title_vn'])) {
-					$filetowrite = $_POST['oldImage'];
-					$temp = $_FILES['imageUpload'];
-					if ($temp['name']){
-						$now = new DateTime(null, new DateTimeZone('America/New_York'));
-						$now->setTimezone(new DateTimeZone('Europe/London'));    // Another way
-						
-						$imageFolder = "images/";
-						$filetowrite = $imageFolder . ($now->getTimestamp()) . '-' . $temp['name'];
-						move_uploaded_file($temp['tmp_name'], $filetowrite);
-					}
                     $data_array =  array(
                         "id" => $_POST['id'],
-						"image" => (string)($filetowrite),
+						"image0" => (string)(filetowrite($_POST['_image0'],$_FILES['image0'])),
+                        "image1" => (string)(filetowrite($_POST['_image1'],$_FILES['image1'])),
+                        "image2" => (string)(filetowrite($_POST['_image2'],$_FILES['image2'])),
+                        "image3" => (string)(filetowrite($_POST['_image3'],$_FILES['image3'])),
                         "title_vn" => (string)($_POST['title_vn']),
                         "subtitle_vn" => (string)($_POST['subtitle_vn']),
                         "content_vn" => htmlentities($_POST['content_vn']),
@@ -105,16 +107,52 @@
 						<input type="radio" value="en" onclick="toogleDisplayContent()"> English
 						<br/>
 						<input type="hidden" name="id" value="<?php echo  $data['id'] ?>"/>
-						Chọn hình đại diện (Select project's image): <input type="file" name="imageUpload"/>
-						<input type="hidden"name="oldImage" value="<?php echo $data['image']?>"/>							
+						Upload Images:
+                        <div style=""float:left; width: 18%">
+                            <input type="file" name="image0"/>
+                            <input type="hidden"name="_image0" value="<?php echo $data['image0']?>"/>
+                            <?php
+                            if($data['image0']) {
+                                ?>
+                                <img src="<?php echo $data['image0']?>" style="width:200px"/>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div style=""float:left; width: 18%">
+                            <input type="file" name="image1"/>
+                            <input type="hidden"name="_image1" value="<?php echo $data['image1']?>"/>
+                            <?php
+                            if($data['image1']) {
+                                ?>
+                                <img src="<?php echo $data['image1']?>" style="width:200px"/>
+                                <?php
+                            }
+                            ?>
+                         </div>
+                        <div style=""float:left; width: 18%">
+                            <input type="file" name="image2"/>
+                            <input type="hidden"name="_image2" value="<?php echo $data['image2']?>"/>
+                            <?php
+                            if($data['image2']) {
+                                ?>
+                                <img src="<?php echo $data['image2']?>" style="width:200px"/>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div style=""float:left; width: 18%">
+                            <input type="file" name="image3"/>
+                            <input type="hidden"name="_image3" value="<?php echo $data['image3']?>"/>
+                            <?php
+                            if($data['image3']) {
+                                ?>
+                                <img src="<?php echo $data['image3']?>" style="width:200px"/>
+                                <?php
+                            }
+                            ?>
+                        </div>
 					</div>
-					<?php
-					if($data['image']) {
-						?>
-							<img src="<?php echo $data['image']?>" width=100px height=100px style="float:right; width:30%"/>
-						<?php
-						}
-					?>
 					
 					<div style="clear:both"/>
                     <div id="vn">

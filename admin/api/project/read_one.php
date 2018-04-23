@@ -25,7 +25,10 @@ $project->readOne();
 // create array
 $project_arr = array(
     "id" =>  $project->id,
-	"image" =>  $project->image,
+	"image0" =>  $project->image0,
+    "image1" =>  $project->image1,
+    "image2" =>  $project->image2,
+    "image3" =>  $project->image3,
     "title_vn" => $project->title_vn,
     "title_en" => $project->title_en,
     "subtitle_vn" => $project->subtitle_vn,

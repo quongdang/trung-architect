@@ -4,7 +4,7 @@
 	if(!$_SESSION['email'])
 	{
 
-		header("Location: index.php");//redirect to login page to secure the welcome page without login access.
+		header("Location: admin.php");//redirect to login page to secure the welcome page without login access.
 	}
 	
 	include_once('curl_function.php');
@@ -31,7 +31,7 @@
 	<body>
 		<div class="table-scrol">
 			<h1 align="center">All the Projects</h1>
-			<a href="index.php?page=create_project"><button class="btn btn-danger">Create</button></a><br/>
+			<a href="admin.php?page=create_project"><button class="btn btn-danger">Create</button></a><br/>
 			<?php
 				if (isset($_GET['del']))
 				{
@@ -77,16 +77,16 @@
 								<td><?php echo $item['subtitle_vn']  ?></td>
                                 <td>
 									<?php
-										if ($item['image']) {
+										if ($item['image0']) {
 									?>
-											<img src="<?php echo $item['image']  ?>" with=100px height=100px/>
+											<img src="<?php echo $item['image0']  ?>" with=100px height=100px/>
 									<?php
 										}
 									?>
 								</td>
 								<td>
-                                    <a href="index.php?page=create_project&id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
-                                    <a href="index.php?page=projects&del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
+                                    <a href="admin.php?page=create_project&id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
+                                    <a href="admin.php?page=projects&del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
                                 </td>
 							</tr>
 						<?php }

@@ -26,7 +26,10 @@ $data = json_decode(file_get_contents("php://input"));
 $project->id = $data->id;
  
 // set project property values
-$project->image = $data->image;
+$project->image0 = $data->image0;
+$project->image1 = $data->image1;
+$project->image2 = $data->image2;
+$project->image3 = $data->image3;
 $project->title_vn = $data->title_vn;
 $project->title_en = $data->title_en;
 $project->subtitle_vn = $data->subtitle_vn;

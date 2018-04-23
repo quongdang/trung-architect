@@ -9,25 +9,14 @@ import {ResponseWrapper} from '../dataModel/responseWrapper.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   providers: [ProjectService],
-
   animations: [
-    trigger('goals', [
+    trigger('photosAnimation', [
       transition('* => *', [
-        query(':enter', style({opacity: 0}), {optional: true}),
-        query(':enter', stagger('300ms', [
-          animate('.6s ease-in', keyframes([
-            style({opacity: 0, transform: 'translateY(-75%)', offset: 0}),
-            style({opacity: .5, transform: 'translateY(35px)', offset: 0.3}),
-            style({opacity: 1, transform: 'translateY(0)', offset: 1.0}),
-          ]))
-        ]), {optional: true}),
-        query(':leave', stagger('300ms', [
-          animate('.6s ease-out', keyframes([
-            style({opacity: 1, transform: 'translateY(0)', offset: 0}),
-            style({opacity: .5, transform: 'translateY(35px)', offset: 0.3}),
-            style({opacity: 0, transform: 'translateY(-75%)', offset: 1.0}),
-          ]))
-        ]), {optional: true})
+        query('img',style({ transform: 'translateX(-100%)'})),
+        query('img',
+          stagger('600ms', [
+            animate('900ms', style({ transform: 'translateX(0)'}))
+        ]))
       ])
     ])
   ]
@@ -49,8 +38,8 @@ export class HomeComponent implements OnInit {
     this.carouselBanner = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
       slide: this.carouseImgCount,
-      speed: 500,
-      interval: 5000,
+      speed: 400,
+      interval: 4000,
       animation: 'lazy',
       point: {
         visible: true,
@@ -121,7 +110,8 @@ export class HomeComponent implements OnInit {
           id: project.id,
           title: project.title_vn,
           subTitle: project.subtitle_vn,
-          url: "http://localhost/trung-architect/admin/" + project.image
+          url: "http://localhost/trung-architect/admin/" + project.image0,
+          style: "url('http://localhost/trung-architect/admin/" + project.image0 + "')"
         };
         this.images.push(image);
       }

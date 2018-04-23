@@ -7,7 +7,10 @@ class Project{
  
     // object properties
     public $id;
-	public $image;
+	public $image0;
+    public $image1;
+    public $image2;
+    public $image3;
     public $title_vn;
 	public $title_en;
 	public $subtitle_vn;
@@ -33,7 +36,9 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.created, p.category_id, p.image
+					p.created, p.category_id, 
+					p.image0, p.image1, 
+					p.image2, p.image3
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN
@@ -58,7 +63,10 @@ class Project{
 		$query = "INSERT INTO
 					" . $this->table_name . "
 				SET
-					image=:image,
+					image0=:image0,
+					image1=:image1,
+					image2=:image2,
+					image3=:image3,
 					title_vn=:title_vn, 
 					title_en=:title_en,
 					subtitle_vn=:subtitle_vn,
@@ -72,7 +80,10 @@ class Project{
 		$stmt = $this->conn->prepare($query);
 	 
 		// sanitize
-		$this->image=htmlspecialchars(strip_tags($this->image));
+		$this->image0=htmlspecialchars(strip_tags($this->image0));
+        $this->image1=htmlspecialchars(strip_tags($this->image1));
+        $this->image2=htmlspecialchars(strip_tags($this->image2));
+        $this->image3=htmlspecialchars(strip_tags($this->image3));
 		$this->title_vn=htmlspecialchars(strip_tags($this->title_vn));
 		$this->title_en=htmlspecialchars(strip_tags($this->title_en));
 		$this->subtitle_vn=htmlspecialchars(strip_tags($this->subtitle_vn));
@@ -83,7 +94,10 @@ class Project{
 		$this->created=htmlspecialchars(strip_tags($this->created));
 	 
 		// bind values
-		$stmt->bindParam(":image", $this->image);
+		$stmt->bindParam(":image0", $this->image0);
+        $stmt->bindParam(":image1", $this->image1);
+        $stmt->bindParam(":image2", $this->image2);
+        $stmt->bindParam(":image3", $this->image3);
 		$stmt->bindParam(":title_vn", $this->title_vn);
 		$stmt->bindParam(":title_en", $this->title_en);
 		$stmt->bindParam(":subtitle_vn", $this->subtitle_vn);
@@ -111,7 +125,9 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.created, p.category_id, p.image
+					p.created, p.category_id, 
+					p.image0, p.image1,
+					p.image2, p.image3
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN
@@ -135,7 +151,10 @@ class Project{
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	 
 		// set values to object properties
-		$this->image = $row['image'];
+		$this->image0 = $row['image0'];
+        $this->image1 = $row['image1'];
+        $this->image2 = $row['image2'];
+        $this->image3 = $row['image3'];
 		$this->title_vn = $row['title_vn'];
 		$this->title_en = $row['title_en'];
 		$this->subtitle_vn = $row['subtitle_vn'];
@@ -153,7 +172,10 @@ class Project{
 		$query = "UPDATE
 					" . $this->table_name . "
 				SET
-					image=:image,
+					image0=:image0,
+					image1=:image1,
+					image2=:image2,
+					image3=:image3,
 					title_vn=:title_vn, 
 					title_en=:title_en,
 					subtitle_vn=:subtitle_vn,
@@ -168,7 +190,10 @@ class Project{
 		$stmt = $this->conn->prepare($query);
 	 
 		// sanitize
-		$this->image=htmlspecialchars(strip_tags($this->image));
+		$this->image0=htmlspecialchars(strip_tags($this->image0));
+        $this->image1=htmlspecialchars(strip_tags($this->image1));
+        $this->image2=htmlspecialchars(strip_tags($this->image2));
+        $this->image3=htmlspecialchars(strip_tags($this->image3));
 		$this->title_vn=htmlspecialchars(strip_tags($this->title_vn));
 		$this->title_en=htmlspecialchars(strip_tags($this->title_en));
 		$this->subtitle_vn=htmlspecialchars(strip_tags($this->subtitle_vn));
@@ -179,7 +204,10 @@ class Project{
 		$this->id=htmlspecialchars(strip_tags($this->id));
 	 
 		// bind new values
-		$stmt->bindParam(":image", $this->image);
+		$stmt->bindParam(":image0", $this->image0);
+        $stmt->bindParam(":image1", $this->image1);
+        $stmt->bindParam(":image2", $this->image2);
+        $stmt->bindParam(":image3", $this->image3);
 		$stmt->bindParam(":title_vn", $this->title_vn);
 		$stmt->bindParam(":title_en", $this->title_en);
 		$stmt->bindParam(":subtitle_vn", $this->subtitle_vn);
