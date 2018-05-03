@@ -6,6 +6,10 @@
 	</div>
 	
 	<div class="logo"> Trung architech</div>
+	<div class="language">
+		<button (click)="useLanguage('en')">English</button>
+		<button (click)="useLanguage('vn')">Tiếng Việt</button>
+	</div>
 </div>
 
 <app-sidebar (sidebarEvent) = "changeMenuBar($event)"></app-sidebar>

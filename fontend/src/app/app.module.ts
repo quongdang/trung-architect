@@ -1,22 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { SidebarModule } from 'ng-sidebar';
-import { NgxCarouselModule } from 'ngx-carousel';
-import { GoTopButtonModule } from 'ng2-go-top-button';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpModule} from '@angular/http';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {SidebarModule} from 'ng-sidebar';
+import {NgxCarouselModule} from 'ngx-carousel';
+import {GoTopButtonModule} from 'ng2-go-top-button';
 import 'hammerjs';
 import 'rxjs/Rx';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { FooterComponent } from './footer/footer.component';
+import {AppComponent} from './app.component';
+import {HomeComponent} from './home/home.component';
+import {AboutComponent} from './about/about.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
+import {FooterComponent} from './footer/footer.component';
 
-
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,14 +31,26 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-	FormsModule,
-	BrowserAnimationsModule,
-	SidebarModule.forRoot(),
-	NgxCarouselModule,
-	GoTopButtonModule,
-	HttpModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    SidebarModule.forRoot(),
+    NgxCarouselModule,
+    GoTopButtonModule,
+    HttpModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
