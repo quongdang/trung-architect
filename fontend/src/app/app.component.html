@@ -7,8 +7,9 @@
 	
 	<div class="logo"> Trung architech</div>
 	<div class="language">
-		<button (click)="useLanguage('en')">English</button>
-		<button (click)="useLanguage('vn')">Tiếng Việt</button>
+		<span (click)="useLanguage('vn')" class="{{translate.currentLang === 'vn' ? 'active' : ''}}">Tiếng Việt</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;
+		<span (click)="useLanguage('en')" class="{{translate.currentLang === 'en' ? 'active' : ''}}">English</span>
 	</div>
 </div>
 

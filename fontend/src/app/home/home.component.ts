@@ -3,6 +3,7 @@ import {trigger, style, transition, animate, keyframes, query, stagger} from '@a
 import {NgxCarousel, NgxCarouselStore} from 'ngx-carousel';
 import {ProjectService} from '../services/project.service';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
+    private translate: TranslateService,
   ) {
     this.getAllProjects();
   }
@@ -106,14 +108,22 @@ export class HomeComponent implements OnInit {
     this.projectService.getAllProjects().subscribe((res: ResponseWrapper) => {
       const data = res.json;
       for (const project of data.records) {
+        const mapTitle = new Map();
+        mapTitle.set("vn", project.title_vn);
+        mapTitle.set("en", project.title_en);
+        
+        const mapSubTitle = new Map();
+        mapSubTitle.set("vn", project.subtitle_vn);
+        mapSubTitle.set("en", project.subtitle_en);
         const image = {
           id: project.id,
-          title: project.title_vn,
-          subTitle: project.subtitle_vn,
+          title: mapTitle,
+          subTitle: mapSubTitle,
           url: "http://localhost/trung-architect/admin/" + project.image0,
           style: "url('http://localhost/trung-architect/admin/" + project.image0 + "')"
         };
         this.images.push(image);
+        console.log(project);
       }
       this.carouselBannerLoad();
     });

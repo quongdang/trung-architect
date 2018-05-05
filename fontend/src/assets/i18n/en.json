@@ -1,6 +1,16 @@
 {
     "sidebar": {
         "title": "Jump to a section",
-        "text": "This is a simple demonstration app for ngx-translate"
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "people": "People",
+        "culture": "Culture",
+        "contact": "Contact"
+    },
+    "footer": {
+    	"copyright": "© Copyright 2018, Trung Architects. All Rights Reserved.",
+    	"contact": "Contact",
+    	"backToTop": "Back to top"
     }
 }

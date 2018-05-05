@@ -1,11 +1,13 @@
 <div class="footer">	
-	<div class="left">
-		&#9400; Copyright 2018, B+H Architects. All Rights Reserved.
+	<div class="left" translate>
+		footer.copyright
 	</div>
 	<div class="right">
-		<span>Contact</span> | <span (click) = "backToTop()" style="cursor: pointer">Back to top</span>
+		<span translate>footer.contact</span>
+		&nbsp;|&nbsp;
+		<span (click) = "backToTop()" style="cursor: pointer" translate>footer.backToTop</span>
 	</div>
-	<go-top-button   [animate]="true"
+	<go-top-button [animate]="true"
                  [speed]="50"
                  [acceleration]="2"
                  [scrollDistance]="300"

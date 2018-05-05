@@ -8,8 +8,18 @@
   z-index: 2000;
   
   .language {
+  	position: absolute;
   	top: 15px;
-  	float:right;
+	right: 10px;
+	
+	span {
+		cursor: pointer;
+  		color: #069;
+	}
+	
+	span:hover, .active {
+		font-weight: 600;
+	}
   }
 }
 

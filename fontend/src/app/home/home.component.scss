@@ -122,18 +122,26 @@
 		height: calc(100vh);
 		margin-top: 50px;
 		position: relative;
+		font-size: 1.25em;
+		
+		.content {
+			padding: 20px 50px;
+			h1, span {
+				color: #fff;
+			}
+		}
 		
 		.contact-us {
 			width: 50%;
 			height: 50%;
-			background: red;
+			background: #069;
 			float: left;
 		}
 		
 		.grow-with-us {
 			width: 50%;
 			height: 50%;
-			background: blue;
+			background: #333;
 			float: left;
 		}
 		
@@ -141,12 +149,12 @@
 			width: 50%;
 			float: right;
 			height: 100%;
-			background: gray;
+			background: #999;
 		}
 		
 		::before, :before {
 			content: "+";
-		    font: 36px/1em "gridarch-icons";
+		    font: 36px/1em "gridarch-icons"!important;
 		    position: absolute;
 		    z-index: 5;
 		    top: 50%;

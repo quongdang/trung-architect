@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffca3a7e-bf47-4f6f-828c-2f74709554fa" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/create_project.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/create_project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/projects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/objects/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/objects/project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/project/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/project/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/project/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/project/read.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/project/read_one.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/project/read_one.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/project/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/project/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/project/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/project/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../fontend/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fontend/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fontend/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fontend/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fontend/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fontend/src/app/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fontend/src/app/sidebar/sidebar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fontend/src/assets/i18n/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fontend/src/assets/i18n/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fontend/src/assets/i18n/vn.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fontend/src/assets/i18n/vn.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,15 +24,35 @@
       <file leaf-file-name="create_project.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/create_project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="144" column="59" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="76" column="105" selection-start-line="76" selection-start-column="105" selection-end-line="76" selection-end-column="105" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="embed.rnc" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/embed.rnc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_project.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/create_project.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web-forms2.rnc" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5508">
+              <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -41,7 +60,7 @@
       <file leaf-file-name="projects.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/projects.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
+            <state relative-caret-position="1343">
               <caret line="79" column="57" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
             </state>
           </provider>
@@ -49,11 +68,20 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>$get_data</find>
       <find>index.php</find>
       <find>index</find>
+      <find>\&lt;\?php\n\	session_start\(\)\;\n\n\	if\(\!\$_SESSION\[\'email\'\]\)\n\	\{\n\n\	\	header\(\&quot;Location\: admin\.php\&quot;\)\;\/\/redirect to login page to secure the welcome page without login access\.\n\	\}\n\	\n\	include_once\(\'curl_function\.php\'\)\;\n\?\&gt;\n\&lt;html\&gt;\n\	\&lt;head lang\=\&quot;en\&quot;\&gt;\n\	\	\&lt;meta charset\=\&quot;UTF\-8\&quot;\&gt;\n\	\	\&lt;link type\=\&quot;text\/css\&quot; rel\=\&quot;stylesheet\&quot; href\=\&quot;bootstrap\-3\.2\.0\-dist\\css\\bootstrap\.css\&quot;\&gt; \&lt;\!\-\-css file link in bootstrap folder\-\-\&gt;\n        \&lt;link type\=\&quot;text\/css\&quot; rel\=\&quot;stylesheet\&quot; href\=\&quot;create_project\.css\&quot;\&gt;\n        \&lt;title\&gt;Create Project\&lt;\/title\&gt;\n\	\&lt;\/head\&gt;\n    \&lt;script src\=\&quot;http\:\/\/cdn\.tinymce\.com\/4\/tinymce\.min\.js\&quot;\&gt;\&lt;\/script\&gt;\n    \&lt;script\&gt;\n        function toogleDisplayContent\(\) \{\n            var en \= document\.getElementById\(\&quot;en\&quot;\)\;\n            en\.classList\.toggle\(\&quot;appear\&quot;\)\;\n\n            var vn \= document\.getElementById\(\&quot;vn\&quot;\)\;\n            vn\.classList\.toggle\(\&quot;appear\&quot;\)\;\n        \}\n    \&lt;\/script\&gt;\n\n\	\&lt;body\&gt;\n\	\	\&lt;div class\=\&quot;table\-scrol\&quot;\&gt;\n\	\	\	\&lt;h1 align\=\&quot;center\&quot;\&gt;Create Project\&lt;\/h1\&gt;\n\	\	\	\&lt;div class\=\&quot;table\-responsive\&quot;\&gt;\n                \&lt;\?php\n                function filetowrite\(\$filetowrite\, \$temp\) \{\n                    \$imageFolder \= \&quot;images\/\&quot;\;\n                    \$now \= new DateTime\(null\, new DateTimeZone\(\'America\/New_York\'\)\)\;\n                    if \(\$temp\[\'name\'\]\)\{\n                        \$filetowrite \= \$imageFolder \. \(\$now\-\&gt;getTimestamp\(\)\) \. \'\-\' \. \$temp\[\'name\'\]\;\n                        move_uploaded_file\(\$temp\[\'tmp_name\'\]\, \$filetowrite\)\;\n                    \}\n                    return \$filetowrite\;\n                \}\n                if \(isset\(\$_POST\[\'title_vn\'\]\)\) \{\n                    \$data_array \=  array\(\n                        \&quot;id\&quot; \=\&gt; \$_POST\[\'id\'\]\,\n\	\	\	\	\	\	\&quot;image0\&quot; \=\&gt; \(string\)\(filetowrite\(\$_POST\[\'_image0\'\]\,\$_FILES\[\'image0\'\]\)\)\,\n                        \&quot;image1\&quot; \=\&gt; \(string\)\(filetowrite\(\$_POST\[\'_image1\'\]\,\$_FILES\[\'image1\'\]\)\)\,\n                        \&quot;image2\&quot; \=\&gt; \(string\)\(filetowrite\(\$_POST\[\'_image2\'\]\,\$_FILES\[\'image2\'\]\)\)\,\n                        \&quot;image3\&quot; \=\&gt; \(string\)\(filetowrite\(\$_POST\[\'_image3\'\]\,\$_FILES\[\'image3\'\]\)\)\,\n                        \&quot;title_vn\&quot; \=\&gt; \(string\)\(\$_POST\[\'title_vn\'\]\)\,\n                        \&quot;subtitle_vn\&quot; \=\&gt; \(string\)\(\$_POST\[\'subtitle_vn\'\]\)\,\n                        \&quot;content_vn\&quot; \=\&gt; htmlentities\(\$_POST\[\'content_vn\'\]\)\,\n                        \&quot;title_en\&quot; \=\&gt; \(string\)\(\$_POST\[\'title_en\'\]\)\,\n                        \&quot;subtitle_en\&quot; \=\&gt; \(string\)\(\$_POST\[\'subtitle_en\'\]\)\,\n                        \&quot;content_en\&quot; \=\&gt; htmlentities\(\$_POST\[\'content_en\'\]\)\n                    \)\;\n                    \n                    \$url \= \'\'\;\n                    if \(\$_POST\[\'id\'\]\) \{\n                        \$url \.\= \'\/api\/project\/update\.php\'\;\n                    \}else \{\n                        \$url \.\= \'\/api\/project\/create\.php\'\;\n                    \}\n\n                    \$get_data \= callAPI\(\'POST\'\, \$url\, json_encode\(\$data_array\)\)\;\n                    \$response \= json_decode\(\$get_data\, true\)\;\n                    \$create \= \$response\[\'message\'\]\;\n                    echo \$create\;\n                    echo \&quot;\&lt;script\&gt;window\.open\(\'admin\.php\'\,\'_self\'\)\&lt;\/script\&gt;\&quot;\;\n                \} else if \(isset\(\$_GET\[\'id\'\]\)\) \{\n                    \$get_data \= callAPI\(\'GET\'\, \'\/api\/project\/read_one\.php\?id\=\'\.\(string\)\(\$_GET\[\'id\'\]\)\, null\)\;\n                    \$response \= json_decode\(\$get_data\, true\)\;\n                    \$data \= \$response\;\n                \}\n                \?\&gt;\n\	\	\	\	\&lt;form action\=\&quot;admin\.php\?page\=create_project\&quot; method\=\&quot;post\&quot; enctype\=\&quot;multipart\/form\-data\&quot;\&gt;\n\	\	\	\	\	\n\	\	\	\	\	\&lt;div style\=\&quot;float\:left\; width\: 65\%\&quot;\&gt;\n\	\	\	\	\	\	Chọn kiểu nhập nội dung\n\	\	\	\	\	\	\&lt;input type\=\&quot;radio\&quot; name\=\&quot;language\&quot; value\=\&quot;vn\&quot; checked onclick\=\&quot;toogleDisplayContent\(\)\&quot;\&gt; Tiếng Việt\n\	\	\	\	\	\	\&lt;input type\=\&quot;radio\&quot; name\=\&quot;language\&quot; value\=\&quot;en\&quot; onclick\=\&quot;toogleDisplayContent\(\)\&quot;\&gt; English\n\	\	\	\	\	\	\&lt;br\/\&gt;\n\	\	\	\	\	\	\&lt;input type\=\&quot;hidden\&quot; name\=\&quot;id\&quot; value\=\&quot;\&lt;\?php echo  \$data\[\'id\'\] \?\&gt;\&quot;\/\&gt;\n\	\	\	\	\	\	Upload Images\:\n                        \&lt;div style\=\&quot;\&quot;float\:left\; width\: 18\%\&quot;\&gt;\n                            \&lt;input type\=\&quot;file\&quot; name\=\&quot;image0\&quot;\/\&gt;\n                            \&lt;input type\=\&quot;hidden\&quot;name\=\&quot;_image0\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'image0\'\]\?\&gt;\&quot;\/\&gt;\n                            \&lt;\?php\n                            if\(\$data\[\'image0\'\]\) \{\n                                \?\&gt;\n                                \&lt;img src\=\&quot;\&lt;\?php echo \$data\[\'image0\'\]\?\&gt;\&quot; style\=\&quot;width\:200px\&quot;\/\&gt;\n                                \&lt;\?php\n                            \}\n                            \?\&gt;\n                        \&lt;\/div\&gt;\n                        \&lt;div style\=\&quot;\&quot;float\:left\; width\: 18\%\&quot;\&gt;\n                            \&lt;input type\=\&quot;file\&quot; name\=\&quot;image1\&quot;\/\&gt;\n                            \&lt;input type\=\&quot;hidden\&quot;name\=\&quot;_image1\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'image1\'\]\?\&gt;\&quot;\/\&gt;\n                            \&lt;\?php\n                            if\(\$data\[\'image1\'\]\) \{\n                                \?\&gt;\n                                \&lt;img src\=\&quot;\&lt;\?php echo \$data\[\'image1\'\]\?\&gt;\&quot; style\=\&quot;width\:200px\&quot;\/\&gt;\n                                \&lt;\?php\n                            \}\n                            \?\&gt;\n                         \&lt;\/div\&gt;\n                        \&lt;div style\=\&quot;\&quot;float\:left\; width\: 18\%\&quot;\&gt;\n                            \&lt;input type\=\&quot;file\&quot; name\=\&quot;image2\&quot;\/\&gt;\n                            \&lt;input type\=\&quot;hidden\&quot;name\=\&quot;_image2\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'image2\'\]\?\&gt;\&quot;\/\&gt;\n                            \&lt;\?php\n                            if\(\$data\[\'image2\'\]\) \{\n                                \?\&gt;\n                                \&lt;img src\=\&quot;\&lt;\?php echo \$data\[\'image2\'\]\?\&gt;\&quot; style\=\&quot;width\:200px\&quot;\/\&gt;\n                                \&lt;\?php\n                            \}\n                            \?\&gt;\n                        \&lt;\/div\&gt;\n                        \&lt;div style\=\&quot;\&quot;float\:left\; width\: 18\%\&quot;\&gt;\n                            \&lt;input type\=\&quot;file\&quot; name\=\&quot;image3\&quot;\/\&gt;\n                            \&lt;input type\=\&quot;hidden\&quot;name\=\&quot;_image3\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'image3\'\]\?\&gt;\&quot;\/\&gt;\n                            \&lt;\?php\n                            if\(\$data\[\'image3\'\]\) \{\n                                \?\&gt;\n                                \&lt;img src\=\&quot;\&lt;\?php echo \$data\[\'image3\'\]\?\&gt;\&quot; style\=\&quot;width\:200px\&quot;\/\&gt;\n                                \&lt;\?php\n                            \}\n                            \?\&gt;\n                        \&lt;\/div\&gt;\n\	\	\	\	\	\&lt;\/div\&gt;\n\	\	\	\	\	\n\	\	\	\	\	\&lt;div style\=\&quot;clear\:both\&quot;\/\&gt;\n                    \&lt;div id\=\&quot;vn\&quot;\&gt;\n                        Tiêu đề\: \&lt;input type\=\&quot;text\&quot; name\=\&quot;title_vn\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'title_vn\'\] \?\&gt;\&quot;\/\&gt;\&lt;br\/\&gt;\n                        Địa điểm\: \&lt;input type\=\&quot;text\&quot; name\=\&quot;subtitle_vn\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'subtitle_vn\'\] \?\&gt;\&quot;\/\&gt;\&lt;br\/\&gt;\n                        Nội dung\:\&lt;br\/\&gt;\n                        \&lt;textarea id\=\&quot;content_vn\&quot; name\=\&quot;content_vn\&quot;\&gt;\&lt;\?php echo \$data\[\'content_vn\'\] \?\&gt;\&lt;\/textarea\&gt;\&lt;br\/\&gt;\n                    \&lt;\/div\&gt;\n                    \&lt;div id\=\&quot;en\&quot; class\=\&quot;appear\&quot;\&gt;\n                        Title\:\n                        \&lt;input type\=\&quot;text\&quot; name\=\&quot;title_en\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'title_en\'\] \?\&gt;\&quot;\/\&gt;\&lt;br\/\&gt;\n                        Subtitle\:\n                        \&lt;input type\=\&quot;text\&quot; name\=\&quot;subtitle_en\&quot; value\=\&quot;\&lt;\?php echo \$data\[\'subtitle_en\'\] \?\&gt;\&quot;\/\&gt;\&lt;br\/\&gt;\n                        Content\:\n                        \&lt;textarea id\=\&quot;content_en\&quot; name\=\&quot;content_en\&quot;\&gt;\&lt;\?php echo \$data\[\'content_en\'\] \?\&gt;\&lt;\/textarea\&gt;\&lt;\/\&lt;br\/\&gt;\n                    \&lt;\/div\&gt;\n                    \&lt;input type\=\&quot;submit\&quot; value\=\&quot;Submit\&quot;\/\&gt;\n                \&lt;\/form\&gt;\n                \&lt;script\&gt;\n                    tinymce\.init\(\{\n                        selector\: \'\#content_vn\'\,\n                        plugins\: \'image code\'\,\n                        toolbar\: \'undo redo \| image code\'\,\n                        automatic_uploads\: true\,\n\	\	\	\	\	\	images_upload_url\: \'postAcceptor\.php\'\n                    \}\)\;\n                    tinymce\.init\(\{\n                        selector\: \'\#content_en\'\,\n                        plugins\: \'image code\'\,\n                        toolbar\: \'undo redo \| image code\'\,\n                        automatic_uploads\: true\,\n\	\	\	\	\	\	images_upload_url\: \'postAcceptor\.php\'\n                    \}\)\;\n                    \&lt;script\&gt;\n                    function openCity\(evt\, cityName\) \{\n                        var i\, tabcontent\, tablinks\;\n                        tabcontent \= document\.getElementsByClassName\(\&quot;tabcontent\&quot;\)\;\n                        for \(i \= 0\; i \&lt; tabcontent\.length\; i\+\+\) \{\n                            tabcontent\[i\]\.style\.display \= \&quot;none\&quot;\;\n                        \}\n                        tablinks \= document\.getElementsByClassName\(\&quot;tablinks\&quot;\)\;\n                        for \(i \= 0\; i \&lt; tablinks\.length\; i\+\+\) \{\n                            tablinks\[i\]\.className \= tablinks\[i\]\.className\.replace\(\&quot; active\&quot;\, \&quot;\&quot;\)\;\n                        \}\n                        document\.getElementById\(cityName\)\.style\.display \= \&quot;block\&quot;\;\n                        evt\.currentTarget\.className \+\= \&quot; active\&quot;\;\n                    \}\n\n                    \/\/ Get the element with id\=\&quot;defaultOpen\&quot; and click on it\n                    document\.getElementById\(\&quot;defaultOpen\&quot;\)\.click\(\)\;\n                \&lt;\/script\&gt;\n                \&lt;\/script\&gt;\n\	\	\	\&lt;\/div\&gt;\n\	\	\&lt;\/div\&gt;\n\	\&lt;\/body\&gt;\n\&lt;\/html\&gt;\n</find>
+      <find>openCity</find>
     </findStrings>
     <replaceStrings>
       <replace>admin.php</replace>
@@ -82,6 +110,8 @@
         <option value="$PROJECT_DIR$/api/project/search.php" />
         <option value="$PROJECT_DIR$/api/project/update.php" />
         <option value="$PROJECT_DIR$/admin/projects.php" />
+        <option value="$PROJECT_DIR$/admin/create_project.css" />
+        <option value="$PROJECT_DIR$/css/create_project.css" />
         <option value="$PROJECT_DIR$/admin/create_project.php" />
       </list>
     </option>
@@ -131,9 +161,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\AppServ\www\trung-architect\admin\css" />
       <recent name="C:\AppServ\www\trung-architect\admin" />
       <recent name="C:\AppServ\www\trung-architect\admin\admin" />
     </key>
@@ -165,15 +197,16 @@
       <workItem from="1523888511525" duration="869000" />
       <workItem from="1524059897562" duration="3360000" />
       <workItem from="1524234200452" duration="4870000" />
+      <workItem from="1525495922856" duration="3754000" />
+      <workItem from="1525532700549" duration="562000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32439000" />
+    <option name="totallyTimeSpent" value="36755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24304539" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -193,7 +226,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32913387" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32913387" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,15 +238,57 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/admin/create_project.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="105" selection-start-line="76" selection-start-column="105" selection-end-line="76" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/embed.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/create_project.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5508">
+          <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/projects.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" column="57" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/create_project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="144" column="59" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/projects.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" column="57" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/create_project.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
           <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -444,9 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/project/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -463,22 +535,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/projects.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
+        <state relative-caret-position="1343">
           <caret line="79" column="57" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5508">
+          <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/create_project.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/embed.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/create_project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="144" column="59" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="76" column="105" selection-start-line="76" selection-start-column="105" selection-end-line="76" selection-end-column="105" />
         </state>
       </provider>
     </entry>
