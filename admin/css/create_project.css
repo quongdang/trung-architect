@@ -1,17 +1,3 @@
-body {font-family: Arial;}
-
-.login-panel {
-    margin-top: 150px;
-}
-.table {
-    margin-top: 50px;
-
-}
-
-body {
-    margin: 50px;
-}
-
 #vn, #en {
     width:100%;
     positon: relative;

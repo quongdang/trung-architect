@@ -3,23 +3,6 @@ session_start();//session starts here
 
 ?>
 
-
-
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="bootstrap-3.2.0-dist\css\bootstrap.css">
-    <title>Login</title>
-</head>
-<style>
-    .login-panel {
-        margin-top: 150px;
-
-</style>
-
-<body>
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -49,11 +32,6 @@ session_start();//session starts here
         </div>
     </div>
 </div>
-
-
-</body>
-
-</html>
 
 <?php
 

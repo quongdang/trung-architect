@@ -1,0 +1,24 @@
+.sidebar {
+	float: left;
+	width: 200px;
+	height: 75%;
+	padding-top: 50px;
+}
+
+.sidebar ul {
+	list-style-type:none;
+}
+
+.sidebar ul li {
+	border-bottom: 0.5px solid #f0f5f5;
+	height: 40px;
+	padding: 10px 0 10px 5px;
+}
+
+.sidebar ul li a {
+	text-decoration: none;
+}
+
+.sideber ul li:hover {
+	background: #e6ffe6!important;
+}
