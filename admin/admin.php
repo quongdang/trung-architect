@@ -35,7 +35,6 @@ session_start();//session starts here
 				}
 				?>
 				</div>
-				<div style="clear: both"></div>
 			<?php
 				include_once("admin/footer.php");
 			?>

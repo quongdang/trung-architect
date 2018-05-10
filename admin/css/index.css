@@ -21,4 +21,5 @@ body {
 .content {
 	width: 700px;
 	float: right;
+	margin-bottom:30px;
 }
