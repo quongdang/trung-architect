@@ -27,14 +27,13 @@
 			$get_data = callAPI('POST', '/api/project/delete.php', json_encode($data_array));
 			$response = json_decode($get_data, true);
 			$data = $response['message'];
-			echo $data;
 		}
 	?>
 	<div class="table-responsive">
 		<table class="table table-bordered table-hover table-striped" style="table-layout: fixed">
 			<thead>
 				<tr>
-					<th>Project Id</th>
+					<th>Id</th>
 					<th>Title</th>
 					<th>Sub-Title</th>
 					<th>Image</th>
@@ -42,16 +41,14 @@
 				</tr>
 			</thead>
 
-			<?php
-		   
+			<?php		   
 				$get_data = callAPI('GET', '/api/project/read.php', false);
 				$response = json_decode($get_data, true);
 				$data = $response['records'];
 				$message = $response['message'];
 				if($message == null) {
-					foreach((array)$data as $item) { //foreach element in $arr
+					foreach((array)$data as $item) {
 			?>
-
 					<tr>
 						<td><?php echo $item['id']  ?></td>
 						<td><?php echo $item['title_vn']  ?></td>
@@ -60,7 +57,7 @@
 							<?php
 								if ($item['image0']) {
 							?>
-									<img src="<?php echo $item['image0']  ?>" with=100px height=100px/>
+									<img src="<?php echo $item['image0']  ?>" width=100px height=100px/>
 							<?php
 								}
 							?>
@@ -71,9 +68,8 @@
 						</td>
 					</tr>
 				<?php }
-				} 
-				echo $data;?>
-
+				}
+				?>
 		</table>
 	</div>
 </div>
