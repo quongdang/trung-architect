@@ -4,6 +4,7 @@ import {NgxCarousel, NgxCarouselStore} from 'ngx-carousel';
 import {ProjectService} from '../services/project.service';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
 import {TranslateService} from '@ngx-translate/core';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class HomeComponent implements OnInit {
   images: any[] = [];
   carouseImgCount = 6;
+  baseURL = environment.baseURL;
 
   public carouselBannerItems: any[] = [];
   public carouselBanner: NgxCarousel;
@@ -119,11 +121,10 @@ export class HomeComponent implements OnInit {
           id: project.id,
           title: mapTitle,
           subTitle: mapSubTitle,
-          url: "http://localhost/trung-architect/admin/" + project.image0,
-          style: "url('http://localhost/trung-architect/admin/" + project.image0 + "')"
+          url: this.baseURL + "/" + project.image0,
+          style: "url(" + this.baseURL + "/" + project.image0 + "')"
         };
         this.images.push(image);
-        console.log(project);
       }
       this.carouselBannerLoad();
     });

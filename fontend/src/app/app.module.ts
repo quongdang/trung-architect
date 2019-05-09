@@ -20,11 +20,12 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
+import { AboutModule } from './about/about.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent,
     SidebarComponent,
     FooterComponent
   ],
@@ -44,7 +45,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    AboutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

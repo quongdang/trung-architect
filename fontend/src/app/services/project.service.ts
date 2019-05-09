@@ -3,16 +3,18 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
 import {Project} from '../dataModel/project.model';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class ProjectService {
-
+  baseURL = environment.baseURL;
   constructor(private http: Http) {
   }
   
-  getAllProjects(req?: any): Observable<ResponseWrapper> {
-      const url = 'http://localhost/trung-architect/admin/api/project/read.php';      
-      return this.http.get(url).map((res: Response) => this.convertResponse(res));
+  getAllProjects(req?: any): Observable<ResponseWrapper> {    
+      return this.http.get(this.baseURL + '/api/project/read.php').map(
+        (res: Response) => this.convertResponse(res)
+      );
   }
 
   private convertResponse(res: Response): ResponseWrapper {
