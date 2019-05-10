@@ -5,6 +5,7 @@ import {ProjectService} from '../services/project.service';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../environments/environment';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -81,6 +82,28 @@ export class HomeComponent implements OnInit {
       loop: true,
       easing: 'cubic-bezier(0, 0, 0.2, 1)'
     };
+
+    $.fn.isInViewport = function() {
+      var elementTop = $(this).offset().top ? $(this).offset().top : 0;
+      var elementBottom = elementTop + $(this).outerHeight();
+  
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+  
+      return elementBottom > (viewportTop + $(window).height()/2) && elementTop < (viewportBottom - $(window).height()/2);
+    };
+
+    $(window).on('resize scroll', function() {
+      monitor('.project');
+    });
+
+    function monitor(name) {
+      if ($(name).isInViewport()) {
+        $(name).css("width", "100%");
+      } else {
+        $(name).css("width", "90%");
+      }
+    }
   }
 
   /* This will be triggered after carousel viewed */
