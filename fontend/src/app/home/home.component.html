@@ -1,56 +1,55 @@
 <div class="home">
-	<ngx-carousel class="banner" [inputs]="carouselBanner" (carouselLoad)="carouselBannerLoad()">
-	    <ngx-item NgxCarouselItem *ngFor="let image of carouselBannerItems; let i = index;">
-	        <div class="bannerStyle" [style.background]="'url(' + image.url + ')'">
-	        	<div class="layer">	        		
-		            <h1>{{ image.title.get(translate.currentLang)}}</h1>
-		            <h3>{{ image.subTitle.get(translate.currentLang)}}</h3>
-	        	</div>
-	        </div>
-	    </ngx-item>
-	    <button NgxCarouselPrev class="leftRs">&lt;</button>
-	    <button NgxCarouselNext class="rightRs">&gt;</button>
-	</ngx-carousel>
-	
-	<ng-container *ngIf="images.length > 2">
-		<div class="project">
-			<div class="left" [ngStyle]="{background: images[0].style}">
-				<div class="layer">
-					<span>
-						<h1>{{ images[0].title.get(translate.currentLang)}}</h1>
-						<h5>{{ images[0].subTitle.get(translate.currentLang)}}</h5>
-					</span>
-				</div>
+	<ng-container *ngIf="projects.length >= 2">
+		<div class="project section01 row">
+			<div class="left col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
+					<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[0].images1}">
+						<li>
+							<span [ngStyle]="{'background-image': projects[0].images2}"></span>
+							<div>
+								<h3>{{ projects[0].title.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[0].subTitle.get(translate.currentLang)}}</h5>
+							</div>
+						</li>
+						<li><span [ngStyle]="{'background-image': projects[0].images3}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[0].images4}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[0].images1}"></span></li>
+					</ul>
 			</div>
-			<div class="right" [ngStyle]="{background: images[1].style}">
-				<div class="layer">
-					<span>
-						<h1>{{images[1].title.get(translate.currentLang)}}</h1>
-						<h5>{{images[1].subTitle.get(translate.currentLang)}}</h5>
-					</span>
-				</div>
+			<div class="right col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
+				<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[1].images1}">
+						<li>
+							<span [ngStyle]="{'background-image': projects[1].images2}"></span>
+							<div>
+								<h3>{{ projects[1].title.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[1].subTitle.get(translate.currentLang)}}</h5>
+							</div>
+						</li>
+						<li><span [ngStyle]="{'background-image': projects[1].images3}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[1].images4}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[1].images1}"></span></li>
+					</ul>
 			</div>
 		</div>
 	</ng-container>
 	<div class="other">
-		<div class="contact-us">
+		<div class="contact-us col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="content">
 				<h1>contact us</h1>
 				<span>Visit our contact information page to see the studio closest to you.</span>
 			</div>
 		</div>
-		<div class="projects">
-			<div class="content">
-				<h1>Project</h1>
-			</div>
-		</div>
-		<div class="grow-with-us">
+		<div class="grow-with-us col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="content">
 				<h1>grown with us</h1>
 				<span>Learn about our global recruitment information and select career 
 				opportunities in architecture, design, planning and more.</span>
 			</div>
 			<i class="fa fa-camera-retro fa-lg"></i>
+		</div>
+		<div class="projects col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="content">
+				<h1>Project</h1>
+			</div>
 		</div>
 	</div>
 </div>

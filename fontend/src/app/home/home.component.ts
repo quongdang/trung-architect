@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
-import {NgxCarousel, NgxCarouselStore} from 'ngx-carousel';
 import {ProjectService} from '../services/project.service';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
 import {TranslateService} from '@ngx-translate/core';
@@ -10,27 +9,15 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  providers: [ProjectService],
-  animations: [
-    trigger('photosAnimation', [
-      transition('* => *', [
-        query('img',style({ transform: 'translateX(-100%)'})),
-        query('img',
-          stagger('600ms', [
-            animate('900ms', style({ transform: 'translateX(0)'}))
-        ]))
-      ])
-    ])
-  ]
+  styleUrls: [
+    './home.component.scss',
+    './slide-show.component.scss'
+  ],
+  providers: [ProjectService]
 })
 export class HomeComponent implements OnInit {
-  images: any[] = [];
-  carouseImgCount = 6;
+  projects: any[] = [];
   baseURL = environment.baseURL;
-
-  public carouselBannerItems: any[] = [];
-  public carouselBanner: NgxCarousel;
 
   constructor(
     private projectService: ProjectService,
@@ -40,49 +27,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.carouselBanner = {
-      grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
-      slide: this.carouseImgCount,
-      speed: 400,
-      interval: 4000,
-      animation: 'lazy',
-      point: {
-        visible: true,
-        pointStyles: `
-               .ngxcarouselPoint {
-                 list-style-type: none;
-                 text-align: center;
-                 padding: 12px;
-                 margin: 0;
-                 white-space: nowrap;
-                 overflow: auto;
-                 position: absolute;
-                 width: 100%;
-                 bottom: 20px;
-                 left: 0;
-                 box-sizing: border-box;
-               }
-               .ngxcarouselPoint li {
-                 display: inline-block;
-                 border-radius: 999px;
-                 background: rgba(255, 255, 255, 0.55);
-                 padding: 5px;
-                 margin: 0 3px;
-                 transition: .4s ease all;
-               }
-               .ngxcarouselPoint li.active {
-                   background: white;
-                   width: 10px;
-               }
-             `
-      },
-      load: 1,
-      custom: 'banner',
-      touch: true,
-      loop: true,
-      easing: 'cubic-bezier(0, 0, 0.2, 1)'
-    };
-
     $.fn.isInViewport = function() {
       var elementTop = $(this).offset().top ? $(this).offset().top : 0;
       var elementBottom = elementTop + $(this).outerHeight();
@@ -94,34 +38,20 @@ export class HomeComponent implements OnInit {
     };
 
     $(window).on('resize scroll', function() {
-      monitor('.project');
+      monitor('.section01');
+      monitor('.section02');
+      monitor('.other');
     });
 
-    function monitor(name) {
-      if ($(name).isInViewport()) {
-        $(name).css("width", "100%");
-      } else {
-        $(name).css("width", "90%");
-      }
-    }
-  }
-
-  /* This will be triggered after carousel viewed */
-  afterCarouselViewedFn(data) {
-    console.log(data);
-  }
-
-  /* It will be triggered on every slide*/
-  onmoveFn(data: NgxCarouselStore) {
-    console.log(data);
-  }
-
-  public carouselBannerLoad() {
-    const len = this.carouselBannerItems.length;
-    const imgLen = this.images.length;
-    if (len < this.carouseImgCount) {
-      for (let i = len; i <= this.carouseImgCount; i++) {
-        this.carouselBannerItems.push(this.images[imgLen - i - 1]);
+    function monitor(name: any) {
+      if ($(name).length) {
+        if ($(name).isInViewport()) {
+          console.log(name + ' in view-port');
+          $(name).css("width", "100%");
+        } else {
+          console.log(name + ' out view-port');
+          $(name).css("width", "90%");
+        }
       }
     }
   }
@@ -140,16 +70,19 @@ export class HomeComponent implements OnInit {
         const mapSubTitle = new Map();
         mapSubTitle.set("vn", project.subtitle_vn);
         mapSubTitle.set("en", project.subtitle_en);
-        const image = {
+        const data = {
           id: project.id,
           title: mapTitle,
           subTitle: mapSubTitle,
           url: this.baseURL + "/" + project.image0,
-          style: "url(" + this.baseURL + "/" + project.image0 + "')"
+          images1: "url('" + this.baseURL + "/" + project.image0 + "')",
+          images2: "url('" + this.baseURL + "/" + project.image1 + "')",
+          images3: "url('" + this.baseURL + "/" + project.image2 + "')",
+          images4: "url('" + this.baseURL + "/" + project.image3 + "')"
         };
-        this.images.push(image);
+        console.log(data);
+        this.projects.push(data);
       }
-      this.carouselBannerLoad();
     });
   }
 }

@@ -5,7 +5,6 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {SidebarModule} from 'ng-sidebar';
-import {NgxCarouselModule} from 'ngx-carousel';
 import {GoTopButtonModule} from 'ng2-go-top-button';
 import 'hammerjs';
 import 'rxjs/Rx';
@@ -35,7 +34,6 @@ import { AboutModule } from './about/about.module';
     FormsModule,
     BrowserAnimationsModule,
     SidebarModule.forRoot(),
-    NgxCarouselModule,
     GoTopButtonModule,
     HttpModule,
     HttpClientModule,
