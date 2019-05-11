@@ -9,13 +9,13 @@
 
 	switch($_GET['type']) {
 		case 'create':
-			include_once("project_create.php");
+			include_once("category_create.php");
 			break;
 		case 'edit':
-			include_once("project_create.php");
+			include_once("category_create.php");
 			break;
-		default:
-			include_once("project_view.php");
+        default:
+			include_once("category_view.php");
 	}
 
 ?>							

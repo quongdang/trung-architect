@@ -5,7 +5,7 @@ class Database{
     private $host = "localhost";
     private $db_name = "trungarchitect";
     private $username = "root";
-    private $password = "25251325";
+    private $password = "";
     public $conn;
  
     // get the database connection

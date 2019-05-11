@@ -7,9 +7,11 @@
 	}
 
 	function callAPI($method, $url, $data){		
-		$API_URL = 'http://localhost/trung-architect/admin';
+		$API_URL = 'http://localhost:8888/trung-architect/admin';
 		
 		$url = $API_URL . $url;
+		echo($url);
+		echo('<br/>');
 		$curl = curl_init();
 		switch ($method){
 			case "POST":

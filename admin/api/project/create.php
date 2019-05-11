@@ -32,7 +32,7 @@ $project->subtitle_en = $data->subtitle_en;
 $project->content_vn = $data->content_vn;
 $project->content_en = $data->content_en;
 $project->category_id = $data->category_id;
-// $project->created = date('Y-m-d H:i:s');
+$project->created = date('Y-m-d H:i:s');
  
 // create the project
 if($project->create()){
