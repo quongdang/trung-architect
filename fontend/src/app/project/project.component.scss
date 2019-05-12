@@ -1,0 +1,26 @@
+@import '../../styles.scss';
+
+.projects {
+    width: 95%;
+    margin: 0px auto;
+}
+
+.box {
+	position: relative;
+    width: 50%;		/* desired width */
+    background-color: aqua;
+}
+
+.box:before {
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+
+.content {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}

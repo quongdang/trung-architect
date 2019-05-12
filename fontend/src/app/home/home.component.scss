@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .home {
 	height: 100%;
 
@@ -18,21 +20,44 @@
 			height: 100%;
 			float: left;
 			padding: 0px;
+			
+			@media only screen and (max-width: $screen-xs-max) {
+				height: 50%;
+				float: left;
+				padding: 0px;
+			}
 		}
+
+		.left::before, .left:before {
+			content: "+";
+			font: 36px/1em "gridarch-icons"!important;
+			position: absolute;
+			z-index: 5;
+			top: 50%;
+			left: 100%;
+			width: 1em;
+			height: 1em;
+			color: #fff;
+			line-height: 1em;
+			text-align: center;
+			margin-top: -.5em;
+			margin-left: -.5em			
+		}
+
+		@media only screen and (max-width: $screen-xs-max) {
+			.left::before, .left:before {
+				top: 100%;
+				left: 20%;
+			}
+		}
+
 		.right {
 			height: 100%;
 			float: right;
 			background: blue;
 			padding: 0px;
-		}
 
-		@media only screen and (max-width: 600px) {
-			.left {
-				height: 50%;
-				float: left;
-				padding: 0px;
-			}
-			.right {
+			@media only screen and (max-width: $screen-xs-max) {
 				height: 50%;
 				float: right;
 				background: blue;
@@ -87,6 +112,10 @@
 		margin: 50px auto 0px auto;
 		position: relative;
 		font-size: 1.25em;
+
+		div {
+			padding: 0px;
+		}
 		
 		.content {
 			padding: 20px 50px;
@@ -98,35 +127,68 @@
 		.contact-us {
 			height: 50%;
 			background: #069;
-			float: left;
+			// float: left;		
 		}
 		
 		.grow-with-us {
 			height: 50%;
 			background: #333;
-			float: left;
+			// float: left;
 		}
 		
 		.projects {
 			float: right;
 			height: 100%;
-			background: #999;
+			width: 100%;
+			background: #999;		
 		}
-		
-		::before, :before {
-			content: "+";
-		    font: 36px/1em "gridarch-icons"!important;
-		    position: absolute;
-		    z-index: 5;
-		    top: 50%;
-		    left: 50%;
-		    width: 1em;
-		    height: 1em;
-		    color: #fff;
-		    line-height: 1em;
-		    text-align: center;
-		    margin-top: -.5em;
-		    margin-left: -.5em
+
+		.left {		
+			::before, :before {
+				content: "+";
+				font: 36px/1em "gridarch-icons"!important;
+				position: absolute;
+				z-index: 5;
+				top: 50%;
+				left: 100%;
+				width: 1em;
+				height: 1em;
+				color: #fff;
+				line-height: 1em;
+				text-align: center;
+				margin-top: -.5em;
+				margin-left: -.5em
+			}
+			@media only screen and (max-width: $screen-xs-max) {
+				::before, :before {
+					left: 20%
+				}
+			}
+		}
+
+		.right {		
+			::before, :before {
+				content: "+";
+				font: 36px/1em "gridarch-icons"!important;
+				position: absolute;
+				z-index: 5;
+				top: 50%;
+				left: 0%;
+				width: 1em;
+				height: 1em;
+				color: #fff;
+				line-height: 1em;
+				text-align: center;
+				margin-top: -.5em;
+				margin-left: -.5em
+			}
+			
+			@media only screen and (max-width: $screen-xs-max) {
+				::before, :before {
+					top: 0%;
+					left: 20%
+				}
+			}
 		}
 	}
 }

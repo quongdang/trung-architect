@@ -20,6 +20,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import { AboutModule } from './about/about.module';
+import { ProjectModule } from './project/project.module';
+import { ProjectService } from './services/project.service';
 
 @NgModule({
   declarations: [
@@ -45,8 +47,11 @@ import { AboutModule } from './about/about.module';
       }
     }),
     AboutModule,
+    ProjectModule,
   ],
-  providers: [],
+  providers: [
+    ProjectService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

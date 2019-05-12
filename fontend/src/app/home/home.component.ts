@@ -13,7 +13,7 @@ import * as $ from 'jquery';
     './home.component.scss',
     './slide-show.component.scss'
   ],
-  providers: [ProjectService]
+  // providers: [ProjectService]
 })
 export class HomeComponent implements OnInit {
   projects: any[] = [];

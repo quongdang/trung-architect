@@ -1,0 +1,7 @@
+<div class="projects row">
+    <div *ngFor="let project of projects; let i = index" class="box col-lg-3 col-md-3 col-sm-4 col-xs-6">
+        <div class='content' [ngStyle]="{'background-image': project.images1}">
+            <h3>{{ project.title.get(translate.currentLang)}}</h3>
+        </div>
+    </div>
+</div>
