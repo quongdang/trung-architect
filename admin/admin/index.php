@@ -1,3 +1,3 @@
 <?php
-echo "<script>window.open('../index.php','_self')</script>";
+echo "<script>window.open('../admin.php','_self')</script>";
 ?>

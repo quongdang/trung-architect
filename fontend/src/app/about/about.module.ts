@@ -1,4 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { aboutRoutes} from './about.route'
 import { AboutComponent } from './about.component';
@@ -9,7 +10,8 @@ const ENTITY_STATES = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(ENTITY_STATES)
+        RouterModule.forChild(ENTITY_STATES),
+        CommonModule,
     ],
     declarations: [
         AboutComponent,

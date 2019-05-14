@@ -4,7 +4,7 @@
 	if(!$_SESSION['email'])
 	{
 
-		header("Location: index.php");//redirect to login page to secure the welcome page without login access.
+		header("Location: admin.php");//redirect to login page to secure the welcome page without login access.
 	}
 
 	switch($_GET['type']) {

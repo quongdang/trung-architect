@@ -7,7 +7,7 @@
 	}
 
 	function callAPI($method, $url, $data){		
-		$API_URL = 'http://localhost:8888/trung-architect/admin';
+		$API_URL = 'http://localhost:8888/trung-architect';
 		
 		$url = $API_URL . $url;
 		$curl = curl_init();
@@ -39,5 +39,15 @@
 		if(!$result){die("Connection Failure");}
 		curl_close($curl);
 		return $result;
+	}
+	
+	function filetowrite($filetowrite, $temp) {
+		$imageFolder = "../images/";
+		$now = new DateTime(null, new DateTimeZone('America/New_York'));
+		if ($temp['name']){
+			$filetowrite = $imageFolder . ($now->getTimestamp()) . '-' . $temp['name'];
+			move_uploaded_file($temp['tmp_name'], $filetowrite);
+		}
+		return $filetowrite;
 	}
 ?>	

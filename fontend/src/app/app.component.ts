@@ -12,8 +12,8 @@ export class AppComponent {
   menuBarChange: boolean = false;
   @ViewChild(SidebarComponent) sidebar: SidebarComponent;
 
-  constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('en');
+  constructor(public translate: TranslateService) {
+    this.translate.setDefaultLang('vn');
     this.translate.use(this.translate.getBrowserLang());
   }
 

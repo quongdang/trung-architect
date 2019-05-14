@@ -4,7 +4,7 @@
 	if(!$_SESSION['email'])
 	{
 
-		header("Location: index.php");//redirect to login page to secure the welcome page without login access.
+		header("Location: admin.php");//redirect to login page to secure the welcome page without login access.
 	}
 	
 	include_once('curl_function.php');
@@ -25,15 +25,6 @@
 	<h1 align="center">Create Project</h1>
 	<div class="table-responsive">
 		<?php
-		function filetowrite($filetowrite, $temp) {
-			$imageFolder = "images/";
-			$now = new DateTime(null, new DateTimeZone('America/New_York'));
-			if ($temp['name']){
-				$filetowrite = $imageFolder . ($now->getTimestamp()) . '-' . $temp['name'];
-				move_uploaded_file($temp['tmp_name'], $filetowrite);
-			}
-			return $filetowrite;
-		}
 		if (isset($_POST['title_vn'])) {
 			$data_array =  array(
 				"id" => $_POST['id'],
@@ -61,7 +52,7 @@
 			$response = json_decode($get_data, true);
 			$create = $response['message'];
 			echo $create;
-			echo "<script>window.open('index.php?page=projects','_self')</script>";
+			echo "<script>window.open('admin.php?page=projects','_self')</script>";
 		} else if (isset($_GET['id'])) {
 			$get_data = callAPI('GET', '/api/project/read_one.php?id='.(string)($_GET['id']), null);
 			$response = json_decode($get_data, true);
@@ -73,7 +64,7 @@
 		$categories = $response['records'];
 
 		?>
-		<form action="index.php?page=projects&type=create" method="post" enctype="multipart/form-data">
+		<form action="admin.php?page=projects&type=create" method="post" enctype="multipart/form-data">
 			Chọn danh mục: 
 			<select name="category_id">
 				<?php

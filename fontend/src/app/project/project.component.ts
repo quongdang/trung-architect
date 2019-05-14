@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService} from '@ngx-translate/core';
 import { projectRoutes } from './project.route';
 import { ResponseWrapper} from '../dataModel/responseWrapper.model';
@@ -19,7 +18,7 @@ export class ProjectComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,              
-    private translate: TranslateService,
+    public translate: TranslateService,
     private projectService: ProjectService) { 
     this.route.params.subscribe(res => console.log(res.id));
   }
@@ -53,7 +52,6 @@ export class ProjectComponent implements OnInit {
           images3: "url('" + this.baseURL + "/" + project.image2 + "')",
           images4: "url('" + this.baseURL + "/" + project.image3 + "')"
         };
-        console.log(data);
         this.projects.push(data);
       }
     });

@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
       this.sidebarEvent.next(this._opened);
   }
   
-  private sendEvent() {
+  public sendEvent() {
       this.sidebarEvent.next(this._opened);
   }
 }

@@ -1,1 +1,10 @@
 sample
+appserv
+cgi-bin
+assets
+index.html
+favicon.ico
+3rdpartylicenses.txt
+
+*.bundle.js
+*.bundle.css

@@ -7,7 +7,7 @@ $accepted_origins = array("http://localhost", "http://192.168.1.1", "http://loca
 /*********************************************
  * Change this line to set the upload folder *
  *********************************************/
-$imageFolder = "images/";
+$imageFolder = "../images/";
 
 reset ($_FILES);
 $temp = current($_FILES);

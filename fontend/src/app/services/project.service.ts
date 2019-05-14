@@ -16,6 +16,12 @@ export class ProjectService {
         (res: Response) => this.convertResponse(res)
       );
   }
+  
+  getProject(req?: any): Observable<ResponseWrapper> {    
+      return this.http.get(this.baseURL + '/api/project/read_one.php?id=' + req).map(
+        (res: Response) => this.convertResponse(res)
+      );
+  }
 
   private convertResponse(res: Response): ResponseWrapper {
     const jsonResponse = res.json();

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 import {ProjectService} from '../services/project.service';
+import {AboutService} from '../services/about.service';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../environments/environment';
@@ -17,16 +18,19 @@ import * as $ from 'jquery';
 })
 export class HomeComponent implements OnInit {
   projects: any[] = [];
+  aboutUs: any;
   baseURL = environment.baseURL;
 
   constructor(
     private projectService: ProjectService,
-    private translate: TranslateService,
+    private aboutService: AboutService,
+    public translate: TranslateService,
   ) {
-    this.getAllProjects();
   }
 
   ngOnInit() {
+    this.getAllProjects();
+
     $.fn.isInViewport = function() {
       var elementTop = $(this).offset().top ? $(this).offset().top : 0;
       var elementBottom = elementTop + $(this).outerHeight();
@@ -39,17 +43,14 @@ export class HomeComponent implements OnInit {
 
     $(window).on('resize scroll', function() {
       monitor('.section01');
-      monitor('.section02');
       monitor('.other');
     });
 
     function monitor(name: any) {
       if ($(name).length) {
         if ($(name).isInViewport()) {
-          console.log(name + ' in view-port');
           $(name).css("width", "100%");
         } else {
-          console.log(name + ' out view-port');
           $(name).css("width", "90%");
         }
       }
@@ -80,9 +81,29 @@ export class HomeComponent implements OnInit {
           images3: "url('" + this.baseURL + "/" + project.image2 + "')",
           images4: "url('" + this.baseURL + "/" + project.image3 + "')"
         };
-        console.log(data);
         this.projects.push(data);
       }
     });
+  }
+
+  getLatestAbout() {
+    this.aboutService.getLast().subscribe(
+      (res: ResponseWrapper) => {
+        const data = res.json;
+        const mapTitle = new Map();
+        mapTitle.set("vn", data.title_vn);
+        mapTitle.set("en", data.title_en);
+        
+        const mapContent = new Map();
+        mapContent.set("vn", data.content_vn);
+        mapContent.set("en", data.content_en);
+
+        this.aboutUs = {
+          id: data.id,
+          title: mapTitle,
+          content: mapContent,
+        }
+      }
+    )
   }
 }

@@ -21,7 +21,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import { AboutModule } from './about/about.module';
 import { ProjectModule } from './project/project.module';
-import { ProjectService } from './services/project.service';
+import { ServiceModule } from './services/service.module';
 
 @NgModule({
   declarations: [
@@ -48,9 +48,9 @@ import { ProjectService } from './services/project.service';
     }),
     AboutModule,
     ProjectModule,
+    ServiceModule,
   ],
   providers: [
-    ProjectService,
   ],
   bootstrap: [AppComponent]
 })

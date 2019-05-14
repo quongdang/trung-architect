@@ -4,8 +4,8 @@ session_start();//session starts here
 <html>
 	<head lang="en">
 		<meta charset="UTF-8">
-		<link type="text/css" rel="stylesheet" href="bootstrap-3.2.0-dist\css\bootstrap.css"> <!--css file link in bootstrap folder-->
-		<link type="text/css" rel="stylesheet" href="css/index.css">
+		<link type="text/css" rel="stylesheet" href="css\bootstrap.css">
+		<link type="text/css" rel="stylesheet" href="css\index.css">
 		<title>Administrator</title>
 	</head>
 	<body>
