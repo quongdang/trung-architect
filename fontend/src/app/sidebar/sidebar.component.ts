@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
   public _opened:boolean = false;
   @Output() sidebarEvent = new EventEmitter<boolean>();
 
-  constructor(private translate: TranslateService) { 
+  constructor(public translate: TranslateService) { 
   }
 
   ngOnInit() {

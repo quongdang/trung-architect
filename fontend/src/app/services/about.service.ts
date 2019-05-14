@@ -15,6 +15,12 @@ export class AboutService {
         (res: Response) => this.convertResponse(res)
       );
   }
+  
+  getAllData(req?: any): Observable<ResponseWrapper> {    
+      return this.http.get(this.baseURL + '/api/aboutUs/read.php').map(
+        (res: Response) => this.convertResponse(res)
+      );
+  }
 
   private convertResponse(res: Response): ResponseWrapper {
     const jsonResponse = res.json();

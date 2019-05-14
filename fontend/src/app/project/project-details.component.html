@@ -1,4 +1,5 @@
 <div class="project-images">    
-    <h3>{{ data.title?.get(translate.currentLang)}}</h3>    
+    <h3 [routerLink]="['/project']">Project Details</h3>
+    <h4>{{ data.title?.get(translate.currentLang)}}</h3>    
     <div class="content" [innerHTML]="data.content?.get(translate.currentLang)"></div>
 </div>

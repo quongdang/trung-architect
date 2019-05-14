@@ -1,5 +1,12 @@
 <div class="growWithUs">
 	<h3>Grow with Us</h3>
-	<h4>{{ growWithUs?.title?.get(translate.currentLang)}}</h4>
-	<div [innerHtml]="growWithUs?.content?.get(translate.currentLang)"></div>
+	<h4>{{ growWithUsDatas[0]?.title?.get(translate.currentLang)}}</h4>
+	<div [innerHtml]="growWithUsDatas[0]?.content?.get(translate.currentLang)"></div>
+</div>
+
+<div class="growWithUs-Other" *ngIf="growWithUsDatas.length > 0"> 
+	<h4>Other career</h4>
+	<ul>
+		<li *ngFor="let growWithUs of growWithUsDatas; let i=index;" [routerLink]="['/grow-with-us', growWithUs.id]">{{ growWithUs.title?.get(translate.currentLang)}}</li>
+	</ul>
 </div>

@@ -6,8 +6,8 @@
 						<li>
 							<span [ngStyle]="{'background-image': projects[0].images2}"></span>
 							<div>
-								<h3>{{ projects[0].title.get(translate.currentLang)}}</h3>
-								<h5>{{ projects[0].subTitle.get(translate.currentLang)}}</h5>
+								<h3>{{ projects[0]?.title?.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[0]?.subTitle?.get(translate.currentLang)}}</h5>
 							</div>
 						</li>
 						<li><span [ngStyle]="{'background-image': projects[0].images3}"></span></li>
@@ -20,8 +20,8 @@
 						<li>
 							<span [ngStyle]="{'background-image': projects[1].images2}"></span>
 							<div>
-								<h3>{{ projects[1].title.get(translate.currentLang)}}</h3>
-								<h5>{{ projects[1].subTitle.get(translate.currentLang)}}</h5>
+								<h3>{{ projects[1]?.title?.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[1]?.subTitle?.get(translate.currentLang)}}</h5>
 							</div>
 						</li>
 						<li><span [ngStyle]="{'background-image': projects[1].images3}"></span></li>
@@ -58,6 +58,11 @@
 			<div class="projects">
 				<div class="content">
 					<h1>Project</h1>
+					<ul>
+						<li *ngFor= "let category of categories; let i = index">
+							{{ category?.title?.get(translate.currentLang)}}
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { GrowWithUsComponent} from './growWithUs.component'
+import { GrowWithUsDetailsComponent} from './growWithUs-details.component'
 import { growWithUsRoutes } from './growWithUs.route';
 
 const ENTITY_STATES = [
@@ -15,9 +16,11 @@ const ENTITY_STATES = [
     ],
     declarations: [
         GrowWithUsComponent,
+        GrowWithUsDetailsComponent,
     ],
     entryComponents: [
         GrowWithUsComponent,
+        GrowWithUsDetailsComponent,
     ],
     providers: [
     ],

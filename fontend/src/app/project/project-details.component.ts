@@ -37,7 +37,7 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   getProject() {
-    this.projectService.getProject(this.id).subscribe((res: ResponseWrapper) => {
+    this.projectService.getOne(this.id).subscribe((res: ResponseWrapper) => {
       const project = res.json;
       const mapTitle = new Map();
       mapTitle.set("vn", project.title_vn);

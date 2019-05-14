@@ -32,7 +32,7 @@ export class ProjectComponent implements OnInit {
   }
 
   getAllProjects() {
-    this.projectService.getAllProjects().subscribe((res: ResponseWrapper) => {
+    this.projectService.getAllData().subscribe((res: ResponseWrapper) => {
       const data = res.json;
       for (const project of data.records) {
         const mapTitle = new Map();

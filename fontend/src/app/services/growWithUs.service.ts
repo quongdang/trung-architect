@@ -15,6 +15,18 @@ export class GrowWithUsService {
         (res: Response) => this.convertResponse(res)
       );
   }
+  
+  getOne(req?: any): Observable<ResponseWrapper> {    
+      return this.http.get(this.baseURL + '/api/growWithUs/read_one.php?id=' + req).map(
+        (res: Response) => this.convertResponse(res)
+      );
+  }
+  
+  getAllData(req?: any): Observable<ResponseWrapper> {    
+      return this.http.get(this.baseURL + '/api/growWithUs/read.php').map(
+        (res: Response) => this.convertResponse(res)
+      );
+  }
 
   private convertResponse(res: Response): ResponseWrapper {
     const jsonResponse = res.json();

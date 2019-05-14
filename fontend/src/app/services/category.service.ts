@@ -6,19 +6,13 @@ import {Project} from '../dataModel/project.model';
 import {environment} from '../../environments/environment';
 
 @Injectable()
-export class ProjectService {
+export class CategoryService {
   baseURL = environment.baseURL;
   constructor(private http: Http) {
   }
   
   getAllData(req?: any): Observable<ResponseWrapper> {    
-      return this.http.get(this.baseURL + '/api/project/read.php').map(
-        (res: Response) => this.convertResponse(res)
-      );
-  }
-  
-  getOne(req?: any): Observable<ResponseWrapper> {    
-      return this.http.get(this.baseURL + '/api/project/read_one.php?id=' + req).map(
+      return this.http.get(this.baseURL + '/api/category/read.php').map(
         (res: Response) => this.convertResponse(res)
       );
   }

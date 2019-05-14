@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 import {ProjectService} from '../services/project.service';
 import {AboutService} from '../services/about.service';
+import {CategoryService} from '../services/category.service';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../environments/environment';
@@ -13,17 +14,18 @@ import * as $ from 'jquery';
   styleUrls: [
     './home.component.scss',
     './slide-show.component.scss'
-  ],
-  // providers: [ProjectService]
+  ]
 })
 export class HomeComponent implements OnInit {
   projects: any[] = [];
+  categories: any[] = [];
   aboutUs: any;
   baseURL = environment.baseURL;
 
   constructor(
     private projectService: ProjectService,
     private aboutService: AboutService,
+    private categoryService: CategoryService,
     public translate: TranslateService,
   ) {
   }
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getAllProjects();
     this.getLatestAbout();
+    this.getAllCategories();
 
     $.fn.isInViewport = function() {
       var elementTop = $(this).offset().top ? $(this).offset().top : 0;
@@ -62,7 +65,7 @@ export class HomeComponent implements OnInit {
    * Get all projects to display 
    */
   getAllProjects() {
-    this.projectService.getAllProjects().subscribe((res: ResponseWrapper) => {
+    this.projectService.getAllData().subscribe((res: ResponseWrapper) => {
       const data = res.json;
       for (const project of data.records) {
         const mapTitle = new Map();
@@ -106,5 +109,22 @@ export class HomeComponent implements OnInit {
         }
       }
     )
+  }
+  
+  getAllCategories() {
+    this.categoryService.getAllData().subscribe((res: ResponseWrapper) => {
+      const data = res.json;
+      for (const project of data.records) {
+        const mapTitle = new Map();
+        mapTitle.set("vn", project.title_vn);
+        mapTitle.set("en", project.title_en);
+
+        const data = {
+          id: project.id,
+          title: mapTitle
+        };
+        this.categories.push(data);
+      }
+    });
   }
 }
