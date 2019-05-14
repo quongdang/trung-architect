@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $headers = apache_request_headers();
  
 // include database and object files
-include_once '../config/database.php';
+include_once '../../configDb/database.php';
 include_once '../objects/aboutUs.php';
  
 // get database connection

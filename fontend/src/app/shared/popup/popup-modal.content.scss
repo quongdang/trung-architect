@@ -1,0 +1,19 @@
+.modal-body{
+    padding: 0px;
+    height: 50vh;
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0px;
+    .image {
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: none;
+    }
+    .content {
+        padding: 40px 40px;
+    }
+}

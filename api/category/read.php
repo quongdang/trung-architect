@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
-include_once '../config/database.php';
+include_once '../../configDb/database.php';
 include_once '../objects/category.php';
  
 // instantiate database and category object

@@ -3,6 +3,7 @@ import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {SidebarModule} from 'ng-sidebar';
 import {GoTopButtonModule} from 'ng2-go-top-button';
@@ -23,6 +24,7 @@ import { AboutModule } from './about/about.module';
 import { ProjectModule } from './project/project.module';
 import { GrowWithUsModule } from './growWithUs/growWithUs.module';
 import { ServiceModule } from './services/service.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { ServiceModule } from './services/service.module';
     FormsModule,
     BrowserAnimationsModule,
     SidebarModule.forRoot(),
+    NgbModule.forRoot(),
     GoTopButtonModule,
     HttpModule,
     HttpClientModule,
@@ -51,6 +54,7 @@ import { ServiceModule } from './services/service.module';
     ProjectModule,
     ServiceModule,
     GrowWithUsModule,
+    SharedModule,
   ],
   providers: [
   ],

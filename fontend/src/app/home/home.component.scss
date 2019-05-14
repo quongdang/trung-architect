@@ -170,7 +170,32 @@
 			float: right;
 			height: 100%;
 			width: 100%;
-			background: #999;		
+			background: #999;	
+
+			.content {
+				ul {					
+					list-style-type: none;
+					padding-left: 0px;
+					color: #fff;
+
+					li {
+						border: 0;
+						font-size: 100%;
+						font: inherit;
+						vertical-align: baseline;
+						padding: 6px 10px;
+						margin: 0 0 10px;
+						background: rgba(255,255,255,0.1);
+						transition: all .2s ease-out;
+						cursor: pointer;
+					}
+
+					li:hover {
+						color: #069;
+						background-color: #fff;
+					}
+				}
+			}	
 		}
 
 		.left {		

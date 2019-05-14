@@ -6,7 +6,7 @@
     header('Content-Type: application/json');
     
     // include database and object files
-    include_once '../config/database.php';
+    include_once '../../configDb/database.php';
     include_once '../objects/aboutUs.php';
     
     // get database connection

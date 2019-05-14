@@ -114,13 +114,13 @@ export class HomeComponent implements OnInit {
   getAllCategories() {
     this.categoryService.getAllData().subscribe((res: ResponseWrapper) => {
       const data = res.json;
-      for (const project of data.records) {
+      for (const category of data.records) {
         const mapTitle = new Map();
-        mapTitle.set("vn", project.title_vn);
-        mapTitle.set("en", project.title_en);
+        mapTitle.set("vn", category.category_vn);
+        mapTitle.set("en", category.category_en);
 
         const data = {
-          id: project.id,
+          id: category.id,
           title: mapTitle
         };
         this.categories.push(data);

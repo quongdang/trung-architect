@@ -9,7 +9,7 @@
             </div>
             <div class="grayscale">
                 <div class="grayscale-inner">
-                    <div class="button">Quick view +</div>
+                    <div class="button" (click)="quickView(i)">Quick view +</div>
                     <div class="button" [routerLink]="['/project', project.id]">Details +</div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             </div>
             <div class="grayscale">
                 <div class="grayscale-inner">
-                    <div class="button">Quick view +</div>
+                    <div class="button" (click)="quickView(i)">Quick view +</div>
                     <div class="button" [routerLink]="['/project', project.id]">Details +</div>
                 </div>
             </div>

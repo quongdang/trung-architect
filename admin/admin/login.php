@@ -35,18 +35,23 @@ session_start();//session starts here
 
 <?php
 
-include("database/db_conection.php");
+include_once "../configDb/database.php";
 
 if(isset($_POST['login']))
 {
     $user_email=$_POST['email'];
     $user_pass=$_POST['pass'];
 
-    $check_user="select * from users WHERE user_email='$user_email'AND user_pass='$user_pass'";
+    $check_user="select user_email from users WHERE user_email='$user_email'AND user_pass='$user_pass'";
+    
+    $database = new Database();
+    $db = $database->getConnection();
+    
+	$stmt = $db->prepare( $check_user );
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $run=mysqli_query($dbcon,$check_user);
-
-    if(mysqli_num_rows($run))
+    if($row["user_email"])
     {
         echo "<script>window.open('admin.php?page=projects','_self')</script>";
 

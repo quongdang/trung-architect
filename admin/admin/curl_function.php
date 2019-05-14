@@ -6,8 +6,8 @@
 		echo '</script>';
 	}
 
-	function callAPI($method, $url, $data){		
-		$API_URL = 'http://localhost:8888';
+	function callAPI($method, $url, $data){	
+		$API_URL = $_SERVER['HTTP_HOST'];
 		
 		$url = $API_URL . $url;
 		$curl = curl_init();
@@ -34,8 +34,14 @@
 		));
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+		
 		// EXECUTE:
-		$result = curl_exec($curl);
+		$i = 0;
+		$result = false;
+		do {
+			$result = curl_exec($curl);
+		} while (!$result && $i < 5);
+
 		if(!$result){die("Connection Failure");}
 		curl_close($curl);
 		return $result;

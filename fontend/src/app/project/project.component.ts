@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService} from '@ngx-translate/core';
 import { projectRoutes } from './project.route';
 import { ResponseWrapper} from '../dataModel/responseWrapper.model';
 import { environment} from '../../environments/environment';
 import { ProjectService } from '../services/project.service';
+import { PopupModalContent } from '../shared/popup/popup-modal.content';
 
 @Component({
   selector: 'app-project',
@@ -19,8 +21,9 @@ export class ProjectComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,              
     public translate: TranslateService,
-    private projectService: ProjectService) { 
-    this.route.params.subscribe(res => console.log(res.id));
+    private projectService: ProjectService,
+    private modalService: NgbModal) { 
+    // this.route.params.subscribe(res => console.log(res.id));
   }
 
   ngOnInit() {
@@ -55,5 +58,18 @@ export class ProjectComponent implements OnInit {
         this.projects.push(data);
       }
     });
+  }
+  
+  quickView(index: any) {
+    let options: NgbModalOptions = {
+      size: 'lg',
+      centered: true
+    };
+    const modalRef = this.modalService.open(PopupModalContent, options);
+    modalRef.componentInstance.header = this.projects[index].title.get(this.translate.currentLang);
+    modalRef.componentInstance.content = this.projects[index].subTitle.get(this.translate.currentLang);
+    modalRef.componentInstance.backgroundImage = this.projects[index].images1;
+    modalRef.componentInstance.link = "/project/" + this.projects[index].id;
+    modalRef.componentInstance.linkName = "View details";
   }
 }
