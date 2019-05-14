@@ -127,13 +127,43 @@
 		.contact-us {
 			height: 50%;
 			background: #069;
-			// float: left;		
+
+			.button-border {
+				text-decoration: none;
+				color: #fff;
+				border-color: #fff;
+				display: inline-block;
+				padding: .75em 1.5em;
+				border: 1px solid;
+				margin-top: 15px;
+				cursor: pointer;
+			}
+
+			.button-border:hover {
+				background: #fff;
+				color: #069;
+			}
 		}
 		
 		.grow-with-us {
 			height: 50%;
 			background: #333;
-			// float: left;
+
+			.button-border {
+				text-decoration: none;
+				color: #fff;
+				border-color: #fff;
+				display: inline-block;
+				padding: .75em 1.5em;
+				border: 1px solid;
+				margin-top: 15px;
+				cursor: pointer;
+			}
+			
+			.button-border:hover {
+				background: #fff;
+				color: #333;
+			}
 		}
 		
 		.projects {

@@ -1,0 +1,1 @@
+ng build -prod && xcopy /s /y D:\DongLe\AppServ\www\fontend\dist D:\DongLe\AppServ\www

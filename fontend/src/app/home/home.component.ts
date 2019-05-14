@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getAllProjects();
+    this.getLatestAbout();
 
     $.fn.isInViewport = function() {
       var elementTop = $(this).offset().top ? $(this).offset().top : 0;

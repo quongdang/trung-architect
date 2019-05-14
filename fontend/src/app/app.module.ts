@@ -21,6 +21,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import { AboutModule } from './about/about.module';
 import { ProjectModule } from './project/project.module';
+import { GrowWithUsModule } from './growWithUs/growWithUs.module';
 import { ServiceModule } from './services/service.module';
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ServiceModule } from './services/service.module';
     AboutModule,
     ProjectModule,
     ServiceModule,
+    GrowWithUsModule,
   ],
   providers: [
   ],

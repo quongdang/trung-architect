@@ -222,8 +222,7 @@ class GrowWithUs{
 					p.created
 				FROM
 					" . $this->table_name . " p
-				WHERE
-					p.created DESC
+				ORDER BY p.created DESC 
 				LIMIT
 					0,1";
 	 
@@ -237,6 +236,7 @@ class GrowWithUs{
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	 
 		// set values to object properties
+		$this->id = $row['id'];
 		$this->title_vn = $row['title_vn'];
 		$this->title_en = $row['title_en'];
 		$this->content_vn = $row['content_vn'];

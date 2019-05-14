@@ -16,9 +16,6 @@ $db = $database->getConnection();
 // prepare growWithUs object
 $growWithUs = new GrowWithUs($db);
  
-// set ID property of growWithUs to be edited
-$growWithUs->id = isset($_GET['id']) ? $_GET['id'] : die();
- 
 // read the details of growWithUs to be edited
 $growWithUs->readLast();
  
