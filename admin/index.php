@@ -6,6 +6,7 @@ session_start();//session starts here
 		<meta charset="UTF-8">
 		<link type="text/css" rel="stylesheet" href="css\bootstrap.css">
 		<link type="text/css" rel="stylesheet" href="css\index.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<title>Administrator</title>
 	</head>
 	<body>

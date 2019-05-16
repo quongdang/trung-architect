@@ -11,6 +11,7 @@ $headers = apache_request_headers();
 // include database and object files
 include_once '../../configDb/database.php';
 include_once '../objects/project.php';
+include_once '../objects/projectImage.php';
  
 // get database connection
 $database = new Database();
@@ -36,12 +37,42 @@ $project->subtitle_vn = $data->subtitle_vn;
 $project->subtitle_en = $data->subtitle_en;
 $project->content_vn = $data->content_vn;
 $project->content_en = $data->content_en;
+$project->metadata_vn = json_encode($data->metadata_vn);
+$project->metadata_en = json_encode($data->metadata_en);
 $project->category_id = $data->category_id;
  
 // update the project
 if($project->update()){
     echo '{';
         echo '"message": "Project was updated."';
+        if ($data->project_images) {
+            echo ', "projectImagesResult": "';
+            foreach($data->project_images as $item) {
+                $image = new ProjectImage($db);
+                $image->image_link = $item->image_link;
+                $image->project_id = $project->id;
+                $image->description_vn = $item->description_vn;
+                $image->description_en = $item->description_en;
+                $image->display = $item->display;
+                
+                if ($item->id) {
+                    $image->id = $item->id;
+                    if($image->update()) {
+                        echo 'Image '. $image->id.' updated success. ';
+                    }else {
+                        echo 'Unable to update project image ['.$image->id.']. ';
+                    }
+                    
+                } else {
+                    if($image->create()) {
+                        echo '"message": "Image '. $image->id.' created success.",';
+                    }else {
+                        echo '"message": "Unable to create project image ['.$image->image_link.'].",';
+                    }
+                }
+            }
+            echo '"';
+        }
     echo '}';
 }
  

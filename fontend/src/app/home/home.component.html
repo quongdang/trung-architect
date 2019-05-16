@@ -1,54 +1,117 @@
 <div class="home">
 	<ng-container *ngIf="projects.length >= 2">
-		<div class="project section01 row">
+		<div class="project scrollBehavior row">
 			<div class="left col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
-					<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[0].images1}">
+					<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[0].projectImages[0]?.url}">
 						<li>
-							<span [ngStyle]="{'background-image': projects[0].images2}"></span>
-							<div>
+							<span [ngStyle]="{'background-image': projects[0].projectImages[1]?.url}"></span>
+							<div [routerLink]="['/project', projects[0].id]">
 								<h3>{{ projects[0]?.title?.get(translate.currentLang)}}</h3>
 								<h5>{{ projects[0]?.subTitle?.get(translate.currentLang)}}</h5>
 							</div>
 						</li>
-						<li><span [ngStyle]="{'background-image': projects[0].images3}"></span></li>
-						<li><span [ngStyle]="{'background-image': projects[0].images4}"></span></li>
-						<li><span [ngStyle]="{'background-image': projects[0].images1}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[0].projectImages[2]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[0].projectImages[3]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[0].projectImages[0]?.url}"></span></li>
 					</ul>
 			</div>
 			<div class="right col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
-				<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[1].images1}">
+				<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[1].projectImages[0]?.url}">
 						<li>
-							<span [ngStyle]="{'background-image': projects[1].images2}"></span>
-							<div>
+							<span [ngStyle]="{'background-image': projects[1].projectImages[1]?.url}"></span>
+							<div [routerLink]="['/project', projects[1].id]">
 								<h3>{{ projects[1]?.title?.get(translate.currentLang)}}</h3>
 								<h5>{{ projects[1]?.subTitle?.get(translate.currentLang)}}</h5>
 							</div>
 						</li>
-						<li><span [ngStyle]="{'background-image': projects[1].images3}"></span></li>
-						<li><span [ngStyle]="{'background-image': projects[1].images4}"></span></li>
-						<li><span [ngStyle]="{'background-image': projects[1].images1}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[1].projectImages[2]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[1].projectImages[3]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[1].projectImages[0]?.url}"></span></li>
 					</ul>
 			</div>
 		</div>
 	</ng-container>
-	<div class="other row">
+	<ng-container *ngIf="projects.length >= 4">
+		<div class="project scrollBehavior row small">
+			<div class="left col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
+					<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[2].projectImages[0]?.url}">
+						<li>
+							<span [ngStyle]="{'background-image': projects[2].projectImages[1]?.url}"></span>
+							<div [routerLink]="['/project', projects[2].id]">
+								<h3>{{ projects[2]?.title?.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[2]?.subTitle?.get(translate.currentLang)}}</h5>
+							</div>
+						</li>
+						<li><span [ngStyle]="{'background-image': projects[2].projectImages[2]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[2].projectImages[3]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[2].projectImages[0]?.url}"></span></li>
+					</ul>
+			</div>
+			<div class="right col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
+				<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[3].projectImages[0]?.url}">
+						<li>
+							<span [ngStyle]="{'background-image': projects[3].projectImages[1]?.url}"></span>
+							<div [routerLink]="['/project', projects[3].id]">
+								<h3>{{ projects[3]?.title?.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[3]?.subTitle?.get(translate.currentLang)}}</h5>
+							</div>
+						</li>
+						<li><span [ngStyle]="{'background-image': projects[3].projectImages[2]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[3].projectImages[3]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[3].projectImages[0]?.url}"></span></li>
+					</ul>
+			</div>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="projects.length >= 6">
+		<div class="project scrollBehavior row small">
+			<div class="left col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
+					<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[4].projectImages[0]?.url}">
+						<li>
+							<span [ngStyle]="{'background-image': projects[4].projectImages[1]?.url}"></span>
+							<div [routerLink]="['/project', projects[4].id]">
+								<h3>{{ projects[2]?.title?.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[2]?.subTitle?.get(translate.currentLang)}}</h5>
+							</div>
+						</li>
+						<li><span [ngStyle]="{'background-image': projects[4].projectImages[2]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[4].projectImages[3]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[4].projectImages[0]?.url}"></span></li>
+					</ul>
+			</div>
+			<div class="right col-lg-6 col-md-6 col-sm-6 col-xs-12" style="position:relative;">
+				<ul class="cb-slideshow" [ngStyle]="{'background-image': projects[5].projectImages[0]?.url}">
+						<li>
+							<span [ngStyle]="{'background-image': projects[5].projectImages[1]?.url}"></span>
+							<div [routerLink]="['/project', projects[5].id]">
+								<h3>{{ projects[5]?.title?.get(translate.currentLang)}}</h3>
+								<h5>{{ projects[5]?.subTitle?.get(translate.currentLang)}}</h5>
+							</div>
+						</li>
+						<li><span [ngStyle]="{'background-image': projects[5].projectImages[2]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[5].projectImages[3]?.url}"></span></li>
+						<li><span [ngStyle]="{'background-image': projects[5].projectImages[0]?.url}"></span></li>
+					</ul>
+			</div>
+		</div>
+	</ng-container>
+	<div class="other row scrollBehavior">
 		<div class="left col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="contact-us">
 				<div class="content">
-					<h1>contact us</h1>
-					<span>Visit our contact page to find the studio location nearest you.</span>
+					<h1 translate>home.contactUs</h1>
+					<span translate>home.contactUsSub</span>
 					<p>
-						<a routerLink="/about" class="button-border">Contact us +</a>
+						<a routerLink="/about" class="button-border" translate>home.contactUsLink</a>
 					</p>
 				</div>
 			</div>
 			<div class="grow-with-us">
 				<div class="content">
-					<h1>grown with us</h1>
-					<span>Learn about our global recruitment information and select career 
-					opportunities in architecture, design, planning and more.</span>
+					<h1 translate>home.growWithUs</h1>
+					<span translate>home.growWithUsSub</span>
 					<p>
-						<a routerLink="/grow-with-us" class="button-border">View careers +</a>
+						<a routerLink="/grow-with-us" class="button-border" translate>home.growWithUsLink</a>
 					</p>
 				</div>
 				<i class="fa fa-camera-retro fa-lg"></i>

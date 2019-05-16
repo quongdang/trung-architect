@@ -1,7 +1,7 @@
 <div class="projects row">
     <ng-container *ngFor="let project of projects; let i = index">
         <div *ngIf="i == 0" class="box col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class='content'[ngStyle]="{'background-image': project.images1}">
+            <div class='content'[ngStyle]="{'background-image': project.projectImages[0].url}">
                 <div class="preview-info">
                     <h3>{{ project.title.get(translate.currentLang)}}</h3>
                     <span>{{ project.subTitle.get(translate.currentLang)}}</span>
@@ -15,7 +15,7 @@
             </div>
         </div> 
         <div *ngIf="i > 0" class="box col-lg-3 col-md-3 col-sm-3 col-xs-6">
-            <div class='content'[ngStyle]="{'background-image': project.images1}">
+            <div class='content'[ngStyle]="{'background-image': project.projectImages[0].url}">
                 <div class="preview-info">
                     <h3>{{ project.title.get(translate.currentLang)}}</h3>
                     <span>{{ project.subTitle.get(translate.currentLang)}}</span>

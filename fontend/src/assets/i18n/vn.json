@@ -1,4 +1,12 @@
 {
+    "home": {
+        "contactUs": "Liên hệ với chúng tôi",
+        "contactUsSub" : "Ghé thăm trang liên hệ để biết thêm các văn phòng gần bạn nhất.",
+        "contactUsLink": "Liên hệ +",
+        "growWithUs": "Cùng lớn mạnh",
+        "growWithUsSub": "Cùng tìm hiểu thêm các cơ hội nghề nghiệp trong thiết kế, trang trí nội thất cùng chúng tôi.",
+        "growWithUsLink": "Xem thông tin nghề nghiệp +"
+    },
     "sidebar": {
         "title": "Chuyển tới mục lục",
         "home": "Trang chủ",

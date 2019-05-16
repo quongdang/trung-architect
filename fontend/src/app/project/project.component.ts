@@ -34,6 +34,7 @@ export class ProjectComponent implements OnInit {
       this.router.navigate(['']);
   }
 
+  
   getAllProjects() {
     this.projectService.getAllData().subscribe((res: ResponseWrapper) => {
       const data = res.json;
@@ -44,16 +45,31 @@ export class ProjectComponent implements OnInit {
         
         const mapSubTitle = new Map();
         mapSubTitle.set("vn", project.subtitle_vn);
-        mapSubTitle.set("en", project.subtitle_en);
+        mapSubTitle.set("en", project.subtitle_en);        
+        
+        const mapMetadata= new Map();
+        mapMetadata.set("vn", project.metadata_vn);
+        mapMetadata.set("en", project.metadata_en);
+
+        var projectImages = [];
+        for(const image of project.project_images)  {
+          const mapDescription = new Map();
+          mapDescription.set("vn", image.description_vn);
+          mapDescription.set("en", image.description_en);
+          const data = {
+            id: image.id,
+            url: "url('" + this.baseURL + "/" + image.image_link + "')",
+            description: mapDescription,
+            display: image.display
+          }
+          projectImages.push(data);
+        }
+
         const data = {
           id: project.id,
           title: mapTitle,
           subTitle: mapSubTitle,
-          url: this.baseURL + "/" + project.image0,
-          images1: "url('" + this.baseURL + "/" + project.image0 + "')",
-          images2: "url('" + this.baseURL + "/" + project.image1 + "')",
-          images3: "url('" + this.baseURL + "/" + project.image2 + "')",
-          images4: "url('" + this.baseURL + "/" + project.image3 + "')"
+          projectImages: projectImages
         };
         this.projects.push(data);
       }
@@ -68,7 +84,7 @@ export class ProjectComponent implements OnInit {
     const modalRef = this.modalService.open(PopupModalContent, options);
     modalRef.componentInstance.header = this.projects[index].title.get(this.translate.currentLang);
     modalRef.componentInstance.content = this.projects[index].subTitle.get(this.translate.currentLang);
-    modalRef.componentInstance.backgroundImage = this.projects[index].images1;
+    modalRef.componentInstance.backgroundImage = this.projects[index].projectImages[0].url;
     modalRef.componentInstance.link = "/project/" + this.projects[index].id;
     modalRef.componentInstance.linkName = "View details";
   }

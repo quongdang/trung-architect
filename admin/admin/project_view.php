@@ -4,7 +4,7 @@
 	if(!$_SESSION['email'])
 	{
 
-		header("Location: admin.php");//redirect to login page to secure the welcome page without login access.
+		header("Location: index.php");//redirect to login page to secure the welcome page without login access.
 	}
 	
 	include_once('curl_function.php');
@@ -12,7 +12,7 @@
 
 <div class="table-scrol">
 	<h1 align="center">All the Projects</h1>
-	<a href="admin.php?page=projects&type=create"><button class="btn btn-danger">Create</button></a><br/>
+	<a href="index.php?page=projects&type=create"><button class="btn btn-danger">Create</button></a><br/>
 	<?php
 		if (isset($_GET['del']))
 		{
@@ -27,8 +27,8 @@
 			$get_data = callAPI('POST', '/api/project/delete.php', json_encode($data_array));
 			$response = json_decode($get_data, true);
 			$data = $response['message'];
-			
-			echo "<script>window.open('admin.php?page=projects','_self')</script>";
+			echo $data;
+			echo "<script>window.open('index.php?page=projects','_self')</script>";
 		}
 	?>
 	<div class="table-responsive">
@@ -65,8 +65,8 @@
 							?>
 						</td>
 						<td>
-							<a href="admin.php?page=projects&type=edit&id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
-							<a href="admin.php?page=projects&del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
+							<a href="index.php?page=projects&type=edit&id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
+							<a href="index.php?page=projects&del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
 						</td>
 					</tr>
 				<?php }

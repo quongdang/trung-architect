@@ -8,6 +8,7 @@ header('Content-Type: application/json');
 // include database and object files
 include_once '../../configDb/database.php';
 include_once '../objects/project.php';
+include_once '../objects/projectImage.php';
  
 // get database connection
 $database = new Database();
@@ -21,6 +22,8 @@ $project->id = isset($_GET['id']) ? $_GET['id'] : die();
  
 // read the details of project to be edited
 $project->readOne();
+$projectImage = new ProjectImage($db);
+$projectImage->project_id = $project->id;
  
 // create array
 $project_arr = array(
@@ -35,7 +38,10 @@ $project_arr = array(
     "subtitle_en" => $project->subtitle_en,
 	"content_vn" => html_entity_decode(htmlspecialchars_decode($project->content_vn)),
 	"content_en" => html_entity_decode(htmlspecialchars_decode($project->content_en)),
+    "metadata_vn" => json_decode($project->metadata_vn),
+    "metadata_en" => json_decode($project->metadata_en),
     "category_id" => $project->category_id,
+    "project_images"=> $projectImage->readByProjectIdToArray(),
     "created" => $project->created 
 );
  

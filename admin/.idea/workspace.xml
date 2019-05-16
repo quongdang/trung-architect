@@ -84,7 +84,7 @@
       <find>openCity</find>
     </findStrings>
     <replaceStrings>
-      <replace>admin.php</replace>
+      <replace>index.php</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">

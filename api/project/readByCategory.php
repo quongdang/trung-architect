@@ -6,6 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 include_once '../../configDb/database.php';
 include_once '../objects/project.php';
+include_once '../objects/projectImage.php';
  
 // instantiate database and project object
 $database = new Database();
@@ -13,12 +14,16 @@ $db = $database->getConnection();
  
 // initialize object
 $project = new Project($db);
- 
-// get keywords
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
+$project->category_id = isset($_GET['category_id']) ? $_GET['category_id'] : die();
+
+if (isset($_GET['id'])) {
+    $project->id = $_GET['id'];
+    $stmt = $project->readByCategoryExceptProject();
+} else {    
+    $stmt = $project->readByCategory();
+}
  
 // query projects
-$stmt = $project->search($keywords);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
@@ -35,13 +40,16 @@ if($num>0){
         // this will make $row['name'] to
         // just $name only
         extract($row);
+
+        $projectImage = new ProjectImage($db);
+        $projectImage->project_id = $id;
  
         $project_item=array(
             "id" => $id,
-			"image0" =>  $project->image0,
-            "image1" =>  $project->image1,
-            "image2" =>  $project->image2,
-            "image3" =>  $project->image3,
+            "image0" => $image0,
+            "image1" => $image1,
+            "image2" => $image2,
+            "image3" => $image3,
             "title_vn" => $title_vn,
 			"title_en" => $title_en,
 			"subtitle_vn" => $subtitle_vn,
@@ -51,6 +59,7 @@ if($num>0){
 			"metadata_vn" => json_decode($metadata_vn),
 			"metadata_en" => json_decode($metadata_en),
             "category_id" => $category_id,
+            "project_images"=> $projectImage->readByProjectIdToArray(),
 			"created" => $created
         );
  

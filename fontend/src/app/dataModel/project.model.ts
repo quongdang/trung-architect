@@ -12,6 +12,8 @@ export class Project implements BaseEntity {
         public images3?: String,
         public images4?: String,
         public created?: Date,
+        public projectImages: any[] = [],
+        public metadata?: Map<String, any>,
     ) {
     }
 }

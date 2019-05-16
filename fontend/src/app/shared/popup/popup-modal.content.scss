@@ -17,3 +17,19 @@
         padding: 40px 40px;
     }
 }
+
+.link {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    border: 1px solid #0076be;
+    background-color: #0076be;
+    color: #fff;
+    padding: 5px 15px;
+}
+
+.link:hover {
+    border: 1px solid gray;
+    background-color: gray;
+}

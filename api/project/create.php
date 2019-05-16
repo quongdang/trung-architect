@@ -11,6 +11,7 @@ include_once '../../configDb/database.php';
  
 // instantiate project object
 include_once '../objects/project.php';
+include_once '../objects/projectImage.php';
  
 $database = new Database();
 $db = $database->getConnection();
@@ -31,13 +32,31 @@ $project->subtitle_vn = $data->subtitle_vn;
 $project->subtitle_en = $data->subtitle_en;
 $project->content_vn = $data->content_vn;
 $project->content_en = $data->content_en;
+$project->metadata_vn = json_encode($data->metadata_vn);
+$project->metadata_en = json_encode($data->metadata_en);
 $project->category_id = $data->category_id;
 $project->created = date('Y-m-d H:i:s');
- 
 // create the project
 if($project->create()){
     echo '{';
-        echo '"message": "Project was created."';
+        echo '"message": "Project [' . $project->id .'] was created."';
+        if ($data->project_images) {
+            echo ', "projectImageResults": "';
+            foreach($data->project_images as $item) {
+                $image = new ProjectImage($db);
+                $image->image_link = $item->image_link;
+                $image->project_id = $project->id;
+                $image->description_vn = $item->description_vn;
+                $image->description_en = $item->description_en;
+                $image->display = $item->display;
+                if($image->create()) {
+                    echo 'Image '. $image->id.' created success. ';
+                }else {
+                    echo 'Unable to create project image ['.$image->image_link.']. ';
+                }
+            }
+            echo '"';
+        }
     echo '}';
 }
  

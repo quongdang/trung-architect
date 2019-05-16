@@ -1,4 +1,12 @@
 {
+    "home": {
+        "contactUs": "contact us",
+        "contactUsSub" : "Visit our contact page to find the studio location nearest you.",
+        "contactUsLink": "Contact us +",
+        "growWithUs": "grown with us",
+        "growWithUsSub": "Learn about our global recruitment information and select career opportunities in architecture, design, planning and more.",
+        "growWithUsLink": "View careers +"
+    },
     "sidebar": {
         "title": "Jump to a section",
         "home": "Home",

@@ -6,6 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 include_once '../../configDb/database.php';
 include_once '../objects/project.php';
+include_once '../objects/projectImage.php';
  
 // instantiate database and project object
 $database = new Database();
@@ -32,6 +33,9 @@ if($num>0){
         // this will make $row['name'] to
         // just $name only
         extract($row);
+
+        $projectImage = new ProjectImage($db);
+        $projectImage->project_id = $id;
  
         $project_item=array(
             "id" => $id,
@@ -45,7 +49,10 @@ if($num>0){
 			"subtitle_en" => $subtitle_en,
 			"content_vn" => html_entity_decode(htmlspecialchars_decode($content_vn)),
 			"content_en" => html_entity_decode(htmlspecialchars_decode($content_en)),
+			"metadata_vn" => json_decode($metadata_vn),
+			"metadata_en" => json_decode($metadata_en),
             "category_id" => $category_id,
+            "project_images"=> $projectImage->readByProjectIdToArray(),
 			"created" => $created
         );
  

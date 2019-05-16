@@ -4,7 +4,7 @@
 	if(!$_SESSION['email'])
 	{
 
-		header("Location: admin.php");//redirect to login page to secure the welcome page without login access.
+		header("Location: index.php");//redirect to login page to secure the welcome page without login access.
 	}
 	
 	include_once('curl_function.php');
@@ -42,7 +42,7 @@
 			$response = json_decode($get_data, true);
 			$create = $response['message'];
 			echo $create;
-			echo "<script>window.open('admin.php?page=categories','_self')</script>";
+			echo "<script>window.open('index.php?page=categories','_self')</script>";
 		} else if (isset($_GET['id'])) {
 			$get_data = callAPI('GET', '/api/category/read_one.php?id='.(string)($_GET['id']), null);
 			$response = json_decode($get_data, true);
@@ -54,7 +54,7 @@
 		$categories = $response['records'];
 
 		?>
-		<form action="admin.php?page=categories&type=create" method="post" enctype="multipart/form-data">
+		<form action="index.php?page=categories&type=create" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="<?php echo  $data['id'] ?>"/>
 			<div class="tab">
 				<button type="button" class="tablinks" onclick="openCity(event, 'vn')" id="defaultOpen">Tiếng Việt</button>

@@ -11,11 +11,13 @@ include_once '../../configDb/database.php';
  
 // instantiate project object
 include_once '../objects/project.php';
+include_once '../objects/projectImage.php';
  
 $database = new Database();
 $db = $database->getConnection();
  
 $project = new Project($db);
+$projectImage = new ProjectImage($db);
  
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
@@ -23,18 +25,40 @@ $data = json_decode(file_get_contents("php://input"));
 // set project property values
 $project->id = $data->id;
 
-// delete the project
-if($project->delete()){
-    echo '{';
-        echo '"message": "Project ['.$data->id.'] was deleted."';
-    echo '}';
+// Delete image file and project image data
+$projectImage->project_id = $data->id;
+$stmt = $projectImage->readByProjectId();
+$num = $stmt->rowCount();
+$deleteAllImages = true;
+if($num>0){
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        // extract row
+        extract($row);
+        if (!unlink("../".$image_link)) {
+            echo "Couldn't delete file [".$image_link."]. ";
+        } 
+    }
 }
- 
-// if unable to delete the project
-else{
+
+if (!$projectImage->deleteByProjectId()) {        
     echo '{';
-        echo '"message": "Unable to delete object."';
+        echo '"message": "Unable to delete Project Images."';
     echo '}';
+    $deleteAllImages = false;
 }
- 
+
+if($deleteAllImages) {
+    if($project->delete()){
+        echo '{';
+            echo '"message": "Project ['.$data->id.'] was deleted."';
+        echo '}';
+    }
+    
+    // if unable to delete the project
+    else{
+        echo '{';
+            echo '"message": "Unable to delete object."';
+        echo '}';
+    }
+}
 ?>

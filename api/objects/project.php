@@ -3,7 +3,7 @@ class Project{
  
     // database connection and table name
     private $conn;
-    private $table_name = "projects";
+    private $table_name = "project";
  
     // object properties
     public $id;
@@ -20,7 +20,9 @@ class Project{
     public $category_id;
 	public $category_vn;
 	public $category_en;
-    public $created;
+	public $created;
+	public $metadata_vn;
+	public $metadata_en;
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -36,6 +38,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
+					p.metadata_vn, p.metadata_en,
 					p.created, p.category_id, 
 					p.image0, p.image1, 
 					p.image2, p.image3
@@ -63,16 +66,14 @@ class Project{
 		$query = "INSERT INTO
 					" . $this->table_name . "
 				SET
-					image0=:image0,
-					image1=:image1,
-					image2=:image2,
-					image3=:image3,
 					title_vn=:title_vn, 
 					title_en=:title_en,
 					subtitle_vn=:subtitle_vn,
 					subtitle_en=:subtitle_en,
 					content_vn=:content_vn,
 					content_en=:content_en,
+					metadata_vn=:metadata_vn,
+					metadata_en=:metadata_en,
 					category_id=:category_id, 
 					created=:created";
 	 
@@ -80,10 +81,6 @@ class Project{
 		$stmt = $this->conn->prepare($query);
 	 
 		// sanitize
-		$this->image0=htmlspecialchars(strip_tags($this->image0));
-        $this->image1=htmlspecialchars(strip_tags($this->image1));
-        $this->image2=htmlspecialchars(strip_tags($this->image2));
-        $this->image3=htmlspecialchars(strip_tags($this->image3));
 		$this->title_vn=htmlspecialchars(strip_tags($this->title_vn));
 		$this->title_en=htmlspecialchars(strip_tags($this->title_en));
 		$this->subtitle_vn=htmlspecialchars(strip_tags($this->subtitle_vn));
@@ -94,21 +91,20 @@ class Project{
 		$this->created=htmlspecialchars(strip_tags($this->created));
 	 
 		// bind values
-		$stmt->bindParam(":image0", $this->image0);
-        $stmt->bindParam(":image1", $this->image1);
-        $stmt->bindParam(":image2", $this->image2);
-        $stmt->bindParam(":image3", $this->image3);
 		$stmt->bindParam(":title_vn", $this->title_vn);
 		$stmt->bindParam(":title_en", $this->title_en);
 		$stmt->bindParam(":subtitle_vn", $this->subtitle_vn);
 		$stmt->bindParam(":subtitle_en", $this->subtitle_en);
 		$stmt->bindParam(":content_vn", $this->content_vn);
 		$stmt->bindParam(":content_en", $this->content_en);
+		$stmt->bindParam(":metadata_vn", $this->metadata_vn);
+		$stmt->bindParam(":metadata_en", $this->metadata_en);
 		$stmt->bindParam(":category_id", $this->category_id);
 		$stmt->bindParam(":created", $this->created);
 
 		// execute query
 		if($stmt->execute()){
+			$this->id = $this->conn->lastInsertId();
 			return true;
 		}
 	 
@@ -125,6 +121,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
+					p.metadata_vn, p.metadata_en,
 					p.created, p.category_id, 
 					p.image0, p.image1,
 					p.image2, p.image3
@@ -161,6 +158,8 @@ class Project{
 		$this->subtitle_en = $row['subtitle_en'];
 		$this->content_vn = $row['content_vn'];
 		$this->content_en = $row['content_en'];
+		$this->metadata_vn = $row['metadata_vn'];
+		$this->metadata_en = $row['metadata_en'];
 		$this->category_id = $row['category_id'];
 		$this->created = $row['created'];
 	}
@@ -182,6 +181,8 @@ class Project{
 					subtitle_en=:subtitle_en,
 					content_vn=:content_vn,
 					content_en=:content_en,
+					metadata_vn=:metadata_vn,
+					metadata_en=:metadata_en,
 					category_id=:category_id
 				WHERE
 					id = :id";
@@ -214,6 +215,8 @@ class Project{
 		$stmt->bindParam(":subtitle_en", $this->subtitle_en);
 		$stmt->bindParam(":content_vn", $this->content_vn);
 		$stmt->bindParam(":content_en", $this->content_en);
+		$stmt->bindParam(":metadata_vn", $this->metadata_vn);
+		$stmt->bindParam(":metadata_en", $this->metadata_en);
 		$stmt->bindParam(":category_id", $this->category_id);
 		$stmt->bindParam(":id", $this->id);
 	 
@@ -258,6 +261,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
+					p.metadata_vn, p.metadata_en,
 					p.created, p.category_id, p.image
 				FROM
 					" . $this->table_name . " p
@@ -271,6 +275,8 @@ class Project{
 					OR p.subtitle_en LIKE ?
 					OR p.content_vn LIKE ?
 					OR p.content_en LIKE ?
+					OR p.metadata_vn LIKE ?
+					OR p.metadata_en LIKE ?
 					OR c.category_vn LIKE ?
 					OR c.category_en LIKE ?
 				ORDER BY
@@ -292,6 +298,82 @@ class Project{
 		$stmt->bindParam(6, $keywords);
 		$stmt->bindParam(7, $keywords);
 		$stmt->bindParam(8, $keywords);
+		$stmt->bindParam(9, $keywords);
+		$stmt->bindParam(10, $keywords);
+	 
+		// execute query
+		$stmt->execute();
+	 
+		return $stmt;
+	}
+
+	// read projects by catergory 
+	function readByCategory(){
+	 
+		// select all query
+		$query = "SELECT
+					c.category_vn, c.category_en, 
+					p.id, p.title_vn, p.title_en,
+					p.subtitle_vn, p.subtitle_en, 
+					p.content_vn, p.content_en,
+					p.metadata_vn, p.metadata_en,
+					p.created, p.category_id, 
+					p.image0, p.image1, 
+					p.image2, p.image3
+				FROM
+					" . $this->table_name . " p
+					LEFT JOIN
+						categories c
+							ON p.category_id = c.id
+				WHERE
+					p.category_id = :category_id
+				ORDER BY
+					p.created DESC";
+	 
+		// prepare query statement
+		$stmt = $this->conn->prepare($query);
+		
+		// bind
+		$stmt->bindParam(":category_id", $this->category_id);
+	 
+		// execute query
+		$stmt->execute();
+	 
+		return $stmt;
+	}
+	
+
+	// read projects by catergory 
+	function readByCategoryExceptProject(){
+	 
+		// select all query
+		$query = "SELECT
+					c.category_vn, c.category_en, 
+					p.id, p.title_vn, p.title_en,
+					p.subtitle_vn, p.subtitle_en, 
+					p.content_vn, p.content_en,
+					p.metadata_vn, p.metadata_en,
+					p.created, p.category_id, 
+					p.image0, p.image1, 
+					p.image2, p.image3
+				FROM
+					" . $this->table_name . " p
+					LEFT JOIN
+						categories c
+							ON p.category_id = c.id
+				WHERE
+					p.category_id = :category_id
+					AND
+					p.id <> :id
+				ORDER BY
+					p.created DESC";
+	 
+		// prepare query statement
+		$stmt = $this->conn->prepare($query);
+		
+		// bind
+		$stmt->bindParam(":category_id", $this->category_id);
+		$stmt->bindParam(":id", $this->id);
 	 
 		// execute query
 		$stmt->execute();
