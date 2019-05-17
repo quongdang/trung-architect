@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { switchMap } from 'rxjs/operators';
 import { TranslateService} from '@ngx-translate/core';
 import { projectRoutes } from './project.route';
@@ -7,7 +8,7 @@ import { ResponseWrapper} from '../dataModel/responseWrapper.model';
 import { environment} from '../../environments/environment';
 import { ProjectService } from '../services/project.service';
 import { Project} from '../dataModel/project.model';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { PopupModalContent } from '../shared/popup/popup-modal.content';
 import * as $ from 'jquery';
 
 @Component({
@@ -27,7 +28,8 @@ export class ProjectDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,              
     public translate: TranslateService,
-    private projectService: ProjectService) {
+    private projectService: ProjectService,
+    private modalService: NgbModal) {
   }
   ngOnInit() {    
     this.route.params.subscribe((res) => { 
@@ -105,9 +107,12 @@ export class ProjectDetailsComponent implements OnInit {
           title: mapTitle,
           subTitle: mapSubTitle,
           content: mapContent,
+          metadata: mapMetadata,
           projectImages: projectImages
         };
         this.getOtherProjects(project.category_id, project.id);
+        console.log(res.json);
+        console.log(this.data);
     });
   }
 
@@ -149,8 +154,18 @@ export class ProjectDetailsComponent implements OnInit {
         };
         this.projects.push(data);
       }
-      console.log("get data");
-      console.log(this.projects);
     });
   }  
+  quickView(index: any) {
+    let options: NgbModalOptions = {
+      size: 'lg',
+      centered: true
+    };
+    const modalRef = this.modalService.open(PopupModalContent, options);
+    modalRef.componentInstance.header = this.projects[index].title.get(this.translate.currentLang);
+    modalRef.componentInstance.content = this.projects[index].subTitle.get(this.translate.currentLang);
+    modalRef.componentInstance.backgroundImage = this.projects[index].projectImages[0].url;
+    modalRef.componentInstance.link = "/project/" + this.projects[index].id;
+    modalRef.componentInstance.linkName = "View details";
+  }
 }

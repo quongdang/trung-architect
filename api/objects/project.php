@@ -87,6 +87,8 @@ class Project{
 		$this->subtitle_en=htmlspecialchars(strip_tags($this->subtitle_en));
 		$this->content_vn=htmlspecialchars(strip_tags($this->content_vn));
 		$this->content_en=htmlspecialchars(strip_tags($this->content_en));
+		$this->metadata_vn=htmlspecialchars(strip_tags($this->metadata_vn));
+		$this->metadata_en=htmlspecialchars(strip_tags($this->metadata_en));
 		$this->category_id=htmlspecialchars(strip_tags($this->category_id));
 		$this->created=htmlspecialchars(strip_tags($this->created));
 	 
@@ -201,6 +203,8 @@ class Project{
 		$this->subtitle_en=htmlspecialchars(strip_tags($this->subtitle_en));
 		$this->content_vn=htmlspecialchars(strip_tags($this->content_vn));
 		$this->content_en=htmlspecialchars(strip_tags($this->content_en));
+		$this->metadata_vn=htmlspecialchars(strip_tags($this->metadata_vn));
+		$this->metadata_en=htmlspecialchars(strip_tags($this->metadata_en));
 		$this->category_id=htmlspecialchars(strip_tags($this->category_id));
 		$this->id=htmlspecialchars(strip_tags($this->id));
 	 

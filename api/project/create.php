@@ -39,9 +39,10 @@ $project->created = date('Y-m-d H:i:s');
 // create the project
 if($project->create()){
     echo '{';
-        echo '"message": "Project [' . $project->id .'] was created."';
+        echo '"message": "Project [' . $project->id .'] was created.",';
+        echo '"result": "SUCCESS",';
+        echo '"projectImageResults": "';
         if ($data->project_images) {
-            echo ', "projectImageResults": "';
             foreach($data->project_images as $item) {
                 $image = new ProjectImage($db);
                 $image->image_link = $item->image_link;
@@ -55,8 +56,8 @@ if($project->create()){
                     echo 'Unable to create project image ['.$image->image_link.']. ';
                 }
             }
-            echo '"';
         }
+        echo '"';
     echo '}';
 }
  
@@ -64,6 +65,7 @@ if($project->create()){
 else{
     echo '{';
         echo '"message": "Unable to create project."';
+        echo '"result": "FAILURE"';
     echo '}';
 }
 ?>

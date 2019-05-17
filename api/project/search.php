@@ -48,8 +48,8 @@ if($num>0){
 			"subtitle_en" => $subtitle_en,
 			"content_vn" => html_entity_decode(htmlspecialchars_decode($content_vn)),
 			"content_en" => html_entity_decode(htmlspecialchars_decode($content_en)),
-			"metadata_vn" => json_decode($metadata_vn),
-			"metadata_en" => json_decode($metadata_en),
+            "metadata_vn" => json_decode(htmlspecialchars_decode($metadata_vn)),
+            "metadata_en" => json_decode(htmlspecialchars_decode($metadata_en)),
             "category_id" => $category_id,
 			"created" => $created
         );

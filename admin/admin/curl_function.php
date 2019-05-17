@@ -50,9 +50,13 @@
 	function filetowrite($filetowrite, $temp) {
 		$imageFolder = "../images/";
 		$now = new DateTime(null, new DateTimeZone('America/New_York'));
+		if (strlen($filetowrite) > 0) {
+			!unlink($filetowrite);
+		} 
 		if ($temp['name']){
 			$filetowrite = $imageFolder . ($now->getTimestamp()) . '-' . $temp['name'];
-			move_uploaded_file($temp['tmp_name'], $filetowrite);
+			// move_uploaded_file($temp['tmp_name'], $filetowrite);
+			compress_image($temp['tmp_name'], $filetowrite, 80);
 		}
 		return $filetowrite;
 	}
@@ -70,5 +74,21 @@
 		}
 	
 		return $file_ary;
+	}
+
+	function compress_image($source_url, $destination_url, $quality) {
+		$info = getimagesize($source_url);
+
+		if ($info['mime'] == 'image/jpeg')
+				$image = imagecreatefromjpeg($source_url);
+
+		elseif ($info['mime'] == 'image/gif')
+				$image = imagecreatefromgif($source_url);
+
+		elseif ($info['mime'] == 'image/png')
+				$image = imagecreatefrompng($source_url);
+
+		imagejpeg($image, $destination_url, $quality);
+		return $destination_url;
 	}
 ?>	

@@ -38,13 +38,13 @@ $project_arr = array(
     "subtitle_en" => $project->subtitle_en,
 	"content_vn" => html_entity_decode(htmlspecialchars_decode($project->content_vn)),
 	"content_en" => html_entity_decode(htmlspecialchars_decode($project->content_en)),
-    "metadata_vn" => json_decode($project->metadata_vn),
-    "metadata_en" => json_decode($project->metadata_en),
+    "metadata_vn" => json_decode(htmlspecialchars_decode($project->metadata_vn)),
+    "metadata_en" => json_decode(htmlspecialchars_decode($project->metadata_en)),
     "category_id" => $project->category_id,
     "project_images"=> $projectImage->readByProjectIdToArray(),
     "created" => $project->created 
 );
- 
+// print_r(htmlspecialchars_decode($project->metadata_en));
 // make it json format
 print_r(json_encode($project_arr));
 ?>

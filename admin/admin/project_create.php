@@ -95,7 +95,7 @@
 			$get_data = callAPI('GET', '/api/projectImage/read_by_project.php?id='.(string)($_GET['id']), null);
 			$response = json_decode($get_data, true);
 			$photoImages = $response['records'];
-		}
+		} 
 		
 		$get_data = callAPI('GET', '/api/category/read.php', null);
 		$response = json_decode($get_data, true);
@@ -124,7 +124,7 @@
 			<div id="vn" class="tabcontent vn">
 				Tiêu đề: <input type="text" name="title_vn" value="<?php echo $data['title_vn'] ?>"/><br/>
 				Giới thiệu: <textarea name="subtitle_vn" rows="4" style="width: 100%"><?php echo $data['subtitle_vn'] ?></textarea><br/>
-				Địa điểm: <input type="text" name="localtion_vn" value="<?php echo $data['metadata_vn']['location'] ?>"/><br/>
+				Địa điểm: <input type="text" name="location_vn" value="<?php echo $data['metadata_vn']['location'] ?>"/><br/>
 				Kích cỡ: <input type="text" name="size_vn" value="<?php echo  $data['metadata_vn']['size'] ?>"/><br/>
 				Trạng thái: <input type="text" name="status_vn" value="<?php echo  $data['metadata_vn']['status'] ?>"/><br/>
 				Khách hàng:<input type="text" name="client_vn" value="<?php echo  $data['metadata_vn']['client'] ?>"/><br/>
@@ -136,7 +136,7 @@
 				<input type="text" name="title_en" value="<?php echo $data['title_en'] ?>"/><br/>
 				Short description:
 				<textarea name="subtitle_en" rows="4" style="width: 100%"><?php echo $data['subtitle_en'] ?></textarea><br/>
-				Location: <input type="text" name="localtion_en" value="<?php echo $data['metadata_en']['location'] ?>"/><br/>
+				Location: <input type="text" name="location_en" value="<?php echo $data['metadata_en']['location'] ?>"/><br/>
 				Size: <input type="text" name="size_en" value="<?php echo  $data['metadata_en']['size'] ?>"/><br/>
 				Status: <input type="text" name="status_en" value="<?php echo  $data['metadata_en']['status'] ?>"/><br/>
 				Client:<input type="text" name="client_en" value="<?php echo  $data['metadata_en']['client'] ?>"/><br/>

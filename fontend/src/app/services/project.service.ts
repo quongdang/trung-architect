@@ -36,7 +36,6 @@ export class ProjectService {
   }
 
   private convertResponse(res: Response): ResponseWrapper {
-    console.log(res);
     const jsonResponse = res.json();
     return new ResponseWrapper(res.headers, jsonResponse, res.status);
   }

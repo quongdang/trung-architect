@@ -122,7 +122,8 @@
 				<div class="content">
 					<h1>Project</h1>
 					<ul>
-						<li *ngFor= "let category of categories; let i = index" routerLink="/project">
+						<li *ngFor= "let category of categories; let i = index" 
+							[routerLink]="['/project']" [queryParams]="{category_id: category.id}">
 							{{ category?.title?.get(translate.currentLang)}}
 						</li>
 					</ul>

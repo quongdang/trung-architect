@@ -45,8 +45,9 @@ $project->category_id = $data->category_id;
 if($project->update()){
     echo '{';
         echo '"message": "Project was updated."';
+        echo '"result": "SUCCESS",';
+        echo '"projectImagesResult": "';
         if ($data->project_images) {
-            echo ', "projectImagesResult": "';
             foreach($data->project_images as $item) {
                 $image = new ProjectImage($db);
                 $image->image_link = $item->image_link;
@@ -71,8 +72,8 @@ if($project->update()){
                     }
                 }
             }
-            echo '"';
         }
+        echo '"';
     echo '}';
 }
  
@@ -80,6 +81,7 @@ if($project->update()){
 else{
     echo '{';
         echo '"message": "Unable to update project."';
+        echo '"result": "FAILURE"';
     echo '}';
 }
 ?>

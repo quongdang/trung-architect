@@ -16,6 +16,12 @@ export class CategoryService {
         (res: Response) => this.convertResponse(res)
       );
   }
+  
+  getData(req?: any): Observable<ResponseWrapper> {    
+    return this.http.get(this.baseURL + '/api/category/read_one.php?id='+  req).map(
+      (res: Response) => this.convertResponse(res)
+    );
+}
 
   private convertResponse(res: Response): ResponseWrapper {
     const jsonResponse = res.json();
