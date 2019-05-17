@@ -1,6 +1,3 @@
-<?php
-session_start();//session starts here
-?>
 <html>
 	<head lang="en">
 		<meta charset="UTF-8">
@@ -11,7 +8,7 @@ session_start();//session starts here
 	</head>
 	<body>
 		<?php
-		if(!$_SESSION['email'])
+		if(!$_COOKIE['jwt'])
 		{    include_once("admin/login.php");
 		}else {		
 			?>

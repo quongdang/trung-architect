@@ -37,7 +37,7 @@
             <ng-container *ngFor="let project of projects; let i = index">
                 <div *ngIf="i < 4" class="box col-lg-3 col-md-3 col-sm-3 col-xs-6">
                     <div class='content'[ngStyle]="{'background-image': project.projectImages[0].url}">
-                        <div class="preview-info">
+                        <div class="preview-info" [routerLink]="['/project', project.id]">
                             <h3>{{ project.title.get(translate.currentLang)}}</h3>
                             <span>{{ project.subTitle.get(translate.currentLang)}}</span>
                         </div>

@@ -2,8 +2,6 @@ ALTER TABLE `projects`
 ADD COLUMN `metadata_vn` LONGTEXT NULL AFTER `created`,
 ADD COLUMN `metadata_en` LONGTEXT NULL AFTER `metadata_vn`;
 
-ALTER TABLE `project_images` 
-RENAME TO  `project_image` ;
 
 CREATE TABLE `project_image` (
   `id` INT NOT NULL AUTO_INCREMENT,

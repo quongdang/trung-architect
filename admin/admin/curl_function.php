@@ -1,5 +1,4 @@
 <?php	
-	
 	function console_log( $data ){
 		echo '<script>';
 		echo 'console.log('. json_encode( $data ) .')';
@@ -29,7 +28,7 @@
 		// OPTIONS:
 		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-			'APIKEY: 111111111111111111111',
+			'TOKEN: ' + $_COOKIE['jwt'],
 			'Content-Type: application/json',
 		));
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);

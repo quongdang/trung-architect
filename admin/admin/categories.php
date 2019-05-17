@@ -1,7 +1,5 @@
 <?php
-	session_start();
-
-	if(!$_SESSION['email'])
+	if(!$_COOKIE['jwt'])
 	{
 
 		header("Location: index.php");//redirect to login page to secure the welcome page without login access.
