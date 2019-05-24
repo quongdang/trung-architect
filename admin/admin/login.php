@@ -10,7 +10,7 @@
                     <form id="login_form">
                         <fieldset>
                             <div class="form-group"  >
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                <input class="form-control" placeholder="E-mail" id="email" name="email" type="email" autofocus>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -71,19 +71,16 @@
             contentType : 'application/json',
             data : form_data,
             success : function(result) {
-                // if response is a success, tell the user it was a successful sign up & empty the input boxes
-                //$('#response').html("<div class='alert alert-success'>Successful sign up. Please login.</div>");
-                //login_form.find('input').val('');
                 if (result.jwt) {
                     // store jwt to cookie
                     setCookie("jwt", result.jwt, 1);
-                    setCookie("email", form_data.email, 1);
+                    setCookie("email", $('#email').val(), 1);
                     window.open('index.php','_self');
                 }
             },
             error: function(xhr, resp, text){
                 // on error, tell the user sign up failed
-                $('#response').html("<div class='alert alert-danger'>Unable to sign in. Please contact admin.</div>");
+                $('#response').html("<div class='alert alert-danger'>Your email and password do not match. Please try again.</div>");
                 console.log(resp);
             }
         });

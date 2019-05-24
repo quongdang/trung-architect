@@ -14,8 +14,36 @@
         "projects": "Projects",
         "people": "People",
         "culture": "Culture",
-        "contact": "Contact"
+        "contact": "Contact",
+        "growWithUs": "Grow with us"
+    }, 
+    "contactUs": {
+        "getInTouch": "Get in touch",
+        "fillQuickForm": "Please fill out the quick form and we will be in touch with lightening speed.",
+        "connectWithUs": {
+            "connectWithUs":"Connect with us",
+            "supportOrQuestion": "For support or any questions:",
+            "emailUsAt": "Email us at:"
+        },
+        "name": "Your name",
+        "email": "Email address",
+        "message": "Message",
+        "submit": "Submit"
     },
+    "growWithUs": {
+        "title": "Grow with us",
+        "otherCareer": "Other careers"
+    },
+    "project":{
+        "allProjects": "All projects",
+        "quickView": "Quick view +",
+        "details": "Details +",
+        "projectDetail": {
+            "details" : "Project details",
+            "photos" : "Project photos",
+            "other": "Other projects"
+        }
+    }, 
     "footer": {
     	"copyright": "© Copyright 2018, Trung Architects. All Rights Reserved.",
     	"contact": "Contact",

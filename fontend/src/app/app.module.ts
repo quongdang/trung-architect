@@ -11,10 +11,9 @@ import 'hammerjs';
 import 'rxjs/Rx';
 
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {AboutComponent} from './about/about.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {FooterComponent} from './footer/footer.component';
+import {HomeComponent} from './home/home.component';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -25,6 +24,7 @@ import { ProjectModule } from './project/project.module';
 import { GrowWithUsModule } from './growWithUs/growWithUs.module';
 import { ServiceModule } from './services/service.module';
 import { SharedModule } from './shared/shared.module';
+import { ContactUsModule } from './contactUs/contactUs.module';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import { SharedModule } from './shared/shared.module';
     ServiceModule,
     GrowWithUsModule,
     SharedModule,
+    ContactUsModule,
   ],
   providers: [
   ],

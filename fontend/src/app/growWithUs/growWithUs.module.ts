@@ -1,5 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule} from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { GrowWithUsComponent} from './growWithUs.component'
 import { GrowWithUsDetailsComponent} from './growWithUs-details.component'
@@ -12,7 +12,7 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         RouterModule.forChild(ENTITY_STATES),
-        CommonModule,
+        SharedModule,
     ],
     declarations: [
         GrowWithUsComponent,

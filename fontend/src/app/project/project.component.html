@@ -1,7 +1,6 @@
-<h3 class="projectName" *ngIf="category; else allProject">Category: {{ category?.title.get(translate.currentLang)}}</h3>
-<ng-template #allProject>
-    <h3 class="projectName" >All projects</h3>
-</ng-template>
+<h3 class="projectName" translate="project.allProjects" [routerLink]="['/project']">All projects</h3>
+<h3 class="projectName" *ngIf="category" [routerLink]="['/project']"  [queryParams]="{category_id: category.id}"> >> {{ category?.title.get(translate.currentLang)}}</h3>
+
 <div class="projects row">    
     <ng-container *ngFor="let project of projects; let i = index">
         <div *ngIf="i == 0" class="box col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -13,8 +12,8 @@
             </div>
             <div class="grayscale">
                 <div class="grayscale-inner">
-                    <div class="button" (click)="quickView(i)">Quick view +</div>
-                    <div class="button" [routerLink]="['/project', project.id]">Details +</div>
+                    <div class="button" (click)="quickView(i)" translate="project.quickView">Quick view +</div>
+                    <div class="button" [routerLink]="['/project', project.id]" translate="project.details">Details +</div>
                 </div>
             </div>
         </div> 
@@ -27,8 +26,8 @@
             </div>
             <div class="grayscale">
                 <div class="grayscale-inner">
-                    <div class="button" (click)="quickView(i)">Quick view +</div>
-                    <div class="button" [routerLink]="['/project', project.id]">Details +</div>
+                    <div class="button" (click)="quickView(i)" translate="project.quickView">Quick view +</div>
+                    <div class="button" [routerLink]="['/project', project.id]" translate="project.details">Details +</div>
                 </div>
             </div>
         </div>

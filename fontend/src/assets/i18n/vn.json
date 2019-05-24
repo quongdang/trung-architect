@@ -3,7 +3,7 @@
         "contactUs": "Liên hệ với chúng tôi",
         "contactUsSub" : "Ghé thăm trang liên hệ để biết thêm các văn phòng gần bạn nhất.",
         "contactUsLink": "Liên hệ +",
-        "growWithUs": "Cùng lớn mạnh",
+        "growWithUs": "Tuyển dụng",
         "growWithUsSub": "Cùng tìm hiểu thêm các cơ hội nghề nghiệp trong thiết kế, trang trí nội thất cùng chúng tôi.",
         "growWithUsLink": "Xem thông tin nghề nghiệp +"
     },
@@ -14,8 +14,37 @@
         "projects": "Các dự án tham gia",
         "people": "Con người",
         "culture": "Văn hóa",
-        "contact": "Liên hệ"
+        "contact": "Liên hệ",
+        "growWithUs": "Tuyển dụng"
     },
+    "contactUs": {
+        "title": "Liên hệ",
+        "getInTouch": "Giữ liên lạc",
+        "fillQuickForm": "Vui lòng điền thông tin vào phần bên dưới, chúng tôi sẽ xem xét và trả lời bạn sớm nhất.",
+        "connectWithUs": {
+            "title":"Kết nối với chúng tôi",
+            "supportOrQuestion": "Để được giúp đỡ hoặc có câu hỏi gì,",
+            "emailUsAt": "Liên hệ với chúng tôi qua email:"
+        },
+        "name": "Tên",
+        "email": "Email",
+        "message": "Tin nhắn",
+        "submit": "Gửi"
+    },
+    "growWithUs": {
+        "title": "Tuyển dụng",
+        "otherCareer": "Các tuyển dụng khác"
+    },
+    "project":{
+        "allProjects": "Các dự án tham gia",
+        "quickView": "Xem nhanh +",
+        "details": "Chi tiết +",
+        "projectDetail": {
+            "details" : "Chi tiết dự án",
+            "photos" : "Ảnh dự án",
+            "other": "Các dự án khác"
+        }
+    }, 
     "footer": {
     	"copyright": " © Bản quyền 2018, Trung Architects. Đã đăng ký bản quyền",
     	"contact": "Liên hệ",
