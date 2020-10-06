@@ -1,0 +1,18 @@
+<ng-sidebar-container class="sidebar-container" 
+	[animate] = "true" [ngClass] = "_opened ? 'change' : ''">
+	<ng-sidebar [(opened)]="_opened" class="sidebar" 
+				[dock]= true
+				[animate] ="true"
+				[closeOnClickOutside] = "true"
+				(onClosed) = "sendEvent()">
+		<p translate>sidebar.title</p>
+		<ul (click)="_toogleSidebar()">
+			<li><a routerLink="" translate>sidebar.home</a></li>
+			<li><a routerLink="about" translate>sidebar.about</a></li>
+			<li><a routerLink="" translate>sidebar.projects</a></li>
+			<li><a routerLink="" translate>sidebar.people</a></li>
+			<li><a routerLink="" translate>sidebar.culture</a></li>
+			<li><a routerLink="" translate>sidebar.contact</a></li>
+		</ul>
+	</ng-sidebar>
+</ng-sidebar-container>

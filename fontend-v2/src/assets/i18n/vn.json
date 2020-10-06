@@ -1,0 +1,16 @@
+{
+    "sidebar": {
+        "title": "Chuyển tới mục lục",
+        "home": "Trang chủ",
+        "about": "Về chúng tôi",
+        "projects": "Các dự án tham gia",
+        "people": "Con người",
+        "culture": "Văn hóa",
+        "contact": "Liên hệ"
+    },
+    "footer": {
+    	"copyright": " © Bản quyền 2018, Trung Architects. Đã đăng ký bản quyền",
+    	"contact": "Liên hệ",
+    	"backToTop": "Trở về đầu trang"
+    }
+}
