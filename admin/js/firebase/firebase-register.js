@@ -65,11 +65,11 @@ function getToken() {
 function sendTokenToTheServer(token) {
 	console.log('FIREBASE-REGISTER: sendSubscriptionToServer')
     console.log(token);
-    return fetch('/api/firebaseToken/create.php', {
+    return fetch('/basp/api/subscription/register', {
         method: 'POST',
-				mode: 'same-origin',
-				credentials: 'include',
-				redirect: 'follow',
+		mode: 'same-origin',
+		credentials: 'include',
+		redirect: 'follow',
         headers: {
             'Content-Type': 'application/json'
         },
