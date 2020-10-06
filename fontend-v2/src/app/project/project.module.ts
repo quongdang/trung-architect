@@ -1,11 +1,12 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { aboutRoutes} from './about.route'
-import { AboutComponent } from './about.component';
+import { projectRoutes} from './project.route'
+import { ProjectComponent } from './project.component';
+import { ProjectDetailsComponent } from './project-details.component';
 
 const ENTITY_STATES = [
-    ...aboutRoutes
+    ...projectRoutes
 ];
 
 @NgModule({
@@ -14,13 +15,15 @@ const ENTITY_STATES = [
         SharedModule,
     ],
     declarations: [
-        AboutComponent,
+        ProjectComponent,
+        ProjectDetailsComponent,
     ],
     entryComponents: [
-        AboutComponent,
+        ProjectComponent,
+        ProjectDetailsComponent,
     ],
     providers: [
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AboutModule {}
+export class ProjectModule {}

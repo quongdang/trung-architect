@@ -3,36 +3,38 @@ import { ActivatedRoute } from '@angular/router';
 import { ResponseWrapper} from '../dataModel/responseWrapper.model';
 import { Router } from '@angular/router';
 import { TranslateService} from '@ngx-translate/core';
-import { AboutService } from '../services/about.service';
+import { GrowWithUsService } from '../services/growWithUs.service';
 import { environment} from '../../environments/environment';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  selector: 'app-growWithUs-details',
+  templateUrl: './growWithUs-details.component.html',
+  styleUrls: ['./growWithUs-details.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class GrowWithUsDetailsComponent implements OnInit {
   baseURL = environment.baseURL;
-  aboutUs: any;
+  growWithUs: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public translate: TranslateService,
-    private aboutService: AboutService) { 
-      this.route.params.subscribe(res => console.log(res.id));
+    private growWithUsService: GrowWithUsService) { 
   }
 
   ngOnInit() {
-    this.getLast();
+    this.route.params.subscribe(res => {
+      this.getOne(res.id)
+      console.log(this.growWithUs);
+    });
   }
   
   sendMeHome() {
       this.router.navigate(['']);
   }
   
-  getLast() {
-    this.aboutService.getLast().subscribe((res: ResponseWrapper) => {
+  getOne(id : any) {
+    this.growWithUsService.getOne(id).subscribe((res: ResponseWrapper) => {
       const respData = res.json;
         const mapTitle = new Map();
         mapTitle.set("vn", respData.title_vn);
@@ -41,7 +43,7 @@ export class AboutComponent implements OnInit {
         const mapContent = new Map();
         mapContent.set("vn", respData.content_vn);
         mapContent.set("en", respData.content_en);
-        this.aboutUs = {
+        this.growWithUs = {
           id: respData.id,
           title: mapTitle,
           content: mapContent

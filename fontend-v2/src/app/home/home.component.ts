@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
-import {NgxCarousel, NgxCarouselStore} from 'ngx-carousel';
 import {ProjectService} from '../services/project.service';
+import {AboutService} from '../services/about.service';
+import {CategoryService} from '../services/category.service';
 import {ResponseWrapper} from '../dataModel/responseWrapper.model';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../environments/environment';
@@ -10,78 +11,29 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  providers: [ProjectService],
-  animations: [
-    trigger('photosAnimation', [
-      transition('* => *', [
-        query('img',style({ transform: 'translateX(-100%)'})),
-        query('img',
-          stagger('600ms', [
-            animate('900ms', style({ transform: 'translateX(0)'}))
-        ]))
-      ])
-    ])
+  styleUrls: [
+    './home.component.scss',
+    './slide-show.component.scss'
   ]
 })
 export class HomeComponent implements OnInit {
-  images: any[] = [];
-  carouseImgCount = 6;
+  projects: any[] = [];
+  categories: any[] = [];
+  aboutUs: any;
   baseURL = environment.baseURL;
-
-  public carouselBannerItems: any[] = [];
-  public carouselBanner: NgxCarousel;
 
   constructor(
     private projectService: ProjectService,
-    private translate: TranslateService,
+    private aboutService: AboutService,
+    private categoryService: CategoryService,
+    public translate: TranslateService,
   ) {
-    this.getAllProjects();
   }
 
   ngOnInit() {
-    this.carouselBanner = {
-      grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
-      slide: this.carouseImgCount,
-      speed: 400,
-      interval: 4000,
-      animation: 'lazy',
-      point: {
-        visible: true,
-        pointStyles: `
-               .ngxcarouselPoint {
-                 list-style-type: none;
-                 text-align: center;
-                 padding: 12px;
-                 margin: 0;
-                 white-space: nowrap;
-                 overflow: auto;
-                 position: absolute;
-                 width: 100%;
-                 bottom: 20px;
-                 left: 0;
-                 box-sizing: border-box;
-               }
-               .ngxcarouselPoint li {
-                 display: inline-block;
-                 border-radius: 999px;
-                 background: rgba(255, 255, 255, 0.55);
-                 padding: 5px;
-                 margin: 0 3px;
-                 transition: .4s ease all;
-               }
-               .ngxcarouselPoint li.active {
-                   background: white;
-                   width: 10px;
-               }
-             `
-      },
-      load: 1,
-      custom: 'banner',
-      touch: true,
-      loop: true,
-      easing: 'cubic-bezier(0, 0, 0.2, 1)'
-    };
+    this.getAllProjects();
+    this.getLatestAbout();
+    this.getAllCategories();
 
     $.fn.isInViewport = function() {
       var elementTop = $(this).offset().top ? $(this).offset().top : 0;
@@ -93,35 +45,20 @@ export class HomeComponent implements OnInit {
       return elementBottom > (viewportTop + $(window).height()/2) && elementTop < (viewportBottom - $(window).height()/2);
     };
 
-    $(window).on('resize scroll', function() {
-      monitor('.project');
+    $(window).on('resize scroll', function() {      
+      var scrollBehaviors = document.getElementsByClassName("scrollBehavior");
+      for (var i = 0; i < scrollBehaviors.length; i++) {
+        monitor(scrollBehaviors[i]);
+      }
     });
 
-    function monitor(name) {
-      if ($(name).isInViewport()) {
-        $(name).css("width", "100%");
-      } else {
-        $(name).css("width", "90%");
-      }
-    }
-  }
-
-  /* This will be triggered after carousel viewed */
-  afterCarouselViewedFn(data) {
-    console.log(data);
-  }
-
-  /* It will be triggered on every slide*/
-  onmoveFn(data: NgxCarouselStore) {
-    console.log(data);
-  }
-
-  public carouselBannerLoad() {
-    const len = this.carouselBannerItems.length;
-    const imgLen = this.images.length;
-    if (len < this.carouseImgCount) {
-      for (let i = len; i <= this.carouseImgCount; i++) {
-        this.carouselBannerItems.push(this.images[imgLen - i - 1]);
+    function monitor(name: any) {
+      if ($(name).length) {
+        if ($(name).isInViewport()) {
+          $(name).css("width", "100%");
+        } else {
+          $(name).css("width", "90%");
+        }
       }
     }
   }
@@ -130,7 +67,7 @@ export class HomeComponent implements OnInit {
    * Get all projects to display 
    */
   getAllProjects() {
-    this.projectService.getAllProjects().subscribe((res: ResponseWrapper) => {
+    this.projectService.getAllData().subscribe((res: ResponseWrapper) => {
       const data = res.json;
       for (const project of data.records) {
         const mapTitle = new Map();
@@ -139,17 +76,72 @@ export class HomeComponent implements OnInit {
         
         const mapSubTitle = new Map();
         mapSubTitle.set("vn", project.subtitle_vn);
-        mapSubTitle.set("en", project.subtitle_en);
-        const image = {
+        mapSubTitle.set("en", project.subtitle_en);        
+        
+        const mapMetadata= new Map();
+        mapMetadata.set("vn", project.metadata_vn);
+        mapMetadata.set("en", project.metadata_en);
+
+        var projectImages = [];
+        for(const image of project.project_images)  {
+          const mapDescription = new Map();
+          mapDescription.set("vn", image.description_vn);
+          mapDescription.set("en", image.description_en);
+          const data = {
+            id: image.id,
+            url: "url('" + this.baseURL + "/" + image.image_link + "')",
+            description: mapDescription,
+            display: image.display
+          }
+          projectImages.push(data);
+        }
+
+        const data = {
           id: project.id,
           title: mapTitle,
           subTitle: mapSubTitle,
-          url: this.baseURL + "/" + project.image0,
-          style: "url(" + this.baseURL + "/" + project.image0 + "')"
+          projectImages: projectImages
         };
-        this.images.push(image);
+        this.projects.push(data);
       }
-      this.carouselBannerLoad();
+    });
+  }
+
+  getLatestAbout() {
+    this.aboutService.getLast().subscribe(
+      (res: ResponseWrapper) => {
+        const data = res.json;
+        const mapTitle = new Map();
+        mapTitle.set("vn", data.title_vn);
+        mapTitle.set("en", data.title_en);
+        
+        const mapContent = new Map();
+        mapContent.set("vn", data.content_vn);
+        mapContent.set("en", data.content_en);
+
+        this.aboutUs = {
+          id: data.id,
+          title: mapTitle,
+          content: mapContent,
+        }
+      }
+    )
+  }
+  
+  getAllCategories() {
+    this.categoryService.getAllData().subscribe((res: ResponseWrapper) => {
+      const data = res.json;
+      for (const category of data.records) {
+        const mapTitle = new Map();
+        mapTitle.set("vn", category.category_vn);
+        mapTitle.set("en", category.category_en);
+
+        const data = {
+          id: category.id,
+          title: mapTitle
+        };
+        this.categories.push(data);
+      }
     });
   }
 }

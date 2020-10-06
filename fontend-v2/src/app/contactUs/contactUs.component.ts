@@ -7,11 +7,11 @@ import { AboutService } from '../services/about.service';
 import { environment} from '../../environments/environment';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  selector: 'app-contact-us',
+  templateUrl: './contactUs.component.html',
+  styleUrls: ['./contactUs.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class ContactUsComponent implements OnInit {
   baseURL = environment.baseURL;
   aboutUs: any;
 

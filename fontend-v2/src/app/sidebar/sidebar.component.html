@@ -7,12 +7,20 @@
 				(onClosed) = "sendEvent()">
 		<p translate>sidebar.title</p>
 		<ul (click)="_toogleSidebar()">
-			<li><a routerLink="" translate>sidebar.home</a></li>
-			<li><a routerLink="about" translate>sidebar.about</a></li>
-			<li><a routerLink="" translate>sidebar.projects</a></li>
-			<li><a routerLink="" translate>sidebar.people</a></li>
-			<li><a routerLink="" translate>sidebar.culture</a></li>
-			<li><a routerLink="" translate>sidebar.contact</a></li>
+			<li><a routerLink="/home" translate routerLinkActive="active">sidebar.home</a></li>
+			<li><a routerLink="/about" translate routerLinkActive="active">sidebar.about</a></li>
+			<li><a routerLink="/project" translate routerLinkActive="active">sidebar.projects</a></li>
+			<!-- <li><a routerLink="/people" translate routerLinkActive="active">sidebar.people</a></li>
+			<li><a routerLink="/culture" translate routerLinkActive="active">sidebar.culture</a></li> -->
+			<li><a routerLink="/grow-with-us" translate routerLinkActive="active">sidebar.growWithUs</a></li>
+			<li><a routerLink="/contactUs" translate routerLinkActive="active">sidebar.contact</a></li>
 		</ul>
+		<div class="sidebar-bottom">
+			<div class="language">
+				<span (click)="useLanguage('vn')" class="{{translate.currentLang === 'vn' ? 'active' : ''}}">VN</span>
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				<span (click)="useLanguage('en')" class="{{translate.currentLang === 'en' ? 'active' : ''}}">EN</span>
+			</div>
+		</div>
 	</ng-sidebar>
 </ng-sidebar-container>

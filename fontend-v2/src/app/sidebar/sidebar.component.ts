@@ -11,7 +11,8 @@ export class SidebarComponent implements OnInit {
   public _opened:boolean = false;
   @Output() sidebarEvent = new EventEmitter<boolean>();
 
-  constructor(private translate: TranslateService) { }
+  constructor(public translate: TranslateService) { 
+  }
 
   ngOnInit() {
   }
@@ -21,7 +22,11 @@ export class SidebarComponent implements OnInit {
       this.sidebarEvent.next(this._opened);
   }
   
-  private sendEvent() {
+  public sendEvent() {
       this.sidebarEvent.next(this._opened);
+  }
+
+  public useLanguage(language: string) {
+    this.translate.use(language);
   }
 }

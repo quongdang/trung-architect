@@ -1,0 +1,35 @@
+.modal-body{
+    padding: 0px;
+    height: 50vh;
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0px;
+    .image {
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: none;
+    }
+    .content {
+        padding: 40px 40px;
+    }
+}
+
+.link {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    border: 1px solid #0076be;
+    background-color: #0076be;
+    color: #fff;
+    padding: 5px 15px;
+}
+
+.link:hover {
+    border: 1px solid gray;
+    background-color: gray;
+}

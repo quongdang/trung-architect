@@ -1,11 +1,12 @@
+<div style="clear:both"></div>
 <div class="footer">	
 	<div class="left" translate>
 		footer.copyright
 	</div>
 	<div class="right">
-		<span translate>footer.contact</span>
+		<span (click) = "contactUs()" translate>footer.contact</span>
 		&nbsp;|&nbsp;
-		<span (click) = "backToTop()" style="cursor: pointer" translate>footer.backToTop</span>
+		<span (click) = "backToTop()" translate>footer.backToTop</span>
 	</div>
 	<go-top-button [animate]="true"
                  [speed]="50"

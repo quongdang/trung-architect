@@ -1,3 +1,5 @@
+@import '../styles.scss';
+
 #header {
   position: fixed;
   top: 0px;
@@ -8,18 +10,26 @@
   z-index: 2000;
   
   .language {
+    display: block;
   	position: absolute;
   	top: 15px;
-	right: 10px;
-	
-	span {
-		cursor: pointer;
-  		color: #069;
-	}
-	
-	span:hover, .active {
-		font-weight: 600;
-	}
+    right: 10px;
+    
+    span {
+      cursor: pointer;
+        color: #069;
+        font-weight: 200;
+    }
+    
+    span:hover, .active {
+      font-weight: 600;
+    }
+  }
+
+  @media only screen and (max-width: $screen-xs-max) {
+    .language {
+      display: none;
+    }
   }
 }
 

@@ -1,4 +1,5 @@
-<p>
-	This is what I'm all about.
-	<a href="" (click)="sendMeHome()"><strong>Take me back</strong></a>
-</p>
+<div class="aboutUs">
+	<h3>About Us</h3>
+	<h4>{{ aboutUs?.title?.get(translate.currentLang)}}</h4>
+	<div [innerHtml]="aboutUs?.content?.get(translate.currentLang)"></div>
+</div>

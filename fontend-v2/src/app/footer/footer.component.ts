@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -8,12 +9,19 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private translate: TranslateService) { }
+  constructor(
+    private router: Router,
+    private translate: TranslateService
+  ) {  }
 
   ngOnInit() {
   }
   
   backToTop() {
-      window.scroll(0,0);
+    window.scroll(0,0);
+  }
+
+  contactUs() {
+    this.router.navigate(['/about']);
   }
 }

@@ -1,0 +1,55 @@
+<div class="project-images">   
+    <ng-container>
+        <div class="project row scrollBehavior">
+            <div class="left col-lg-6 col-md-6 col-sm-6 col-xs-6"
+                [ngStyle]="{'background-image': data.projectImages[0]?.url}"></div>
+            <div class="right col-lg-6 col-md-6 col-sm-6 col-xs-6"
+                [ngStyle]="{'background-image': data.projectImages[1]?.url}"></div>
+        </div>
+    </ng-container>  
+    <div class="title ">
+        <h4>{{ data.title?.get(translate.currentLang)}}</h4>    
+        <i>{{ data.subTitle?.get(translate.currentLang)}}</i>
+    </div>
+
+    <h3 translate="project.projectDetail.details">Project Details</h3>
+    <div class="details row scrollBehavior">
+        <div class="left col-lg-6 col-md-6 col-sm-6 col-xs-6" [innerHTML]="data.content?.get(translate.currentLang)">     
+        </div>
+        <div class="right col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <b>Location:</b> {{data.metadata?.get(translate.currentLang)?.location}}<br/>
+            <b>Size:</b> {{data.metadata?.get(translate.currentLang)?.size}}<br/>
+            <b>Status:</b> {{data.metadata?.get(translate.currentLang)?.status}}<br/>
+            <b>Client:</b> {{data.metadata?.get(translate.currentLang)?.client}}<br/>
+        </div>
+    </div>
+    <h3 translate="project.projectDetail.photos">Project photos</h3>
+    <ng-container *ngFor="let projectImage of data.projectImages; let i = index;">
+        <div class="project-image scrollBehavior">
+            <img [src]="projectImage.link" style="width: 100%">
+            <i>{{projectImage.description?.get(translate.currentLang)}}</i>
+        </div>
+    </ng-container>
+    
+    <h3 translate="project.projectDetail.other">Other projects</h3>
+    <div class="projects">
+        <div class="row">
+            <ng-container *ngFor="let project of projects; let i = index">
+                <div *ngIf="i < 4" class="box col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class='content'[ngStyle]="{'background-image': project.projectImages[0].url}">
+                        <div class="preview-info" [routerLink]="['/project', project.id]">
+                            <h3>{{ project.title.get(translate.currentLang)}}</h3>
+                            <span>{{ project.subTitle.get(translate.currentLang)}}</span>
+                        </div>
+                    </div>
+                    <div class="grayscale">
+                        <div class="grayscale-inner">
+                            <div class="button" (click)="quickView(i)" translate="project.quickView">Quick view +</div>
+                            <div class="button" [routerLink]="['/project', project.id]" translate="project.details">Details +</div>
+                        </div>
+                    </div>
+                </div> 
+            </ng-container>
+        </div>
+    </div>
+</div>

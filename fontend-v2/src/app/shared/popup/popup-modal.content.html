@@ -1,0 +1,14 @@
+
+<div class="modal-body" >
+    <div class="row">
+        <div class="image col-lg-6" [ngStyle]="{'background-image': backgroundImage}"></div>
+        <div class="content col-lg-6">
+            <h3>{{header}}</h3>
+            <p [innerHtml]="content"></p>
+            <span *ngIf="link" class="link" (click) = "openLink(); activeModal.dismiss('Cross click');">{{linkName}}</span>
+        </div>
+    </div>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+    </button>
+</div>

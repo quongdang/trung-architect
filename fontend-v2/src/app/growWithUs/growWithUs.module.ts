@@ -1,11 +1,12 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { aboutRoutes} from './about.route'
-import { AboutComponent } from './about.component';
+import { GrowWithUsComponent} from './growWithUs.component'
+import { GrowWithUsDetailsComponent} from './growWithUs-details.component'
+import { growWithUsRoutes } from './growWithUs.route';
 
 const ENTITY_STATES = [
-    ...aboutRoutes
+    ...growWithUsRoutes
 ];
 
 @NgModule({
@@ -14,13 +15,15 @@ const ENTITY_STATES = [
         SharedModule,
     ],
     declarations: [
-        AboutComponent,
+        GrowWithUsComponent,
+        GrowWithUsDetailsComponent,
     ],
     entryComponents: [
-        AboutComponent,
+        GrowWithUsComponent,
+        GrowWithUsDetailsComponent,
     ],
     providers: [
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AboutModule {}
+export class GrowWithUsModule {}

@@ -1,0 +1,5 @@
+<div class="growWithUs-details">
+	<h3 [routerLink]="['/grow-with-us']" translate="growWithUs.title">Grow with Us</h3>
+	<h4>{{ growWithUs?.title?.get(translate.currentLang)}}</h4>
+	<div [innerHtml]="growWithUs?.content?.get(translate.currentLang)"></div>
+</div>

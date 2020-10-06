@@ -3,24 +3,28 @@ import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {SidebarModule} from 'ng-sidebar';
-import {NgxCarouselModule} from 'ngx-carousel';
 import {GoTopButtonModule} from 'ng2-go-top-button';
 import 'hammerjs';
 import 'rxjs/Rx';
 
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {AboutComponent} from './about/about.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {FooterComponent} from './footer/footer.component';
+import {HomeComponent} from './home/home.component';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import { AboutModule } from './about/about.module';
+import { ProjectModule } from './project/project.module';
+import { GrowWithUsModule } from './growWithUs/growWithUs.module';
+import { ServiceModule } from './services/service.module';
+import { SharedModule } from './shared/shared.module';
+import { ContactUsModule } from './contactUs/contactUs.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,7 @@ import { AboutModule } from './about/about.module';
     FormsModule,
     BrowserAnimationsModule,
     SidebarModule.forRoot(),
-    NgxCarouselModule,
+    NgbModule.forRoot(),
     GoTopButtonModule,
     HttpModule,
     HttpClientModule,
@@ -47,8 +51,14 @@ import { AboutModule } from './about/about.module';
       }
     }),
     AboutModule,
+    ProjectModule,
+    ServiceModule,
+    GrowWithUsModule,
+    SharedModule,
+    ContactUsModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

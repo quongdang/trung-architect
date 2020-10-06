@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .sidebar-container {
   height: 100vh;
   width: 0px;
@@ -5,16 +7,52 @@
   top: 0px;
   left: 0px;
   z-index: 900;
-  background: rgba(0, 102, 153, 0.6);
+  background: rgba(0,118,190,0.95);
+
+  .sidebar-bottom {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    padding-bottom: 10px;
+    width: 100%;
+    background:rgba(51,51,51,0.95);
+    height: 50px;
+
+    .language {
+      text-align: right;
+      padding-right: 10px;
+      line-height: 50px;
+      color: #fff;
+
+      span {
+        cursor: pointer;
+          font-weight: 200;
+      }
+      
+      span:hover, .active {
+        font-weight: 600;
+      }
+    }
+    @media only screen and (max-width: $screen-xs-max) {
+      display: block;
+    }
+  }
 }
 
 .change {
-  width: 250px;
+  width: 40%;  
+  @media only screen and (max-width: $screen-xs-max) {
+    width: 100%;
+  }
 }
 
 .sidebar {
   color: white;
   height: 100vh;
+}
+
+:host /deep/ .ng-sidebar {
+  width: 100%;
 }
 
 .sidebar p {
@@ -34,15 +72,28 @@
 .sidebar ul li a {
   margin-top: 15px;
   font-size: 15px;
-  width: 190px;
+  width: 80%;
   padding: 10px 0 10px 10px;
-  background: rgba(0, 102, 153, 0.9);
+  background: rgba(255,255,255,0.1);
   text-decoration: none;
   display: block;
   color: #fff;
+  padding-right: 10px;
+}
+
+.sidebar ul li a::after {
+  content: "+";
+  box-sizing: border-box;
+  font-weight: 300;
+  font-size: 15px;
+  float: right;
 }
 
 .sidebar ul li a:hover {
   color: #069;
   background-color: #fff;
+}
+
+.active {
+  font-weight: 800;
 }
