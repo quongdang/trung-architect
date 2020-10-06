@@ -10,3 +10,9 @@ favicon.ico
 *.bundle.css
 *.zip
 images
+.idea/trung-architect.iml
+.idea/modules.xml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/.gitignore
+

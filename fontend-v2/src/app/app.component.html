@@ -1,0 +1,21 @@
+<div id="header">
+	<div class="container" [ngClass] = "menuBarChange ? 'change' : '' " (click) = "toogleMenu()">
+	  <div class="bar1"></div>
+	  <div class="bar2"></div>
+	  <div class="bar3"></div>
+	</div>
+	
+	<div class="logo"> Trung architech</div>
+	<div class="language">
+		<span (click)="useLanguage('vn')" class="{{translate.currentLang === 'vn' ? 'active' : ''}}">Tiếng Việt</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;
+		<span (click)="useLanguage('en')" class="{{translate.currentLang === 'en' ? 'active' : ''}}">English</span>
+	</div>
+</div>
+
+<app-sidebar (sidebarEvent) = "changeMenuBar($event)"></app-sidebar>
+<div id="content">
+	<router-outlet></router-outlet>
+</div>
+
+<app-footer></app-footer>
