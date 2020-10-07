@@ -1,25 +1,26 @@
-import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {Observable} from 'rxjs/Rx';
-import {ResponseWrapper} from '../dataModel/responseWrapper.model';
-import {environment} from '../../environments/environment';
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
+import { ResponseWrapper } from '../dataModel/responseWrapper.model';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AboutService {
   baseURL = environment.baseURL;
   constructor(private http: Http) {
   }
-  
-  getLast(req?: any): Observable<ResponseWrapper> {    
-      return this.http.get(this.baseURL + '/api/aboutUs/read_last.php').map(
-        (res: Response) => this.convertResponse(res)
-      );
+
+  getLast(req?: any): Observable<ResponseWrapper> {
+    return this.http.get(this.baseURL + '/api/aboutUs/read_last.php').pipe(map(
+      (res: Response) => this.convertResponse(res)
+    ));
   }
-  
-  getAllData(req?: any): Observable<ResponseWrapper> {    
-      return this.http.get(this.baseURL + '/api/aboutUs/read.php').map(
-        (res: Response) => this.convertResponse(res)
-      );
+
+  getAllData(req?: any): Observable<ResponseWrapper> {
+    return this.http.get(this.baseURL + '/api/aboutUs/read.php').pipe(map(
+      (res: Response) => this.convertResponse(res)
+    ));
   }
 
   private convertResponse(res: Response): ResponseWrapper {

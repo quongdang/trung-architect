@@ -3,7 +3,7 @@ import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ModalModule} from 'ngx-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {SidebarModule} from 'ng-sidebar';
 import {GoTopButtonModule} from 'ng2-go-top-button';
@@ -39,7 +39,7 @@ import { ContactUsModule } from './contactUs/contactUs.module';
     FormsModule,
     BrowserAnimationsModule,
     SidebarModule.forRoot(),
-    NgbModule.forRoot(),
+    ModalModule.forRoot(),
     GoTopButtonModule,
     HttpModule,
     HttpClientModule,

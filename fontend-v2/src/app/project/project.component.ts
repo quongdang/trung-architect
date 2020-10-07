@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateService} from '@ngx-translate/core';
+import { ModalOptions, BsModalService } from 'ngx-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import { projectRoutes } from './project.route';
-import { ResponseWrapper} from '../dataModel/responseWrapper.model';
-import { environment} from '../../environments/environment';
+import { ResponseWrapper } from '../dataModel/responseWrapper.model';
+import { environment } from '../../environments/environment';
 import { ProjectService } from '../services/project.service';
 import { CategoryService } from '../services/category.service';
 import { PopupModalContent } from '../shared/popup/popup-modal.content';
@@ -21,30 +21,30 @@ export class ProjectComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,              
+    private router: Router,
     public translate: TranslateService,
     private projectService: ProjectService,
     private categoryService: CategoryService,
-    private modalService: NgbModal) {
+    private modalService: BsModalService) {
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.route.queryParams.subscribe(params => {
       const categoryId = params['category_id'];
-      if(categoryId) {
+      if (categoryId) {
         this.getCategory(categoryId);
         this.getAllProjectsBelongCategory(categoryId);
-      }else {
+      } else {
         this.getAllProjects();
       }
     });
   }
-  
+
   sendMeHome() {
-      this.router.navigate(['']);
+    this.router.navigate(['']);
   }
 
-  
+
   getAllProjects() {
     this.projectService.getAllData().subscribe((res: ResponseWrapper) => {
       const data = res.json;
@@ -52,17 +52,17 @@ export class ProjectComponent implements OnInit {
         const mapTitle = new Map();
         mapTitle.set("vn", project.title_vn);
         mapTitle.set("en", project.title_en);
-        
+
         const mapSubTitle = new Map();
         mapSubTitle.set("vn", project.subtitle_vn);
-        mapSubTitle.set("en", project.subtitle_en);        
-        
-        const mapMetadata= new Map();
+        mapSubTitle.set("en", project.subtitle_en);
+
+        const mapMetadata = new Map();
         mapMetadata.set("vn", project.metadata_vn);
         mapMetadata.set("en", project.metadata_en);
 
         var projectImages = [];
-        for(const image of project.project_images)  {
+        for (const image of project.project_images) {
           const mapDescription = new Map();
           mapDescription.set("vn", image.description_vn);
           mapDescription.set("en", image.description_en);
@@ -93,17 +93,17 @@ export class ProjectComponent implements OnInit {
         const mapTitle = new Map();
         mapTitle.set("vn", project.title_vn);
         mapTitle.set("en", project.title_en);
-        
+
         const mapSubTitle = new Map();
         mapSubTitle.set("vn", project.subtitle_vn);
-        mapSubTitle.set("en", project.subtitle_en);        
-        
-        const mapMetadata= new Map();
+        mapSubTitle.set("en", project.subtitle_en);
+
+        const mapMetadata = new Map();
         mapMetadata.set("vn", project.metadata_vn);
         mapMetadata.set("en", project.metadata_en);
 
         var projectImages = [];
-        for(const image of project.project_images)  {
+        for (const image of project.project_images) {
           const mapDescription = new Map();
           mapDescription.set("vn", image.description_vn);
           mapDescription.set("en", image.description_en);
@@ -141,17 +141,16 @@ export class ProjectComponent implements OnInit {
       console.log(this.category);
     });
   }
-  
+
   quickView(index: any) {
-    let options: NgbModalOptions = {
-      size: 'lg',
-      centered: true
+    let options: ModalOptions = {};
+    const initialState = {
+      header: this.projects[index].title.get(this.translate.currentLang),
+      content: this.projects[index].subTitle.get(this.translate.currentLang),
+      backgroundImage: this.projects[index].projectImages[0].url,
+      link: "/project/" + this.projects[index].id,
+      linkName: "View details"
     };
-    const modalRef = this.modalService.open(PopupModalContent, options);
-    modalRef.componentInstance.header = this.projects[index].title.get(this.translate.currentLang);
-    modalRef.componentInstance.content = this.projects[index].subTitle.get(this.translate.currentLang);
-    modalRef.componentInstance.backgroundImage = this.projects[index].projectImages[0].url;
-    modalRef.componentInstance.link = "/project/" + this.projects[index].id;
-    modalRef.componentInstance.linkName = "View details";
+    const modalRef = this.modalService.show(PopupModalContent, Object.assign({}, options, { class: 'modal-sm', initialState }));
   }
 }

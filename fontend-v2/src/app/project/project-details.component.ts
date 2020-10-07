@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { ModalOptions, BsModalService } from 'ngx-bootstrap';
 import { switchMap } from 'rxjs/operators';
-import { TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { projectRoutes } from './project.route';
-import { ResponseWrapper} from '../dataModel/responseWrapper.model';
-import { environment} from '../../environments/environment';
+import { ResponseWrapper } from '../dataModel/responseWrapper.model';
+import { environment } from '../../environments/environment';
 import { ProjectService } from '../services/project.service';
-import { Project} from '../dataModel/project.model';
+import { Project } from '../dataModel/project.model';
 import { PopupModalContent } from '../shared/popup/popup-modal.content';
 import * as $ from 'jquery';
 
@@ -26,30 +26,30 @@ export class ProjectDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,              
+    private router: Router,
     public translate: TranslateService,
     private projectService: ProjectService,
-    private modalService: NgbModal) {
+    private modalService: BsModalService) {
   }
-  ngOnInit() {    
-    this.route.params.subscribe((res) => { 
+  ngOnInit() {
+    this.route.params.subscribe((res) => {
       this.getProject(res.id);
     });
 
-    $.fn.isInViewport = function() {
+    $.fn.isInViewport = function () {
       var elementTop = $(this).offset().top ? $(this).offset().top : 0;
       var elementBottom = elementTop + $(this).outerHeight();
-  
+
       var viewportTop = $(window).scrollTop();
       var viewportBottom = viewportTop + $(window).height();
-  
-      return elementBottom > (viewportTop + $(window).height()/2) && elementTop < (viewportBottom - $(window).height()/2);
+
+      return elementBottom > (viewportTop + $(window).height() / 2) && elementTop < (viewportBottom - $(window).height() / 2);
     };
 
-    $(window).on('resize scroll', function() {
+    $(window).on('resize scroll', function () {
       var scrollBehaviors = document.getElementsByClassName("scrollBehavior");
       for (var i = 0; i < scrollBehaviors.length; i++) {
-       monitor(scrollBehaviors[i]);
+        monitor(scrollBehaviors[i]);
       }
     });
 
@@ -63,56 +63,56 @@ export class ProjectDetailsComponent implements OnInit {
       }
     }
   }
-  
+
   sendMeHome() {
-      this.router.navigate(['']);
+    this.router.navigate(['']);
   }
 
   getProject(id: any) {
     this.projectService.getOne(id).subscribe((res: ResponseWrapper) => {
       const project = res.json;
       const mapTitle = new Map();
-        mapTitle.set("vn", project.title_vn);
-        mapTitle.set("en", project.title_en);
-        
-        const mapSubTitle = new Map();
-        mapSubTitle.set("vn", project.subtitle_vn);
-        mapSubTitle.set("en", project.subtitle_en);   
-        
-        const mapContent = new Map();
-        mapContent.set("vn", project.content_vn);
-        mapContent.set("en", project.content_en);        
-        
-        const mapMetadata= new Map();
-        mapMetadata.set("vn", project.metadata_vn);
-        mapMetadata.set("en", project.metadata_en);
+      mapTitle.set("vn", project.title_vn);
+      mapTitle.set("en", project.title_en);
 
-        var projectImages = [];
-        for(const image of project.project_images)  {
-          const mapDescription = new Map();
-          mapDescription.set("vn", image.description_vn);
-          mapDescription.set("en", image.description_en);
-          const data = {
-            id: image.id,
-            url: "url('" + this.baseURL + "/" + image.image_link + "')",
-            link: this.baseURL + "/" + image.image_link ,
-            description: mapDescription,
-            display: image.display
-          }
-          projectImages.push(data);
+      const mapSubTitle = new Map();
+      mapSubTitle.set("vn", project.subtitle_vn);
+      mapSubTitle.set("en", project.subtitle_en);
+
+      const mapContent = new Map();
+      mapContent.set("vn", project.content_vn);
+      mapContent.set("en", project.content_en);
+
+      const mapMetadata = new Map();
+      mapMetadata.set("vn", project.metadata_vn);
+      mapMetadata.set("en", project.metadata_en);
+
+      var projectImages = [];
+      for (const image of project.project_images) {
+        const mapDescription = new Map();
+        mapDescription.set("vn", image.description_vn);
+        mapDescription.set("en", image.description_en);
+        const data = {
+          id: image.id,
+          url: "url('" + this.baseURL + "/" + image.image_link + "')",
+          link: this.baseURL + "/" + image.image_link,
+          description: mapDescription,
+          display: image.display
         }
+        projectImages.push(data);
+      }
 
-        this.data = {
-          id: project.id,
-          title: mapTitle,
-          subTitle: mapSubTitle,
-          content: mapContent,
-          metadata: mapMetadata,
-          projectImages: projectImages
-        };
-        this.getOtherProjects(project.category_id, project.id);
-        console.log(res.json);
-        console.log(this.data);
+      this.data = {
+        id: project.id,
+        title: mapTitle,
+        subTitle: mapSubTitle,
+        content: mapContent,
+        metadata: mapMetadata,
+        projectImages: projectImages
+      };
+      this.getOtherProjects(project.category_id, project.id);
+      console.log(res.json);
+      console.log(this.data);
     });
   }
 
@@ -123,17 +123,17 @@ export class ProjectDetailsComponent implements OnInit {
         const mapTitle = new Map();
         mapTitle.set("vn", project.title_vn);
         mapTitle.set("en", project.title_en);
-        
+
         const mapSubTitle = new Map();
         mapSubTitle.set("vn", project.subtitle_vn);
-        mapSubTitle.set("en", project.subtitle_en);        
-        
-        const mapMetadata= new Map();
+        mapSubTitle.set("en", project.subtitle_en);
+
+        const mapMetadata = new Map();
         mapMetadata.set("vn", project.metadata_vn);
         mapMetadata.set("en", project.metadata_en);
 
         var projectImages = [];
-        for(const image of project.project_images)  {
+        for (const image of project.project_images) {
           const mapDescription = new Map();
           mapDescription.set("vn", image.description_vn);
           mapDescription.set("en", image.description_en);
@@ -155,17 +155,16 @@ export class ProjectDetailsComponent implements OnInit {
         this.projects.push(data);
       }
     });
-  }  
+  }
   quickView(index: any) {
-    let options: NgbModalOptions = {
-      size: 'lg',
-      centered: true
+    let options: ModalOptions = {};
+    const initialState = {
+      header: this.projects[index].title.get(this.translate.currentLang),
+      content: this.projects[index].subTitle.get(this.translate.currentLang),
+      backgroundImage: this.projects[index].projectImages[0].url,
+      link: "/project/" + this.projects[index].id,
+      linkName: "View details"
     };
-    const modalRef = this.modalService.open(PopupModalContent, options);
-    modalRef.componentInstance.header = this.projects[index].title.get(this.translate.currentLang);
-    modalRef.componentInstance.content = this.projects[index].subTitle.get(this.translate.currentLang);
-    modalRef.componentInstance.backgroundImage = this.projects[index].projectImages[0].url;
-    modalRef.componentInstance.link = "/project/" + this.projects[index].id;
-    modalRef.componentInstance.linkName = "View details";
+    const modalRef = this.modalService.show(PopupModalContent, Object.assign({}, options, { class: 'modal-sm', initialState }));
   }
 }
