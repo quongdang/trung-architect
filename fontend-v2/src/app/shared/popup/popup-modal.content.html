@@ -5,10 +5,10 @@
         <div class="content col-lg-6">
             <h3>{{header}}</h3>
             <p [innerHtml]="content"></p>
-            <span *ngIf="link" class="link" (click) = "openLink(); modalRef.hide();">{{linkName}}</span>
+            <span *ngIf="link" class="link" (click) = "openLink(); doHide();">{{linkName}}</span>
         </div>
     </div>
-    <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="close" aria-label="Close" (click)="doHide();">
             <span aria-hidden="true">&times;</span>
     </button>
 </div>

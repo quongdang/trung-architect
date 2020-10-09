@@ -151,6 +151,6 @@ export class ProjectComponent implements OnInit {
       link: "/project/" + this.projects[index].id,
       linkName: "View details"
     };
-    const modalRef = this.modalService.show(PopupModalContent, Object.assign({}, options, { class: 'modal-sm', initialState }));
+    const modalRef = this.modalService.show(PopupModalContent, Object.assign({}, options, { class: 'modal-dialog-centered', initialState }));
   }
 }

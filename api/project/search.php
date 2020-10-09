@@ -38,10 +38,6 @@ if($num>0){
  
         $project_item=array(
             "id" => $id,
-			"image0" =>  $project->image0,
-            "image1" =>  $project->image1,
-            "image2" =>  $project->image2,
-            "image3" =>  $project->image3,
             "title_vn" => $title_vn,
 			"title_en" => $title_en,
 			"subtitle_vn" => $subtitle_vn,

@@ -8,17 +8,15 @@ import {  BsModalService, BsModalRef } from 'ngx-bootstrap';
   styleUrls: [ './popup-modal.content.scss']
 })
 export class PopupModalContent implements OnInit {
-  @Input() backgroundImage;
-  @Input() header;
-  @Input() content;
-  @Input() link;
-  @Input() linkName;
-
-  modalRef: BsModalRef;
+  @Input() backgroundImage: any;
+  @Input() header: any;
+  @Input() content: any;
+  @Input() link: any;
+  @Input() linkName: any;
 
   constructor(
     public modalService: BsModalService, 
-    private router: Router) {
+    private router: Router, private modalRef: BsModalRef) {
     
   }
 
@@ -32,5 +30,9 @@ export class PopupModalContent implements OnInit {
 
   openLink() {
     this.router.navigate([this.link]);
+  }
+
+  doHide() {
+    this.modalRef.hide();
   }
 }

@@ -1,5 +1,9 @@
+::ng-deep .modal-dialog{
+    max-width: 70vw !important;
+    width: 70vw;
+}
 .modal-body{
-    padding: 0px;
+    padding: 10px;
     height: 50vh;
 }
 
@@ -12,6 +16,7 @@
         background-size: cover;
         background-position: 50% 50%;
         background-repeat: none;
+        height: 95%;
     }
     .content {
         padding: 40px 40px;

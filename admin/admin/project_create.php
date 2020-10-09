@@ -58,10 +58,6 @@
 			$data_array =  array(
 				"id" => $_POST['id'],
 				"category_id" => $_POST['category_id'],
-				"image0" => (string)(filetowrite($_POST['_image0'],$_FILES['image0'])),
-				"image1" => (string)(filetowrite($_POST['_image1'],$_FILES['image1'])),
-				"image2" => (string)(filetowrite($_POST['_image2'],$_FILES['image2'])),
-				"image3" => (string)(filetowrite($_POST['_image3'],$_FILES['image3'])),
 				"title_vn" => (string)($_POST['title_vn']),
 				"subtitle_vn" => (string)($_POST['subtitle_vn']),
 				"content_vn" => htmlentities($_POST['content_vn']),
