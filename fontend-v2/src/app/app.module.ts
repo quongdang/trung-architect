@@ -7,7 +7,6 @@ import {ModalModule} from 'ngx-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {SidebarModule} from 'ng-sidebar';
 import {GoTopButtonModule} from 'ng2-go-top-button';
-import 'hammerjs';
 import 'rxjs/Rx';
 
 import {AppComponent} from './app.component';
@@ -55,7 +54,7 @@ import { ContactUsModule } from './contactUs/contactUs.module';
     ServiceModule,
     GrowWithUsModule,
     SharedModule,
-    ContactUsModule,
+    ContactUsModule
   ],
   providers: [
   ],
