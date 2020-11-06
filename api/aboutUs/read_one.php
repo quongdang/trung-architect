@@ -29,7 +29,6 @@ $aboutUs_arr = array(
     "title_en" => $aboutUs->title_en,
 	"content_vn" => html_entity_decode(htmlspecialchars_decode($aboutUs->content_vn)),
 	"content_en" => html_entity_decode(htmlspecialchars_decode($aboutUs->content_en)),
-    "category_id" => $aboutUs->category_id,
     "created" => $aboutUs->created 
 );
  

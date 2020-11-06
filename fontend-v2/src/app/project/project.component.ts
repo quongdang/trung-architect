@@ -47,8 +47,7 @@ export class ProjectComponent implements OnInit {
 
   getAllProjects() {
     this.projectService.getAllData().subscribe((res: ResponseWrapper) => {
-      const data = res.json;
-      for (const project of data.records) {
+      for (const project of res.json.records) {
         const mapTitle = new Map();
         mapTitle.set("vn", project.title_vn);
         mapTitle.set("en", project.title_en);
@@ -66,22 +65,28 @@ export class ProjectComponent implements OnInit {
           const mapDescription = new Map();
           mapDescription.set("vn", image.description_vn);
           mapDescription.set("en", image.description_en);
-          const data = {
+          projectImages.push({
             id: image.id,
             url: "url('" + this.baseURL + "/" + image.image_link + "')",
             description: mapDescription,
             display: image.display
-          }
-          projectImages.push(data);
+          });
         }
-
-        const data = {
+        if (projectImages.length == 0) {
+          projectImages.push({
+            id: 0,
+            url: "",
+            description: new Map(),
+            display: false
+          });
+        }
+        this.projects.push({
           id: project.id,
           title: mapTitle,
           subTitle: mapSubTitle,
           projectImages: projectImages
-        };
-        this.projects.push(data);
+        });
+        console.log(this.projects);
       }
     });
   }

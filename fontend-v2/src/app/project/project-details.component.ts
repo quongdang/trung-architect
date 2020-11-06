@@ -137,22 +137,20 @@ export class ProjectDetailsComponent implements OnInit {
           const mapDescription = new Map();
           mapDescription.set("vn", image.description_vn);
           mapDescription.set("en", image.description_en);
-          const data = {
+          projectImages.push({
             id: image.id,
             url: "url('" + this.baseURL + "/" + image.image_link + "')",
             description: mapDescription,
             display: image.display
-          }
-          projectImages.push(data);
+          });
         }
-
-        const data = {
+        
+        this.projects.push({
           id: project.id,
           title: mapTitle,
           subTitle: mapSubTitle,
           projectImages: projectImages
-        };
-        this.projects.push(data);
+        });
       }
     });
   }
