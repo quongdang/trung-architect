@@ -97,4 +97,47 @@ class User{
 	
 		return false;
 	}
+	
+	function read(){
+	 
+		// select all query
+		$query = "SELECT id, firstname, lastname, email, password
+					FROM " . $this->table_name . "
+				   ORDER BY email ASC";
+	 
+		// prepare query statement
+		$stmt = $this->conn->prepare($query);
+	 
+		// execute query
+		$stmt->execute();
+	 
+		return $stmt;
+	}
+
+	function readOne(){
+	 
+		// query to read single record
+		$query = "SELECT id, firstname, lastname, email, password
+				    FROM " . $this->table_name . "
+				   WHERE id = ?
+				   LIMIT 0,1";
+	 
+		// prepare query statement
+		$stmt = $this->conn->prepare( $query );
+	 
+		// bind id of project to be updated
+		$stmt->bindParam(1, $this->id);
+	 
+		// execute query
+		$stmt->execute();
+	 
+		// get retrieved row
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	 
+		// set values to object properties
+		$this->firstname = $row['firstname'];
+		$this->lastname = $row['lastname'];
+		$this->email = $row['email'];
+		$this->password = $row['password'];
+	}
 }

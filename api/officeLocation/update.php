@@ -13,38 +13,38 @@ include_once '../authenticate/authentication.php';
 
 // include database and object files
 include_once '../../config/database.php';
-include_once '../objects/user.php';
+include_once '../objects/officeLocation.php';
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
-// prepare user object
-$user = new User($db);
+// prepare officeLocation object
+$officeLocation = new OfficeLocation($db);
  
-// get id of user to be edited
+// get id of officeLocation to be edited
 $data = json_decode(file_get_contents("php://input"));
  
-// set ID property of user to be edited
-$user->id = $data->id;
+// set ID property of officeLocation to be edited
+$officeLocation->id = $data->id;
  
-// set user property values
-$user->firstname = $data->firstname;
-$user->lastname = $data->lastname;
-$user->email = $data->email;
-$user->password = $data->password;
+// set officeLocation property values
+$officeLocation->title_vn = $data->title_vn;
+$officeLocation->title_en = $data->title_en;
+$officeLocation->content_vn = $data->content_vn;
+$officeLocation->content_en = $data->content_en;
  
-// update the user
-if($user->update()){
+// update the officeLocation
+if($officeLocation->update()){
     echo '{';
-        echo '"message": "user was updated."';
+        echo '"message": "officeLocation was updated."';
     echo '}';
 }
  
-// if unable to update the user, tell the user
+// if unable to update the officeLocation, tell the user
 else{
     echo '{';
-        echo '"message": "Unable to update user."';
+        echo '"message": "Unable to update officeLocation."';
     echo '}';
 }
 ?>

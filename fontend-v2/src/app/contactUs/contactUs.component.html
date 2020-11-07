@@ -33,12 +33,17 @@
 		</div>
 		<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
 		<div class = "col-lg-4 col-md-4 col-sm-4 col-xs-12">
-			<h5 translate="contactUs.connectWithUs.title">Connect with us</h5>
+			<h4 translate="contactUs.connectWithUs.title">Connect with us</h4>
 			<span translate="contactUs.connectWithUs.supportOrQuestion">For support or any questions:</span><br/>
-			<span translate="contactUs.connectWithUs.emailUsAt">Email us at: </span><span><a href="mailto:support@tvarchitects.net">support@tvarchitects.net</a> support@tvarchitects.net</span><br/>
+			<span translate="contactUs.connectWithUs.emailUsAt">Email us at: </span><span> <a href="mailto:support@tvarchitects.net">support@tvarchitects.net</a></span><br/>
 			<br/>
-			<h5>Ho Chi Minh, Vietnam</h5>
-			<span>dia chi van phong</span>
+			<div class="location" *ngIf="locations && locations.length>0">
+				<h4  translate="aboutUs.address">Address</h4>
+				<div *ngFor="let location of locations; let i = index;">
+					<h5> - {{location?.title?.get(translate.currentLang)}}</h5>
+					<div [innerHtml]="location?.content?.get(translate.currentLang)"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

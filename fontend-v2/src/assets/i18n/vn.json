@@ -31,6 +31,9 @@
         "message": "Tin nhắn",
         "submit": "Gửi"
     },
+    "aboutUs": {
+        "address": "Địa chỉ chi nhánh"
+    },
     "growWithUs": {
         "title": "Tuyển dụng",
         "otherCareer": "Các tuyển dụng khác"

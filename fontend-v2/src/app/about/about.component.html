@@ -1,5 +1,12 @@
 <div class="aboutUs">
 	<h3  translate="sidebar.about">About Us</h3>
-	<h4>{{ aboutUs?.title?.get(translate.currentLang)}}</h4>
+	<h4>{{aboutUs?.title?.get(translate.currentLang)}}</h4>
 	<div [innerHtml]="aboutUs?.content?.get(translate.currentLang)"></div>
+</div>
+<div class="location" *ngIf="locations && locations.length>0">
+	<h3  translate="aboutUs.address">Address</h3>
+	<div *ngFor="let location of locations; let i = index;">
+		<h5> - {{location?.title?.get(translate.currentLang)}}</h5>
+		<div [innerHtml]="location?.content?.get(translate.currentLang)"></div>
+	</div>
 </div>

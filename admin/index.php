@@ -32,8 +32,14 @@
 									case 'aboutUs':
 										include_once("admin/aboutUs.php");
 										break;
+									case 'officeLocation':
+										include_once("admin/officeLocation.php");
+										break;
 									case 'growWithUs':
 										include_once("admin/growWithUs.php");
+										break;
+									case 'users':
+										include_once("admin/user.php");
 										break;
 									default:
 										include_once("admin/projects.php");								}

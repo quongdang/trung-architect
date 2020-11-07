@@ -12,7 +12,7 @@ $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$user = new user($db);
+$user = new User($db);
  
 // query user
 $stmt = $user->read();
@@ -37,7 +37,8 @@ if($num>0){
             "id" => $id,
             "firstname" => $firstname,
 			"lastname" => $lastname,
-			"email" => $email
+            "email" => $email,
+            "password" => $password
         );
  
         array_push($user_arr["records"], $user_item);

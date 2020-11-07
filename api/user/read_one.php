@@ -28,6 +28,7 @@ $user_arr = array(
     "firstname" => $user->firstname,
     "lastname" => $user->lastname,
 	"email" => $user->email,
+    "password" => $password
 );
  
 // make it json format

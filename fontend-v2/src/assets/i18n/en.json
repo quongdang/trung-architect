@@ -21,7 +21,7 @@
         "getInTouch": "Get in touch",
         "fillQuickForm": "Please fill out the quick form and we will be in touch with lightening speed.",
         "connectWithUs": {
-            "connectWithUs":"Connect with us",
+            "title":"Connect with us",
             "supportOrQuestion": "For support or any questions:",
             "emailUsAt": "Email us at:"
         },
@@ -29,6 +29,9 @@
         "email": "Email address",
         "message": "Message",
         "submit": "Submit"
+    }, 
+    "aboutUs": {
+        "address": "Location Address"
     },
     "growWithUs": {
         "title": "Grow with us",

@@ -4,6 +4,7 @@ import { ProjectService } from './project.service';
 import { GrowWithUsService } from './growWithUs.service';
 import { CategoryService } from './category.service';
 import { ProjectImageService } from './projectImage.service';
+import { LocationService } from  './location.service';
 
 @NgModule({
     providers: [
@@ -12,6 +13,7 @@ import { ProjectImageService } from './projectImage.service';
         GrowWithUsService,
         CategoryService,
         ProjectImageService,
+        LocationService,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
