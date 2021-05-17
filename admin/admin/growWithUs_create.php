@@ -9,7 +9,6 @@
 ?>
 
 <link type="text/css" rel="stylesheet" href="css/create_project.css">
-<script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>
 	function toogleDisplayContent() {
 		var en = document.getElementById("en");

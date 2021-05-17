@@ -8,8 +8,15 @@ $screen-md-min: 992px;
 $screen-md-max: 1199px;
 $screen-lg-min: 1200px;
 
+$blue: #069;
+$light-blue: #0076be;
+$green: #266809;
+$white: #fff;
+$gray: #333;
+$light-gray:#999;	
+
 body {
-    background:#fff;
+    background:$white;
     padding: 0em;
     margin: 0px;
     font-family: 'Raleway', 'Arial';

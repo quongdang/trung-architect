@@ -9,8 +9,10 @@
 ?>
 
 <div class="table-scrol">
-	<h1 align="center">All the Projects</h1>
-	<a href="index.php?page=projects&type=create"><button class="btn btn-danger">Create</button></a><br/>
+	<h1 align="center">
+		All the Projects
+		<a href="index.php?page=projects&type=create" style="float: right;"><button class="btn btn-danger">Create</button></a>
+	</h1>
 	<?php
 		if (isset($_GET['del']))
 		{
@@ -33,11 +35,11 @@
 		<table class="table table-bordered table-hover table-striped" style="table-layout: fixed">
 			<thead>
 				<tr>
-					<th>Id</th>
+					<th style="width: 50px;">Id</th>
 					<th>Title</th>
 					<th>Sub-Title</th>
 					<th>Image</th>
-					<th>Action</th>
+					<th style="width: 100px;">Action</th>
 				</tr>
 			</thead>
 
@@ -55,15 +57,18 @@
 						<td><?php echo $item['subtitle_vn']  ?></td>
 						<td>
 							<?php
-								if ($item['image0']) {
+								if ($item['project_images']) {
+									foreach((array)$item['project_images'] as $image) {
 							?>
-									<img src="<?php echo $item['image0']  ?>" width=100px height=100px/>
+									<img src="<?php echo $image['image_link']  ?>" width=40px height=40px/>
 							<?php
+									}
 								}
 							?>
 						</td>
 						<td>
 							<a href="index.php?page=projects&type=edit&id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
+							<p></p>
 							<a href="index.php?page=projects&del=<?php echo $item['id'] ?>"><button class="btn btn-danger">Delete</button></a>
 						</td>
 					</tr>

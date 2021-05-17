@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 ::ng-deep .modal-dialog{
     max-width: 70vw !important;
     width: 70vw;
@@ -28,13 +30,13 @@
     position: absolute;
     bottom: 20px;
     right: 10px;
-    border: 1px solid #0076be;
-    background-color: #0076be;
-    color: #fff;
+    border: 1px solid $green;
+    background-color: $green;
+    color: $white;
     padding: 5px 15px;
 }
 
 .link:hover {
-    border: 1px solid gray;
-    background-color: gray;
+    border: 1px solid $light-gray;
+    background-color: $light-gray;
 }

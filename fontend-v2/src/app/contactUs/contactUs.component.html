@@ -38,9 +38,9 @@
 			<span translate="contactUs.connectWithUs.emailUsAt">Email us at: </span><span> <a href="mailto:support@tvarchitects.net">support@tvarchitects.net</a></span><br/>
 			<br/>
 			<div class="location" *ngIf="locations && locations.length>0">
-				<h4  translate="aboutUs.address">Address</h4>
+				<h4 translate="aboutUs.address">Address</h4>
 				<div *ngFor="let location of locations; let i = index;">
-					<h5> - {{location?.title?.get(translate.currentLang)}}</h5>
+					<h5> &#8227; {{location?.title?.get(translate.currentLang)}}</h5>
 					<div [innerHtml]="location?.content?.get(translate.currentLang)"></div>
 				</div>
 			</div>

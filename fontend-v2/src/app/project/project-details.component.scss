@@ -1,7 +1,9 @@
+@import '../../styles.scss';
+
 .project-images {
     h3 {
         padding-left: 5%;
-        color: #069;
+        color: $green;
     }
     .project {
 		height: calc(100vh);
@@ -23,20 +25,25 @@
 			left: 100%;
 			width: 1em;
 			height: 1em;
-			color: #fff;
+			color: $white;
 			line-height: 1em;
 			text-align: center;
 			margin-top: -.5em;
-			margin-left: -.5em			
+			margin-left: -.5em
 		}
-
+        @media only screen and (max-width: $screen-xs-max) {
+            .left::before, .left:before {
+                top: 100%;
+                left: 80%;
+            }
+        }
     }
 
     .title {
         margin: 150px auto;
         text-align: center;
         h4 {
-            color:  #069;
+            color:  $green;
         }
     }
 
@@ -44,12 +51,12 @@
         width: 90%;
         margin: 0px auto 30px auto;
         .left {
-            background-color: #0076be;
+            background-color: $green;
             color: white;
             padding: 50px 50px;
         }
         .right {
-            color: #0076be;
+            color: $green;
             padding: 50px 50px;
         }
     }

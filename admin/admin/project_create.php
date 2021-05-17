@@ -9,7 +9,6 @@
 ?>
 
 <link type="text/css" rel="stylesheet" href="css/create_project.css">
-<script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>
 	function toogleDisplayContent() {
 		var en = document.getElementById("en");
@@ -26,14 +25,18 @@
 		if (isset($_POST['title_vn'])) {
 			$photo_array = array();
 			$photo_count = count($_POST['description_vn']);
-			// echo json_encode($_FILES['image_link']);
+			echo json_encode($_FILES['image_link']);
 
 			if ($photo_count > 0) {
 				$files = reArrayFiles($_FILES['image_link']);
 				for ($i = 0; $i < $photo_count; $i++) {
+					$image_link = $_POST['_image_link'][$i];
+					if ($files[$i]['name'] != "") {
+						$image_link = (string)(filetowrite($_POST['_image_link'][$i],$files[$i]));
+					}
 					$data = array(
 						"id" => $_POST['image_id'][$i],
-						"image_link" => (string)(filetowrite($_POST['_image_link'][$i],$files[$i])),
+						"image_link" => $image_link,
 						"description_vn" => (string)($_POST['description_vn'][$i]),
 						"description_en" => (string)($_POST['description_en'][$i]),
 						"display" => 1
@@ -44,15 +47,19 @@
 			}
 			$metadata_vn = array(
 				"location" => (string)($_POST['location_vn']),
-				"size" => (string)($_POST['size_vn']),
+				"type" => (string)($_POST['type_vn']),
 				"status" => (string)($_POST['status_vn']),
+				"size" => (string)($_POST['size_vn']),
 				"client" => (string)($_POST['client_vn'])
+				"design" => (string)($_POST['design_vn'])
 			);
 			$metadata_en = array(
-				"location" => (string)($_POST['location_en']),
-				"size" => (string)($_POST['size_en']),
+				"location" => (string)($_POST['location_en']),				
+				"type" => (string)($_POST['type_en']),
 				"status" => (string)($_POST['status_en']),
+				"size" => (string)($_POST['size_en']),
 				"client" => (string)($_POST['client_en'])
+				"design" => (string)($_POST['design_en'])
 			);
 
 			$data_array =  array(
@@ -81,7 +88,7 @@
 			$response = json_decode($get_data, true);
 			$create = $response['message'];
 			echo "<br>".$create;
-			echo "<script>window.open('index.php?page=projects','_self')</script>";
+			//echo "<script>window.open('index.php?page=projects','_self')</script>";
 		} else if (isset($_GET['id'])) {
 			$get_data = callAPI('GET', '/api/project/read_one.php?id='.(string)($_GET['id']), null);
 			$data = json_decode($get_data, true);
@@ -118,10 +125,12 @@
 			<div id="vn" class="tabcontent vn">
 				Tiêu đề: <input type="text" name="title_vn" value="<?php echo $data['title_vn'] ?>"/><br/>
 				Giới thiệu: <textarea name="subtitle_vn" rows="4" style="width: 100%"><?php echo $data['subtitle_vn'] ?></textarea><br/>
-				Địa điểm: <input type="text" name="location_vn" value="<?php echo $data['metadata_vn']['location'] ?>"/><br/>
-				Kích cỡ: <input type="text" name="size_vn" value="<?php echo  $data['metadata_vn']['size'] ?>"/><br/>
-				Trạng thái: <input type="text" name="status_vn" value="<?php echo  $data['metadata_vn']['status'] ?>"/><br/>
-				Khách hàng:<input type="text" name="client_vn" value="<?php echo  $data['metadata_vn']['client'] ?>"/><br/>
+				Vị trí: <input type="text" name="location_vn" value="<?php echo $data['metadata_vn']['location'] ?>"/><br/>
+				Loại hình: <input type="text" name="type_vn" value="<?php echo $data['metadata_vn']['type'] ?>"/><br/>
+				Tình trạng: <input type="text" name="status_vn" value="<?php echo  $data['metadata_vn']['status'] ?>"/><br/>				
+				Quy mô: <input type="text" name="size_vn" value="<?php echo  $data['metadata_vn']['size'] ?>"/><br/>
+				Chủ đầu tư:<input type="text" name="client_vn" value="<?php echo  $data['metadata_vn']['client'] ?>"/><br/>
+				Tư vấn thiết kế:<input type="text" name="design_vn" value="<?php echo  $data['metadata_vn']['design'] ?>"/><br/>
 				Nội dung:<br/>
 				<textarea id="content_vn" name="content_vn"><?php echo $data['content_vn'] ?></textarea><br/>
 			</div>
@@ -131,9 +140,11 @@
 				Short description:
 				<textarea name="subtitle_en" rows="4" style="width: 100%"><?php echo $data['subtitle_en'] ?></textarea><br/>
 				Location: <input type="text" name="location_en" value="<?php echo $data['metadata_en']['location'] ?>"/><br/>
-				Size: <input type="text" name="size_en" value="<?php echo  $data['metadata_en']['size'] ?>"/><br/>
+				Type: <input type="text" name="type_en" value="<?php echo  $data['metadata_en']['type'] ?>"/><br/>
 				Status: <input type="text" name="status_en" value="<?php echo  $data['metadata_en']['status'] ?>"/><br/>
+				Size: <input type="text" name="size_en" value="<?php echo  $data['metadata_en']['size'] ?>"/><br/>
 				Client:<input type="text" name="client_en" value="<?php echo  $data['metadata_en']['client'] ?>"/><br/>
+				Design:<input type="text" name="design_en" value="<?php echo  $data['metadata_en']['design'] ?>"/><br/>
 				Content:
 				<textarea id="content_en" name="content_en"><?php echo $data['content_en'] ?></textarea></<br/>
 			</div>
@@ -166,6 +177,11 @@
 						</table>
 						<?php
 						$photoIndex++;
+					}
+					if ($photoIndex > 2) {
+						?>
+						<h4><a class="btn btn-danger" onclick="addImage()"> +</a></h4>
+						<?php
 					}
 				?>
 			</div>

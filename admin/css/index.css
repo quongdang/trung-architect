@@ -1,6 +1,6 @@
 body {
 	margin: auto;
-	width: 1024px;
+	width: 100%;
 }
 .adminBody {
 	border-radius: 15px 50px;
@@ -19,7 +19,8 @@ body {
 }
 
 .content {
-	width: 700px;
+	min-width: 700px;
+    max-width: 80%;
 	float: right;
 	margin-bottom:30px;
 }

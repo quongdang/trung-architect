@@ -1,11 +1,12 @@
-<div id="header">
+<div id="header" class="logo">
 	<div class="container" [ngClass] = "menuBarChange ? 'change' : '' " (click) = "toogleMenu()">
 	  <div class="bar1"></div>
 	  <div class="bar2"></div>
 	  <div class="bar3"></div>
-	</div>
-	
-	<div class="logo"> Trung Vinh Architects</div>
+	</div>	
+
+	<img src="../assets/images/logo.png">
+
 	<div class="language">
 		<span (click)="useLanguage('vn')" class="{{translate.currentLang === 'vn' ? 'active' : ''}}">Tiếng Việt</span>
 		&nbsp;&nbsp;|&nbsp;&nbsp;

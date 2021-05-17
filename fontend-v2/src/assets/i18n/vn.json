@@ -23,7 +23,7 @@
         "fillQuickForm": "Vui lòng điền thông tin vào phần bên dưới, chúng tôi sẽ xem xét và trả lời bạn sớm nhất.",
         "connectWithUs": {
             "title":"Kết nối với chúng tôi",
-            "supportOrQuestion": "Để được giúp đỡ hoặc có câu hỏi gì,",
+            "supportOrQuestion": "Để được giúp đỡ hoặc có câu hỏi liên quan,",
             "emailUsAt": "Liên hệ với chúng tôi qua email:"
         },
         "name": "Tên",
@@ -43,7 +43,15 @@
         "quickView": "Xem nhanh +",
         "details": "Chi tiết +",
         "projectDetail": {
-            "details" : "Chi tiết dự án",
+            "details" : {
+                "title": "Chi tiết dự án",
+                "location": "#Vị trí:",
+                "type": "#Loại hình:",
+                "status": "#Tình trạng:",
+                "size": "#Quy mô:",
+                "client": "#Chủ đầu tư:",
+                "design": "#Tư vấn thiết kế:"
+            },
             "photos" : "Ảnh dự án",
             "other": "Các dự án khác"
         }

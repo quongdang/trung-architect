@@ -1,9 +1,12 @@
+@import '../../styles.scss';
+
 .footer {
-  background: #333;
-  color: #fff;
+  background: $gray;
+  color: $white;
   height: 100px;
   width: 100%;  
   margin-top: 20px;
+  bottom: 0px;
   
   .left {
     margin: 40px 30px 0px 30px;

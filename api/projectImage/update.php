@@ -31,9 +31,9 @@ if ($projectImage->readOne()) {
     // set projectImage property values
     $projectImage->project_id = $data->project_id;
     if ($projectImage->image_link != $data->image_link) {
-        if (!unlink("../".$projectImage->image_link)) {
-            echo "Couldn't delete file [".$projectImage->image_link."]. ";
-        } 
+        // if (!unlink("../".$projectImage->image_link)) {
+        //     echo "Couldn't delete file [".$projectImage->image_link."]. ";
+        // } 
         $projectImage->image_link = $data->image_link;
     }
     $projectImage->description_vn = $data->description_vn;
@@ -53,7 +53,7 @@ if ($projectImage->readOne()) {
             echo '"message": "Unable to update projectImage."';
         echo '}';
     }
-}else {    
+} else {    
     echo '{';
         echo '"message": "Not found projectImage ['.$data->id.']."';
     echo '}';

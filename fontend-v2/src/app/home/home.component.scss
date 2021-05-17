@@ -37,7 +37,7 @@
 			left: 100%;
 			width: 1em;
 			height: 1em;
-			color: #fff;
+			color: $white;
 			line-height: 1em;
 			text-align: center;
 			margin-top: -.5em;
@@ -54,13 +54,13 @@
 		.right {
 			height: 100%;
 			float: right;
-			background: blue;
+			background: $light-gray;
 			padding: 0px;
 
 			@media only screen and (max-width: $screen-xs-max) {
 				height: 50%;
 				float: right;
-				background: blue;
+				background: $light-gray;
 				padding: 0px;
 			}
 		}
@@ -97,7 +97,7 @@
 		    left: 50%;
 		    width: 1em;
 		    height: 1em;
-		    color: #fff;
+		    color: $white;
 		    line-height: 1em;
 		    text-align: center;
 		    margin-top: -.5em;
@@ -122,18 +122,18 @@
 		.content {
 			padding: 20px 50px;
 			h1, span {
-				color: #fff;
+				color: $white;
 			}
 		}
 		
 		.contact-us {
 			height: 50%;
-			background: #069;
+			background: $green;
 
 			.button-border {
 				text-decoration: none;
-				color: #fff;
-				border-color: #fff;
+				color: $white;
+				border-color: $white;
 				display: inline-block;
 				padding: .75em 1.5em;
 				border: 1px solid;
@@ -142,19 +142,19 @@
 			}
 
 			.button-border:hover {
-				background: #fff;
-				color: #069;
+				background: $white;
+				color: $green;
 			}
 		}
 		
 		.grow-with-us {
 			height: 50%;
-			background: #333;
+			background: $gray;
 
 			.button-border {
 				text-decoration: none;
-				color: #fff;
-				border-color: #fff;
+				color: $white;
+				border-color: $white;
 				display: inline-block;
 				padding: .75em 1.5em;
 				border: 1px solid;
@@ -163,8 +163,8 @@
 			}
 			
 			.button-border:hover {
-				background: #fff;
-				color: #333;
+				background: $white;
+				color: $gray;
 			}
 		}
 		
@@ -172,13 +172,13 @@
 			float: right;
 			height: 100%;
 			width: 100%;
-			background: #999;	
+			background: $light-gray;	
 
 			.content {
 				ul {					
 					list-style-type: none;
 					padding-left: 0px;
-					color: #fff;
+					color: $white;
 
 					li {
 						border: 0;
@@ -193,8 +193,8 @@
 					}
 
 					li:hover {
-						color: #069;
-						background-color: #fff;
+						color: $green;
+						background-color: $white;
 					}
 				}
 			}	
@@ -210,7 +210,7 @@
 				left: 100%;
 				width: 1em;
 				height: 1em;
-				color: #fff;
+				color: $white;
 				line-height: 1em;
 				text-align: center;
 				margin-top: -.5em;
@@ -233,7 +233,7 @@
 				left: 0%;
 				width: 1em;
 				height: 1em;
-				color: #fff;
+				color: $white;
 				line-height: 1em;
 				text-align: center;
 				margin-top: -.5em;
