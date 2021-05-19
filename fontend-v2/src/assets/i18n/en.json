@@ -39,9 +39,10 @@
         "otherCareer": "Other careers"
     },
     "project":{
-        "allProjects": "All projects",
+        "allProjects": "Projects",
         "quickView": "Quick view +",
         "details": "Details +",
+        "more": "More +",
         "projectDetail": {
             "details" : {
                 "title": "Project details",

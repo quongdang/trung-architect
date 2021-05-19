@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { projectRoutes} from './project.route'
 import { ProjectComponent } from './project.component';
 import { ProjectDetailsComponent } from './project-details.component';
+import { ProjectCategoryComponent} from './project-category.component';
 
 const ENTITY_STATES = [
     ...projectRoutes
@@ -17,10 +18,12 @@ const ENTITY_STATES = [
     declarations: [
         ProjectComponent,
         ProjectDetailsComponent,
+        ProjectCategoryComponent,
     ],
     entryComponents: [
         ProjectComponent,
         ProjectDetailsComponent,
+        ProjectCategoryComponent,
     ],
     providers: [
     ],

@@ -69,7 +69,7 @@ class Project{
 					content_en=:content_en,
 					metadata_vn=:metadata_vn,
 					metadata_en=:metadata_en,
-					metadata=:metadata
+					metadata=:metadata,
 					category_id=:category_id, 
 					created=:created";
 	 
@@ -103,13 +103,14 @@ class Project{
 		$stmt->bindParam(":created", $this->created);
 
 		// execute query
-		if($stmt->execute()){
-			$this->id = $this->conn->lastInsertId();
-			return true;
-		}
-	 
-		return false;
-		 
+		try {
+			if($stmt->execute()){
+				$this->id = $this->conn->lastInsertId();
+				return true;
+			}
+		} catch (mysqli_sql_exception $e) {
+			throw $e;
+		}	 
 	}
 	
 	// used when filling up the update project form

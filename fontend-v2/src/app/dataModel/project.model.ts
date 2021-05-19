@@ -14,9 +14,18 @@ export class Project implements BaseEntity {
         public created?: Date,
         public projectImages: any[] = [],
         public metadata_lang?: Map<String, any>,
-        public metadata?: Map<String, String>,
+        public metadata?: any,
         public category_id?: number,
         public category?: any,
+    ) {
+    }
+}
+
+export class Category implements BaseEntity {
+    constructor(
+        public id?: number,
+        public title?: Map<String, any>,
+        public projects?: any[]
     ) {
     }
 }

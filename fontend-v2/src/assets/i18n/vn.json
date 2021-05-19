@@ -39,9 +39,10 @@
         "otherCareer": "Các tuyển dụng khác"
     },
     "project":{
-        "allProjects": "Các dự án tham gia",
+        "allProjects": "Dự án",
         "quickView": "Xem nhanh +",
         "details": "Chi tiết +",
+        "more": "Xem thêm +",
         "projectDetail": {
             "details" : {
                 "title": "Chi tiết dự án",
