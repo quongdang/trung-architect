@@ -25,7 +25,7 @@
 		if (isset($_POST['title_vn'])) {
 			$photo_array = array();
 			$photo_count = count($_POST['description_vn']);
-			echo json_encode($_FILES['image_link']);
+			//echo json_encode($_FILES['image_link']);
 
 			if ($photo_count > 0) {
 				$files = reArrayFiles($_FILES['image_link']);
@@ -47,19 +47,17 @@
 			}
 			$metadata_vn = array(
 				"location" => (string)($_POST['location_vn']),
-				"type" => (string)($_POST['type_vn']),
-				"status" => (string)($_POST['status_vn']),
 				"size" => (string)($_POST['size_vn']),
 				"client" => (string)($_POST['client_vn'])
-				"design" => (string)($_POST['design_vn'])
 			);
 			$metadata_en = array(
-				"location" => (string)($_POST['location_en']),				
-				"type" => (string)($_POST['type_en']),
-				"status" => (string)($_POST['status_en']),
+				"location" => (string)($_POST['location_en']),
 				"size" => (string)($_POST['size_en']),
 				"client" => (string)($_POST['client_en'])
-				"design" => (string)($_POST['design_en'])
+			);
+			$metadata = array(
+				"status" => (string)($_POST['status']),
+				"design" => (string)($_POST['design'])
 			);
 
 			$data_array =  array(
@@ -73,6 +71,7 @@
 				"content_en" => htmlentities($_POST['content_en']),
 				"metadata_vn" => $metadata_vn,
 				"metadata_en" => $metadata_en,
+				"metadata" => $metadata,
 				"project_images" => $photo_array
 			);
 			
@@ -88,7 +87,7 @@
 			$response = json_decode($get_data, true);
 			$create = $response['message'];
 			echo "<br>".$create;
-			//echo "<script>window.open('index.php?page=projects','_self')</script>";
+			echo "<script>window.open('index.php?page=projects','_self')</script>";
 		} else if (isset($_GET['id'])) {
 			$get_data = callAPI('GET', '/api/project/read_one.php?id='.(string)($_GET['id']), null);
 			$data = json_decode($get_data, true);
@@ -103,20 +102,7 @@
 		$categories = $response['records'];
 
 		?>
-		<form action="index.php?page=projects&type=create" method="post" enctype="multipart/form-data">
-			Chọn danh mục: 
-			<select name="category_id">
-				<?php
-					foreach((array)$categories as $item) {
-						?>
-						<option value="<? echo $item['id']?>" <? echo $item['id'] == $data['category_id'] ? 'selected' : ''; ?>>
-							<? echo $item['category_vn'] ?>
-						</option>
-						<?php
-					}
-				?>
-			</select>
-			<br/>
+		<form action="index.php?page=projects&type=create" method="post" enctype="multipart/form-data">			
 			<input type="hidden" name="id" value="<?php echo  $data['id'] ?>"/>
 			<div class="tab">
 				<button type="button" class="tablinks" onclick="openCity(event, 'vn')" id="defaultOpen">Tiếng Việt</button>
@@ -125,12 +111,9 @@
 			<div id="vn" class="tabcontent vn">
 				Tiêu đề: <input type="text" name="title_vn" value="<?php echo $data['title_vn'] ?>"/><br/>
 				Giới thiệu: <textarea name="subtitle_vn" rows="4" style="width: 100%"><?php echo $data['subtitle_vn'] ?></textarea><br/>
-				Vị trí: <input type="text" name="location_vn" value="<?php echo $data['metadata_vn']['location'] ?>"/><br/>
-				Loại hình: <input type="text" name="type_vn" value="<?php echo $data['metadata_vn']['type'] ?>"/><br/>
-				Tình trạng: <input type="text" name="status_vn" value="<?php echo  $data['metadata_vn']['status'] ?>"/><br/>				
+				Vị trí: <input type="text" name="location_vn" value="<?php echo $data['metadata_vn']['location'] ?>"/><br/>			
 				Quy mô: <input type="text" name="size_vn" value="<?php echo  $data['metadata_vn']['size'] ?>"/><br/>
 				Chủ đầu tư:<input type="text" name="client_vn" value="<?php echo  $data['metadata_vn']['client'] ?>"/><br/>
-				Tư vấn thiết kế:<input type="text" name="design_vn" value="<?php echo  $data['metadata_vn']['design'] ?>"/><br/>
 				Nội dung:<br/>
 				<textarea id="content_vn" name="content_vn"><?php echo $data['content_vn'] ?></textarea><br/>
 			</div>
@@ -140,13 +123,32 @@
 				Short description:
 				<textarea name="subtitle_en" rows="4" style="width: 100%"><?php echo $data['subtitle_en'] ?></textarea><br/>
 				Location: <input type="text" name="location_en" value="<?php echo $data['metadata_en']['location'] ?>"/><br/>
-				Type: <input type="text" name="type_en" value="<?php echo  $data['metadata_en']['type'] ?>"/><br/>
-				Status: <input type="text" name="status_en" value="<?php echo  $data['metadata_en']['status'] ?>"/><br/>
 				Size: <input type="text" name="size_en" value="<?php echo  $data['metadata_en']['size'] ?>"/><br/>
 				Client:<input type="text" name="client_en" value="<?php echo  $data['metadata_en']['client'] ?>"/><br/>
-				Design:<input type="text" name="design_en" value="<?php echo  $data['metadata_en']['design'] ?>"/><br/>
 				Content:
 				<textarea id="content_en" name="content_en"><?php echo $data['content_en'] ?></textarea></<br/>
+			</div>
+			<div class="category_content">
+				Type/Loại hình: 
+				<select name="category_id">
+					<?php
+						foreach((array)$categories as $item) {
+							?>
+							<option value="<? echo $item['id']?>" <? echo $item['id'] == $data['category_id'] ? 'selected' : ''; ?>>
+								<? echo $item['category_vn'] . ' - ' . $item['category_en'] ?>
+							</option>
+							<?php
+						}
+					?>
+				</select><br>			
+				Status/Tình trạng: 
+				<select name="status">
+					<option value="INPROGRESS" <? echo 'INPROGRESS' == $data['metadata']['status'] ? 'selected' : ''; ?>>Inprogress</option>
+					<option value="DESIGNED" <? echo 'DESIGNED' == $data['metadata']['status'] ? 'selected' : ''; ?>>Completed Design</option>
+					<option value="BUILT" <? echo 'BUILT' == $data['metadata']['status'] ? 'selected' : ''; ?>>Built</option>
+				</select><br/>
+				Design/Tư vấn thiết kế: TV Architects
+				<input type="hidden" name="design" value="TV Architects"/><br/>
 			</div>
 			<div id="projectPhotos">
 				<h4>Project photos
@@ -253,6 +255,12 @@
 				photoIndex = photoIndex + 1;
 			}
 
+			function getCookie(name) {
+				const value = `; ${document.cookie}`;
+				const parts = value.split(`; ${name}=`);
+				if (parts.length === 2) return parts.pop().split(';').shift();
+			}
+
 			function removeImage(name, imageId) {
 				if (imageId) {
 					$.ajax({
@@ -261,6 +269,9 @@
 						data: JSON.stringify({ id: imageId }),
 						contentType: "application/json; charset=utf-8",
 						dataType: "json",
+						beforeSend: function (xhr) {   //Include the bearer token in header
+						    xhr.setRequestHeader("Authorization", 'Bearer '+ getCookie('jwt'));
+						},
 						success: function(data){
 							if('SUCCESS' != data.result) {
 								alert("Cannot delete this image in database!");

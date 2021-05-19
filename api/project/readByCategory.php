@@ -54,6 +54,7 @@ if($num>0){
 			"content_en" => html_entity_decode(htmlspecialchars_decode($content_en)),
             "metadata_vn" => json_decode(htmlspecialchars_decode($metadata_vn)),
             "metadata_en" => json_decode(htmlspecialchars_decode($metadata_en)),
+            "metadata" => json_decode(htmlspecialchars_decode($metadata)),
             "category_id" => $category_id,
             "project_images"=> $projectImage->readByProjectIdToArray(),
 			"created" => $created

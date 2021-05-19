@@ -19,6 +19,7 @@ class Project{
 	public $created;
 	public $metadata_vn;
 	public $metadata_en;
+	public $metadata;
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -35,7 +36,7 @@ class Project{
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
 					p.metadata_vn, p.metadata_en,
-					p.created, p.category_id
+					p.metadata,	p.created, p.category_id
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN
@@ -68,6 +69,7 @@ class Project{
 					content_en=:content_en,
 					metadata_vn=:metadata_vn,
 					metadata_en=:metadata_en,
+					metadata=:metadata
 					category_id=:category_id, 
 					created=:created";
 	 
@@ -83,6 +85,7 @@ class Project{
 		$this->content_en=htmlspecialchars(strip_tags($this->content_en));
 		$this->metadata_vn=htmlspecialchars(strip_tags($this->metadata_vn));
 		$this->metadata_en=htmlspecialchars(strip_tags($this->metadata_en));
+		$this->metadata=htmlspecialchars(strip_tags($this->metadata));
 		$this->category_id=htmlspecialchars(strip_tags($this->category_id));
 		$this->created=htmlspecialchars(strip_tags($this->created));
 	 
@@ -95,6 +98,7 @@ class Project{
 		$stmt->bindParam(":content_en", $this->content_en);
 		$stmt->bindParam(":metadata_vn", $this->metadata_vn);
 		$stmt->bindParam(":metadata_en", $this->metadata_en);
+		$stmt->bindParam(":metadata", $this->metadata);
 		$stmt->bindParam(":category_id", $this->category_id);
 		$stmt->bindParam(":created", $this->created);
 
@@ -118,7 +122,7 @@ class Project{
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
 					p.metadata_vn, p.metadata_en,
-					p.created, p.category_id
+					p.metadata, p.created, p.category_id
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN
@@ -150,6 +154,7 @@ class Project{
 		$this->content_en = $row['content_en'];
 		$this->metadata_vn = $row['metadata_vn'];
 		$this->metadata_en = $row['metadata_en'];
+		$this->metadata = $row['metadata'];
 		$this->category_id = $row['category_id'];
 		$this->created = $row['created'];
 	}
@@ -169,6 +174,7 @@ class Project{
 					content_en=:content_en,
 					metadata_vn=:metadata_vn,
 					metadata_en=:metadata_en,
+					metadata=:metadata,
 					category_id=:category_id
 				WHERE
 					id = :id";
@@ -185,6 +191,7 @@ class Project{
 		$this->content_en=htmlspecialchars(strip_tags($this->content_en));
 		$this->metadata_vn=htmlspecialchars(strip_tags($this->metadata_vn));
 		$this->metadata_en=htmlspecialchars(strip_tags($this->metadata_en));
+		$this->metadata=htmlspecialchars(strip_tags($this->metadata));
 		$this->category_id=htmlspecialchars(strip_tags($this->category_id));
 		$this->id=htmlspecialchars(strip_tags($this->id));
 	 
@@ -197,6 +204,7 @@ class Project{
 		$stmt->bindParam(":content_en", $this->content_en);
 		$stmt->bindParam(":metadata_vn", $this->metadata_vn);
 		$stmt->bindParam(":metadata_en", $this->metadata_en);
+		$stmt->bindParam(":metadata", $this->metadata);
 		$stmt->bindParam(":category_id", $this->category_id);
 		$stmt->bindParam(":id", $this->id);
 	 
@@ -241,7 +249,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.metadata_vn, p.metadata_en,
+					p.metadata_vn, p.metadata_en, p.metadata,
 					p.created, p.category_id, p.image
 				FROM
 					" . $this->table_name . " p
@@ -257,6 +265,7 @@ class Project{
 					OR p.content_en LIKE ?
 					OR p.metadata_vn LIKE ?
 					OR p.metadata_en LIKE ?
+					OR p.metadata LIKE ?
 					OR c.category_vn LIKE ?
 					OR c.category_en LIKE ?
 				ORDER BY
@@ -280,6 +289,7 @@ class Project{
 		$stmt->bindParam(8, $keywords);
 		$stmt->bindParam(9, $keywords);
 		$stmt->bindParam(10, $keywords);
+		$stmt->bindParam(11, $keywords);
 	 
 		// execute query
 		$stmt->execute();
@@ -296,7 +306,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.metadata_vn, p.metadata_en,
+					p.metadata_vn, p.metadata_en, p.metadata,
 					p.created, p.category_id
 				FROM
 					" . $this->table_name . " p
@@ -330,7 +340,7 @@ class Project{
 					p.id, p.title_vn, p.title_en,
 					p.subtitle_vn, p.subtitle_en, 
 					p.content_vn, p.content_en,
-					p.metadata_vn, p.metadata_en,
+					p.metadata_vn, p.metadata_en, p.metadata,
 					p.created, p.category_id
 				FROM
 					" . $this->table_name . " p

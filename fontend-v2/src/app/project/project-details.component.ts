@@ -10,6 +10,7 @@ import { ProjectService } from '../services/project.service';
 import { Project } from '../dataModel/project.model';
 import { PopupModalContent } from '../shared/popup/popup-modal.content';
 import * as $ from 'jquery';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-project-details',
@@ -29,7 +30,8 @@ export class ProjectDetailsComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
     private projectService: ProjectService,
-    private modalService: BsModalService) {
+    private modalService: BsModalService,
+    private categoryService: CategoryService) {
   }
   ngOnInit() {
     this.route.params.subscribe((res) => {
@@ -107,12 +109,19 @@ export class ProjectDetailsComponent implements OnInit {
         title: mapTitle,
         subTitle: mapSubTitle,
         content: mapContent,
-        metadata: mapMetadata,
+        metadata_lang: mapMetadata,
+        metadata: project.metadata,
         projectImages: projectImages
       };
       this.getOtherProjects(project.category_id, project.id);
-      console.log(res.json);
-      console.log(this.data);
+      this.categoryService.getData(project.category_id).subscribe((res: ResponseWrapper) => {
+        const data = res.json;
+        const mapTitle = new Map();
+        mapTitle.set("vn", data.category_vn);
+        mapTitle.set("en", data.category_en);
+  
+        this.data.category =  mapTitle;
+      });
     });
   }
 
@@ -149,6 +158,7 @@ export class ProjectDetailsComponent implements OnInit {
           id: project.id,
           title: mapTitle,
           subTitle: mapSubTitle,
+          metadata: project.metadata,
           projectImages: projectImages
         });
       }

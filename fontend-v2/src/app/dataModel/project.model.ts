@@ -13,7 +13,10 @@ export class Project implements BaseEntity {
         public images4?: String,
         public created?: Date,
         public projectImages: any[] = [],
-        public metadata?: Map<String, any>,
+        public metadata_lang?: Map<String, any>,
+        public metadata?: Map<String, String>,
+        public category_id?: number,
+        public category?: any,
     ) {
     }
 }

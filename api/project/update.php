@@ -38,6 +38,7 @@ $project->content_vn = $data->content_vn;
 $project->content_en = $data->content_en;
 $project->metadata_vn = json_encode($data->metadata_vn);
 $project->metadata_en = json_encode($data->metadata_en);
+$project->metadata = json_encode($data->metadata);
 $project->category_id = $data->category_id;
  
 // update the project
