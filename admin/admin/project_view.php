@@ -36,9 +36,11 @@
 			<thead>
 				<tr>
 					<th style="width: 50px;">Id</th>
+					<th style="width: 150px;">Project Code</th>
 					<th>Title</th>
 					<th>Sub-Title</th>
 					<th>Image</th>
+					<th style="width: 150px;">Status</th>
 					<th style="width: 100px;">Action</th>
 				</tr>
 			</thead>
@@ -53,6 +55,7 @@
 			?>
 					<tr>
 						<td><?php echo $item['id']  ?></td>
+						<td><?php echo $item['metadata']['projectCode']  ?></td>
 						<td><?php echo $item['title_vn']  ?></td>
 						<td><?php echo $item['subtitle_vn']  ?></td>
 						<td>
@@ -66,6 +69,7 @@
 								}
 							?>
 						</td>
+						<td><?php echo $item['metadata']['status']  ?></td>
 						<td>
 							<a href="index.php?page=projects&type=edit&id=<?php echo $item['id'] ?>"><button class="btn btn-danger">Edit</button></a>
 							<p></p>

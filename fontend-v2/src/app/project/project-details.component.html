@@ -19,10 +19,11 @@
         <div class="right col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <b translate="project.projectDetail.details.location">#Location:</b> {{data.metadata_lang?.get(translate.currentLang)?.location}}<br/>
             <b translate="project.projectDetail.details.type">#Type:</b> {{data.category?.get(translate.currentLang)}}<br/>
-            <b translate="project.projectDetail.details.status">#Status:</b> {{data.metadata?.status}}<br/>
+            <b translate="project.projectDetail.details.status">#Status:</b> <span translate="project.status.{{data.metadata?.status}}"> </span><br/>
             <b translate="project.projectDetail.details.size">#Size:</b> {{data.metadata_lang?.get(translate.currentLang)?.size}}<br/>
             <b translate="project.projectDetail.details.client">#Client:</b> {{data.metadata_lang?.get(translate.currentLang)?.client}}<br/>
             <b translate="project.projectDetail.details.design">#Design:</b> {{data.metadata?.design}}<br/>
+            <b *ngIf="data.metadata?.collaboration" translate="project.projectDetail.details.collaboration">#Collaboration:</b> {{data.metadata?.design}}<br/>
         </div>
     </div>
     <h3 translate="project.projectDetail.photos">Project photos</h3>

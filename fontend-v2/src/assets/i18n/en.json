@@ -51,10 +51,16 @@
                 "status": "#Status:",
                 "size": "#Size:",
                 "client": "#Client:",
-                "design": "#Design:"
+                "design": "#Design:",
+                "collaboration": "#Collaboration:"
             },
             "photos" : "Project photos",
             "other": "Other projects"
+        }, 
+        "status": {
+            "BUILT": " Built",
+            "INPROGRESS": " In-progress",
+            "DESIGNED": " Design Completed"
         }
     }, 
     "footer": {

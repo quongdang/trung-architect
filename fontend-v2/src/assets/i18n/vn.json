@@ -51,10 +51,16 @@
                 "status": "#Tình trạng:",
                 "size": "#Quy mô:",
                 "client": "#Chủ đầu tư:",
-                "design": "#Tư vấn thiết kế:"
+                "design": "#Tư vấn thiết kế:",
+                "collaboration": "#Cộng tác:"
             },
             "photos" : "Ảnh dự án",
             "other": "Các dự án khác"
+        }, 
+        "status": {
+            "BUILT": " Đã xây dựng",
+            "INPROGRESS": " Đang thiết kế ",
+            "DESIGNED": " Xong thiết kế"
         }
     }, 
     "footer": {

@@ -84,3 +84,12 @@
     float: right;
     margin-bottom: 10px;
 }
+
+.category_content {
+    padding-top:20px
+}
+
+.category_content .title {
+    min-width: 20vw;
+    float: left;
+}

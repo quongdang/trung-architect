@@ -57,7 +57,9 @@
 			);
 			$metadata = array(
 				"status" => (string)($_POST['status']),
-				"design" => (string)($_POST['design'])
+				"design" => (string)($_POST['design']),
+				"collaboration" => (string)($_POST['collaboration']),
+				"projectCode" => (string)($_POST['projectCode'])
 			);
 
 			$data_array =  array(
@@ -129,7 +131,7 @@
 				<textarea id="content_en" name="content_en"><?php echo $data['content_en'] ?></textarea></<br/>
 			</div>
 			<div class="category_content">
-				Type/Loại hình: 
+				<div class="title">Type/Loại hình:</div>
 				<select name="category_id">
 					<?php
 						foreach((array)$categories as $item) {
@@ -141,18 +143,22 @@
 						}
 					?>
 				</select><br>			
-				Status/Tình trạng: 
+				<div class="title">Status/Tình trạng: </div>
 				<select name="status">
 					<option value="INPROGRESS" <? echo 'INPROGRESS' == $data['metadata']['status'] ? 'selected' : ''; ?>>Inprogress</option>
 					<option value="DESIGNED" <? echo 'DESIGNED' == $data['metadata']['status'] ? 'selected' : ''; ?>>Completed Design</option>
 					<option value="BUILT" <? echo 'BUILT' == $data['metadata']['status'] ? 'selected' : ''; ?>>Built</option>
 				</select><br/>
-				Design/Tư vấn thiết kế: TV Architects
+				<div class="title">Design/Tư vấn thiết kế:</div> TV Architects
 				<input type="hidden" name="design" value="TV Architects"/><br/>
+				<div class="title">Collaboration/Cộng tác: </div><input type="text" name="collaboration" value="<?php echo  $data['metadata']['collaboration'] ?>"/><br/>
+				<div class="title">Project Code/Mã Dự Án: </div><input type="text" name="projectCode" value="<?php echo  $data['metadata']['projectCode'] ?>"/><br/>		
 			</div>
 			<div id="projectPhotos">
 				<h4>Project photos
-				<a class="btn btn-danger" onclick="addImage()"> +</a></h4>
+					<a class="btn btn-danger" onclick="addImage()"> +</a> 
+					<input type="submit" class="btn btn-info" style="float:right; margin-right:10px;" value="Submit"/>
+				</h4>
 				<?php
 					$photoIndex = 0;
 					// echo json_encode($photoImages);
@@ -180,14 +186,16 @@
 						<?php
 						$photoIndex++;
 					}
-					if ($photoIndex > 2) {
-						?>
-						<h4><a class="btn btn-danger" onclick="addImage()"> +</a></h4>
-						<?php
-					}
 				?>
 			</div>
-			<input type="submit" class="button" value="Submit"/>
+			<h5>
+				<?php if ($photoIndex > 2) {
+					?>
+					<a class="btn btn-danger" onclick="addImage()"> +</a>
+					<?php
+				}?>
+				<input type="submit" class="btn btn-infor" style="float:right; margin-right:10px;" value="Submit"/>
+			</h5>
 		</form>
 		<script>
 			tinymce.init({
