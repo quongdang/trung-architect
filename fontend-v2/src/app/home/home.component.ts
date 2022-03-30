@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllProjects();
+    this.getProjectByPosition();
     this.getLatestAbout();
     this.getAllCategories();
 
@@ -66,8 +66,8 @@ export class HomeComponent implements OnInit {
   /**
    * Get all projects to display 
    */
-  getAllProjects() {
-    this.projectService.getAllData().subscribe((res: ResponseWrapper) => {
+   getProjectByPosition() {
+    this.projectService.getProjectByPosition().subscribe((res: ResponseWrapper) => {
       const data = res.json;
       for (const project of data.records) {
         const mapTitle = new Map();

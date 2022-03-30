@@ -12,6 +12,12 @@ export class ProjectService {
   constructor(private http: Http) {
   }
 
+  getProjectByPosition(req?: any): Observable<ResponseWrapper> {
+    return this.http.get(this.baseURL + '/api/project/readByPosition.php').pipe(map(
+      (res: Response) => this.convertResponse(res)
+    ));
+  }
+
   getAllData(req?: any): Observable<ResponseWrapper> {
     return this.http.get(this.baseURL + '/api/project/read.php').pipe(map(
       (res: Response) => this.convertResponse(res)
